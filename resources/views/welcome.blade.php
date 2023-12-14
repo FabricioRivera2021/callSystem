@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         @vite('resources/css/app.css')
 
-        <title>Laravel</title>
+        <title>Call System</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -14,28 +14,30 @@
     </head>
     <body class="antialiased">
         
-        <nav class="w-screen h-10 bg-slate-400 flex justify-between items-center">
+        <nav class="w-screen h-10 bg-zinc-200 flex justify-between items-center">
             <div>
-                <h3 class="ml-5">Titulo</h3>
+                <h3 class="ml-4 text-2xl font-bold text-slate-600">TITULO</h3>
             </div>
             <div>
-                <ul class="flex space-x-4 mr-5">
-                    <li>Login</li>
-                    <li>Logout</li>
-                    <li>Reset password</li>
+                <ul class="flex space-x-4 mr-5 text-sm">
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Logout</a></li>
+                    <li><a href="#">Reset password</a></li>
                 </ul>
             </div>
         </nav>
 
         <main>
             <div class="w-[10rem] h-screen flex flex-col items-center bg-slate-400 fixed">
-                <div class="bg-orange-400 mt-5 self-start pl-5 pr-2">Dashboard</div>
-                <div>
-                    <ul>
-                        <li>Perfil</li>
-                        <li>Opcion 1</li>
-                        <li>Opcion 2</li>
-                        <li>Opcion 3</li>
+                <div class="bg-slate-200 mt-16 self-start pl-5 pr-2 font-semibold">Dashboard</div>
+                <div class="w-24">
+                    <ul class="space-y-4 mt-4 text-slate-100">
+                        <li><a href="#">Perfil</a></li>
+                        <li><a href="#">Opcion</a></li>
+                        <li><a href="#">Opcion</a></li>
+                        <li><a href="#">Opcion</a></li>
+                        <li><div class="h-0.5 w-full bg-slate-200"></div></li>
+                        <li><a href="#">Opcion</a></li>
                     </ul>
                 </div>
             </div>
