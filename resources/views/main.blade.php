@@ -4,8 +4,9 @@
             <div class="w-full fixed top-0">
                 <nav class="bg-slate-100 h-14">
                     <ul class="flex justify-end space-x-5 pr-5 text-sm h-full items-center text-slate-600 shadow-md w-full whitespace-nowrap">
-                        <div class="w-full self-start pl-5 py-3 font-bold text-xl text-slate-700">Dashboard</div>
+                        <div class="w-full self-start pl-5 py-3 font-bold text-xl text-slate-700">Panel de agente</div>
                         <li>Agente: ---</li>
+                        <li></li>
                         <li>Rol: ----
                             <select name="" id=""></select> {{-- a modo de demostracion --}}
                         </li>
@@ -13,15 +14,33 @@
                     </ul>
                 </nav>
             </div>
-            <div class="w-[10rem] h-screen flex flex-col items-center bg-slate-700 z-50 shadow-slate-900 fixed top-14">
+            <div class="w-[10rem] pl-2 h-screen flex flex-col items-start bg-slate-700 z-50 shadow-slate-900 fixed top-14">
                 <div class="w-24">
                     <ul class="space-y-4 mt-4 text-slate-100 whitespace-nowrap">
-                        <li><a href="#">Perfil</a></li>
-                        <li><a href="#">Opcion</a></li>
-                        <li><a href="#">Opcion</a></li>
-                        <li><a href="#">Opcion</a></li>
-                        <li><div class="h-0.5 w-full bg-slate-200"></div></li>
-                        <li><a href="#">Opcion</a></li>
+                        <li>
+                          <span class="font-semibold">Filtrar numeros</span>
+                          <ul class="pl-2">
+                            <li><label for="search">Buscar</label></li>
+                            <li><input class="w-32 text-slate-700" name="search" type="text"></li>
+                            <br>
+                            <li><label for="filterFila">Tipo de fila</label></li>
+                            <li><input type="radio" id="ilterFila" name="ilterFila"> Todos</li>
+                            <li><input type="radio" id="ilterFila" name="ilterFila"> Comun</li>
+                            <li><input type="radio" id="ilterFila" name="ilterFila"> Emergencia</li>
+                            <li><input type="radio" id="ilterFila" name="ilterFila"> FNR</li>
+                            <li><input type="radio" id="ilterFila" name="ilterFila"> Prioridad</li>
+                            <br>
+                            <li><label for="filterEstado">Estado</label></li>
+                            <li><input type="radio" id="filterEstado" name="filterEstado"> Todos</li>
+                            <li><input type="radio" id="filterEstado" name="filterEstado"> Sin atender</li>
+                            <li><input type="radio" id="filterEstado" name="filterEstado"> En preparación</li>
+                            <li><input type="radio" id="filterEstado" name="filterEstado"> Para pagar</li>
+                            <li><input type="radio" id="filterEstado" name="filterEstado"> Para entregar</li>
+                            <li><input type="radio" id="filterEstado" name="filterEstado"> Pausados</li>
+                            <li><input type="radio" id="filterEstado" name="filterEstado"> Cancelados</li>
+                            <li><input type="radio" id="filterEstado" name="filterEstado"> Finalizados</li>
+                          </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -217,8 +236,8 @@
                     <div class="bg-slate-100 col-span-3 row-span-1 border rounded m-1 p-3 text-slate-700">
                         <div class="flex flex-col">
                             <div class="flex 2xl:flex-col justify-between items-center">
-                              <div class="bg-slate-500 h-20 flex justify-center items-center my-5 px-14 2xl:px-28 2xl:w-full rounded shadow-sm">
-                                <h2 class="text-5xl text-slate-100 font-bold">145</h2>
+                              <div class="bg-orange-400 h-20 flex justify-center items-center my-5 px-14 2xl:px-28 2xl:w-full rounded shadow-sm">
+                                <h2 class="text-5xl text-slate-700 font-bold">145</h2>
                               </div>
                               <div class="flex justify-between items-center border rounded border-dotted border-slate-700 pl-2">
                                   <div>
@@ -227,10 +246,10 @@
                                     <p>CI: 12553221</p>
                                   </div>
                                   <div class="gap-1 flex 2xl:px-16 whitespace-nowrap text-center">
-                                      <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-blue-400 hover:text-slate-700 shadow-sm" href="#">A preparacion</a>
-                                      <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-blue-400 hover:text-slate-700 shadow-sm" href="#">Derivar a</a>
+                                      <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-blue-400 hover:text-slate-100 shadow-sm" href="#">A preparacion</a>
+                                      <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-blue-400 hover:text-slate-100 shadow-sm" href="#">Derivar a</a>
                                       <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-red-500 shadow-sm" href="#">Cancelar</a>
-                                      <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-orange-400 hover:text-slate-700 shadow-sm" href="#">Pausar</a>
+                                      <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-yellow-400 hover:text-slate-700 shadow-sm" href="#">Pausar</a>
                                   </div>
                               </div>
                             </div>
@@ -300,7 +319,6 @@
                                 <td class="whitespace-nowrap px-2 py-1">Comun</td>
                                 <td class="whitespace-nowrap px-2 py-1">004</td>
                               </tr>
-
                             </tbody>
                           </table>
                     </div>
@@ -312,7 +330,7 @@
             </div>
         </main>
 
-        <footer class="z-50 w-24 absolute bottom-1 left-0.5 whitespace-nowrap text-xs text-slate-200">
+        <footer class="z-50 w-24 absolute bottom-2 left-2 whitespace-nowrap text-xs text-slate-200">
             <div>
                 <p>Fabricio Rivera &copy; 2024</p>
             </div>
