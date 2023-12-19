@@ -62,7 +62,7 @@
                             </thead>
                             <tbody>
                               <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
+                                <td class="whitespace-nowrap px-1 py-1 font-medium"><a href="#">Llamar</a></td>
                                 <td class="whitespace-nowrap px-1 py-1">001</td>
                                 <td class="whitespace-nowrap px-1 py-1">Comun</td>
                                 <td class="whitespace-nowrap px-1 py-1">10:20</td>
@@ -231,20 +231,22 @@
                     <div class="bg-slate-100 col-span-3 row-span-1 border rounded m-1 p-3 text-slate-700">
                         <div class="flex flex-col">
                             <div class="flex 2xl:flex-col justify-between items-center">
-                                <div class="2xl:place-self-start">
+                              <div class="bg-slate-500 h-20 flex justify-center items-center my-5 px-14 2xl:px-28 2xl:w-full rounded shadow-sm">
+                                <h2 class="text-5xl text-slate-100 font-bold">145</h2>
+                              </div>
+                              <div class="flex justify-between items-center border rounded border-dotted border-slate-700 pl-2">
+                                  <div>
                                     <p>Fila: Comun</p>
-                                    <p>Nombre: Franchesco Coppola</p>
+                                    <p>Nombre: Lorem ipsun</p>
                                     <p>CI: 12553221</p>
-                                </div>
-                                <div class="bg-slate-500 h-20 flex justify-center items-center my-5 px-14 2xl:px-28 2xl:w-full rounded shadow-sm">
-                                    <h2 class="text-5xl text-slate-100 font-bold">002</h2>
-                                </div>
-                            </div>
-                            <div class="flex justify-between 2xl:px-16 whitespace-nowrap">
-                                <a class="border border-slate-200 rounded px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-blue-400 hover:text-slate-700 shadow-sm" href="#">A preparacion</a>
-                                <a class="border border-slate-200 rounded px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-blue-400 hover:text-slate-700 shadow-sm" href="#">Derivar a</a>
-                                <a class="border border-slate-200 rounded px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-red-500 shadow-sm" href="#">Cancelar</a>
-                                <a class="border border-slate-200 rounded px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-orange-400 hover:text-slate-700 shadow-sm" href="#">Pausar</a>
+                                  </div>
+                                  <div class="gap-1 flex 2xl:px-16 whitespace-nowrap text-center">
+                                      <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-blue-400 hover:text-slate-700 shadow-sm" href="#">A preparacion</a>
+                                      <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-blue-400 hover:text-slate-700 shadow-sm" href="#">Derivar a</a>
+                                      <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-red-500 shadow-sm" href="#">Cancelar</a>
+                                      <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-orange-400 hover:text-slate-700 shadow-sm" href="#">Pausar</a>
+                                  </div>
+                              </div>
                             </div>
                         </div>
                     </div>
