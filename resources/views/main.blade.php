@@ -58,9 +58,9 @@
                             <thead class="border-b font-medium dark:border-neutral-500">
                               <tr>
                                 <th scope="col" class="px-1 py-4">Accion</th>
-                                <th scope="col" class="px-1 py-4">Nro.</th>
+                                <th scope="col" class="px-1 py-4"><a href="#">Nro.</a></th>
                                 <th scope="col" class="px-1 py-4">Fila</th>
-                                <th scope="col" class="px-1 py-4">T. de espera</th>
+                                <th scope="col" class="px-1 py-4"><a href="#">T. de espera</a></th>
                                 <th scope="col" class="px-1 py-4">Estado</th>
                                 <th scope="col" class="px-1 py-4">Nombre</th>
                               </tr>
@@ -233,8 +233,8 @@
                     {{-- _________________________________________________________________________end table numeros --}}
 
                     {{-- _______________________________________________________________________________numero activo visor --}}
-                    <div class="bg-slate-100 col-span-3 row-span-1 border rounded m-1 p-3 text-slate-700 content-center">
-                      <div class="flex 2xl:flex-col 2xl:space-y-2 justify-between items-center w-full">
+                    <div class="bg-slate-100 col-span-3 row-span-1 border rounded m-1 p-3 text-slate-700 h-full">
+                      <div class="flex 2xl:flex-col 2xl:space-y-2 justify-around items-center w-full h-full">
                         <div class="bg-orange-400 h-28 flex flex-col justify-center items-center px-14 2xl:px-28 2xl:w-full rounded shadow-sm">
                           <h2 class="text-5xl text-slate-700 font-bold">145</h2>
                           <span class="text-xl text-slate-700 font-semibold">Comun</span>
