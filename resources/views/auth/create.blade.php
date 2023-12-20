@@ -1,8 +1,8 @@
 <x-layout>
 
-    <div class="h-screen flex justify-center items-center mx-auto">
+    <div class="h-screen flex justify-center items-center mx-auto bg-gradient-to-b from-sky-200 via-transparent to-white">
         
-        <form action="{{route('auth.store')}}" method="POST" class="flex flex-col gap-4 items-center justify-center bg-slate-300 p-5 shadow-md rounded-sm w-[40rem]">
+        <form action="{{route('auth.store')}}" method="POST" class="flex flex-col gap-4 items-center justify-center bg-slate-300 p-5 shadow-md rounded-sm w-[32rem]">
             @csrf
             
             <h3 class="font-bold text-slate-500 text-lg">LOGIN</h3>
@@ -14,7 +14,7 @@
             </label>
             <div class="flex w-full justify-between items-center mt-4">
                 <button class="bg-blue-600 text-slate-100 px-3 py-1 self-start shadow-sm rounded-sm hover:bg-blue-400">Ingresar</button>
-                <a href="#" class="text-sky-800 font-thin text-sm hover:underline">Recuperar contraseña..</a>
+                <a href="#" class="text-sky-800 font-thin text-sm hover:underline">Olvido su contraseña?</a>
             </div>
         </form>
         

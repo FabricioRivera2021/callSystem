@@ -1,7 +1,10 @@
 {{-- Dashboard para admin --}}
 <x-layout>
 
-    <h1>Dashboard</h1>
+    <nav class="flex">
+        <x-nav-bar />
+        <x-side-bar />
+    </nav>
 
 
 </x-layout>
