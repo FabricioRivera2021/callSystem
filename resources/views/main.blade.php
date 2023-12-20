@@ -46,11 +46,11 @@
             </div>
         </nav>
 
-        <main class="pl-40 pt-14">
+        <main class="pl-40">
             <div class="w-[calc(100vw-10rem)]">
 
                 {{-- _______________________________________________________________________________GRID --}}
-                <div class="w-full grid grid-cols-7 grid-rows-3 pt-2 h-[calc(100vh-3.5rem)] gap-1 px-2">
+                <div class="w-full grid grid-cols-7 grid-rows-3 pt-10 h-[calc(100vh-3.5rem)] gap-1 px-2">
 
                     {{-- _______________________________________________________________________________table numeros --}}
                     <div class="bg-slate-100 col-span-4 row-span-3 border rounded m-1 p-1 overflow-y-auto overflow-x-hidden">
@@ -233,27 +233,26 @@
                     {{-- _________________________________________________________________________end table numeros --}}
 
                     {{-- _______________________________________________________________________________numero activo visor --}}
-                    <div class="bg-slate-100 col-span-3 row-span-1 border rounded m-1 p-3 text-slate-700">
-                        <div class="flex flex-col">
-                            <div class="flex 2xl:flex-col justify-between items-center">
-                              <div class="bg-orange-400 h-20 flex justify-center items-center my-5 px-14 2xl:px-28 2xl:w-full rounded shadow-sm">
-                                <h2 class="text-5xl text-slate-700 font-bold">145</h2>
-                              </div>
-                              <div class="flex justify-between items-center border rounded border-dotted border-slate-700 pl-2">
-                                  <div>
-                                    <p>Fila: Comun</p>
-                                    <p>Nombre: Lorem ipsun</p>
-                                    <p>CI: 12553221</p>
-                                  </div>
-                                  <div class="gap-1 flex 2xl:px-16 whitespace-nowrap text-center">
-                                      <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-blue-400 hover:text-slate-100 shadow-sm" href="#">A preparacion</a>
-                                      <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-blue-400 hover:text-slate-100 shadow-sm" href="#">Derivar a</a>
-                                      <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-red-500 shadow-sm" href="#">Cancelar</a>
-                                      <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-yellow-400 hover:text-slate-700 shadow-sm" href="#">Pausar</a>
-                                  </div>
-                              </div>
+                    <div class="bg-slate-100 col-span-3 row-span-1 border rounded m-1 p-3 text-slate-700 content-center">
+                      <div class="flex 2xl:flex-col 2xl:space-y-2 justify-between items-center w-full">
+                        <div class="bg-orange-400 h-28 flex flex-col justify-center items-center px-14 2xl:px-28 2xl:w-full rounded shadow-sm">
+                          <h2 class="text-5xl text-slate-700 font-bold">145</h2>
+                          <span class="text-xl text-slate-700 font-semibold">Comun</span>
+                        </div>
+                        <div class="flex 2xl:flex-col gap-2 justify-between items-center border rounded border-dotted border-slate-700 pl-2 p-1">
+                            <div class="text-xs">
+                              <p>Fila: Comun</p>
+                              <p>Nombre: Lorem ipsun</p>
+                              <p>CI: 12553221</p>
+                            </div>
+                            <div class="gap-1 flex flex-col 2xl:flex-row 2xl:px-16 whitespace-nowrap text-center text-sm">
+                                <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-blue-400 hover:text-slate-100 shadow-sm" href="#">A preparacion</a>
+                                <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-blue-400 hover:text-slate-100 shadow-sm" href="#">Derivar a</a>
+                                <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-red-500 shadow-sm" href="#">Cancelar</a>
+                                <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-yellow-400 hover:text-slate-700 shadow-sm" href="#">Pausar</a>
                             </div>
                         </div>
+                      </div>
                     </div>
                     {{-- _________________________________________________________________________end numero activo visor --}}
 
