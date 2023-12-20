@@ -18,6 +18,10 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
+Route::get('/admin', function(){
+    return view('admin.dashboard');
+});
+
 Route::get('/agent', function () {
     return view('main');
 });
