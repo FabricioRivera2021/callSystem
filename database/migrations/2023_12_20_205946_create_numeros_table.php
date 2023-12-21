@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('numeros', function (Blueprint $table) {
             $table->id();
             $table->integer('numero');
+            $table->string('fila');
+            $table->string('estado');
             $table->timestamps();
         });
     }
