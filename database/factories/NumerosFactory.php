@@ -18,7 +18,7 @@ class NumerosFactory extends Factory
     {
         return [
             'numero' => fake()->numberBetween(001,500),
-            'fila' => fake()->randomElement([
+            'estado' => fake()->randomElement([
                 'Sin atender',
                 'En preparación',
                 'Para pagar',
@@ -27,7 +27,7 @@ class NumerosFactory extends Factory
                 'Cancelados',
                 'Finalizados',
             ]),
-            'estado' => fake()->randomElement([
+            'fila' => fake()->randomElement([
                 'Comun',
                 'Emergencia',
                 'FNR',
