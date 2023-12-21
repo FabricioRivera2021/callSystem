@@ -14,10 +14,13 @@ class NumerosFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
+    private static $counter = 1;
+
     public function definition(): array
     {
         return [
-            'numero' => fake()->numberBetween(001,500),
+            'numero' => self::$counter++,
             'estado' => fake()->randomElement([
                 'Sin atender',
                 'En preparación',

@@ -25,167 +25,18 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-1 py-1 font-medium"><a href="#">Llamar</a></td>
-                                <td class="whitespace-nowrap px-1 py-1">001</td>
-                                <td class="whitespace-nowrap px-1 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-1 py-1">10:20</td>
-                                <td class="whitespace-nowrap px-1 py-1">Terminado</td>
-                                <td class="whitespace-nowrap px-1 py-1">Dora Recoba</td>
-                              </tr>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
-                                <td class="whitespace-nowrap px-1 py-1">002</td>
-                                <td class="whitespace-nowrap px-1 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-1 py-1">10:20</td>
-                                <td class="whitespace-nowrap px-1 py-1">En ventanilla</td>
-                                <td class="whitespace-nowrap px-1 py-1">Daniel Cassim</td>
-                              </tr>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
-                                <td class="whitespace-nowrap px-1 py-1">003</td>
-                                <td class="whitespace-nowrap px-1 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-1 py-1">10:20</td>
-                                <td class="whitespace-nowrap px-1 py-1">En preparacion</td>
-                                <td class="whitespace-nowrap px-1 py-1">Dario Ortega</td>
-                              </tr>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
-                                <td class="whitespace-nowrap px-1 py-1">004</td>
-                                <td class="whitespace-nowrap px-1 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-1 py-1">10:20</td>
-                                <td class="whitespace-nowrap px-1 py-1">En preparacion</td>
-                                <td class="whitespace-nowrap px-1 py-1">Don vito</td>
-                              </tr>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
-                                <td class="whitespace-nowrap px-1 py-1">005</td>
-                                <td class="whitespace-nowrap px-1 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-1 py-1">10:20</td>
-                                <td class="whitespace-nowrap px-1 py-1">Esperando pago</td>
-                                <td class="whitespace-nowrap px-1 py-1">Mercedes Sosa</td>
-                              </tr>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
-                                <td class="whitespace-nowrap px-1 py-1">006</td>
-                                <td class="whitespace-nowrap px-1 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-1 py-1">10:20</td>
-                                <td class="whitespace-nowrap px-1 py-1">Para entrega</td>
-                                <td class="whitespace-nowrap px-1 py-1">Patricia Orrego</td>
-                              </tr>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
-                                <td class="whitespace-nowrap px-1 py-1">007</td>
-                                <td class="whitespace-nowrap px-1 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-1 py-1">10:20</td>
-                                <td class="whitespace-nowrap px-1 py-1">Para entregar</td>
-                                <td class="whitespace-nowrap px-1 py-1">Estela Urzuaga</td>
-                              </tr>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
-                                <td class="whitespace-nowrap px-1 py-1">008</td>
-                                <td class="whitespace-nowrap px-1 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-1 py-1">10:20</td>
-                                <td class="whitespace-nowrap px-1 py-1">En entrega</td>
-                                <td class="whitespace-nowrap px-1 py-1">Daniel Ledesma</td>
-                              </tr>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
-                                <td class="whitespace-nowrap px-1 py-1">009</td>
-                                <td class="whitespace-nowrap px-1 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-1 py-1">10:20</td>
-                                <td class="whitespace-nowrap px-1 py-1">Para entrega</td>
-                                <td class="whitespace-nowrap px-1 py-1">Marcos Alberca</td>
-                              </tr>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
-                                <td class="whitespace-nowrap px-1 py-1">009</td>
-                                <td class="whitespace-nowrap px-1 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-1 py-1">10:20</td>
-                                <td class="whitespace-nowrap px-1 py-1">Para entrega</td>
-                                <td class="whitespace-nowrap px-1 py-1">Marcos Alberca</td>
-                              </tr>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
-                                <td class="whitespace-nowrap px-1 py-1">009</td>
-                                <td class="whitespace-nowrap px-1 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-1 py-1">10:20</td>
-                                <td class="whitespace-nowrap px-1 py-1">Para entrega</td>
-                                <td class="whitespace-nowrap px-1 py-1">Marcos Alberca</td>
-                              </tr>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
-                                <td class="whitespace-nowrap px-1 py-1">009</td>
-                                <td class="whitespace-nowrap px-1 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-1 py-1">10:20</td>
-                                <td class="whitespace-nowrap px-1 py-1">Para entrega</td>
-                                <td class="whitespace-nowrap px-1 py-1">Marcos Alberca</td>
-                              </tr>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
-                                <td class="whitespace-nowrap px-1 py-1">009</td>
-                                <td class="whitespace-nowrap px-1 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-1 py-1">10:20</td>
-                                <td class="whitespace-nowrap px-1 py-1">Para entrega</td>
-                                <td class="whitespace-nowrap px-1 py-1">Marcos Alberca</td>
-                              </tr>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
-                                <td class="whitespace-nowrap px-1 py-1">009</td>
-                                <td class="whitespace-nowrap px-1 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-1 py-1">10:20</td>
-                                <td class="whitespace-nowrap px-1 py-1">Para entrega</td>
-                                <td class="whitespace-nowrap px-1 py-1">Marcos Alberca</td>
-                              </tr>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
-                                <td class="whitespace-nowrap px-1 py-1">009</td>
-                                <td class="whitespace-nowrap px-1 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-1 py-1">10:20</td>
-                                <td class="whitespace-nowrap px-1 py-1">Para entrega</td>
-                                <td class="whitespace-nowrap px-1 py-1">Marcos Alberca</td>
-                              </tr>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
-                                <td class="whitespace-nowrap px-1 py-1">009</td>
-                                <td class="whitespace-nowrap px-1 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-1 py-1">10:20</td>
-                                <td class="whitespace-nowrap px-1 py-1">Para entrega</td>
-                                <td class="whitespace-nowrap px-1 py-1">Marcos Alberca</td>
-                              </tr>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
-                                <td class="whitespace-nowrap px-1 py-1">009</td>
-                                <td class="whitespace-nowrap px-1 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-1 py-1">10:20</td>
-                                <td class="whitespace-nowrap px-1 py-1">Para entrega</td>
-                                <td class="whitespace-nowrap px-1 py-1">Marcos Alberca</td>
-                              </tr>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
-                                <td class="whitespace-nowrap px-1 py-1">009</td>
-                                <td class="whitespace-nowrap px-1 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-1 py-1">10:20</td>
-                                <td class="whitespace-nowrap px-1 py-1">Para entrega</td>
-                                <td class="whitespace-nowrap px-1 py-1">Marcos Alberca</td>
-                              </tr>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
-                                <td class="whitespace-nowrap px-1 py-1">009</td>
-                                <td class="whitespace-nowrap px-1 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-1 py-1">10:20</td>
-                                <td class="whitespace-nowrap px-1 py-1">Para entrega</td>
-                                <td class="whitespace-nowrap px-1 py-1">Marcos Alberca</td>
-                              </tr>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
-                                <td class="whitespace-nowrap px-1 py-1">009</td>
-                                <td class="whitespace-nowrap px-1 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-1 py-1">10:20</td>
-                                <td class="whitespace-nowrap px-1 py-1">Para entrega</td>
-                                <td class="whitespace-nowrap px-1 py-1">Marcos Alberca</td>
-                              </tr>
-
+                              @forelse ($numeros as $numero)
+                                <tr class="border-b dark:border-neutral-500">
+                                  <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
+                                  <td class="whitespace-nowrap px-1 py-1">{{$numero->numero}}</td>
+                                  <td class="whitespace-nowrap px-1 py-1">{{$numero->fila}}</td>
+                                  <td class="whitespace-nowrap px-1 py-1">10:20</td>
+                                  <td class="whitespace-nowrap px-1 py-1">{{$numero->estado}}</td>
+                                  <td class="whitespace-nowrap px-1 py-1">Daniel Cassim</td>
+                                </tr>
+                              @empty
+                                No hay numeros para mostrar
+                              @endforelse
                             </tbody>
                           </table>
                     </div>

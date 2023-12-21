@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Numeros;
 use Illuminate\Http\Request;
 
 class NumerosController extends Controller
@@ -11,7 +12,9 @@ class NumerosController extends Controller
      */
     public function index()
     {
-        //
+        return view('main', [
+            'numeros' => Numeros::latest()->get()
+        ]);
     }
 
     /**

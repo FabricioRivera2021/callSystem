@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\NumerosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,9 +23,7 @@ Route::get('/admin', function(){
     return view('admin.dashboard');
 });
 
-Route::get('/agent', function () {
-    return view('main');
-});
+Route::resource('numeros', NumerosController::class);
 
 Route::get('login', fn() => to_route('auth.create'))->name('login'); //redirects to the create page
 Route::resource('auth', AuthController::class)
