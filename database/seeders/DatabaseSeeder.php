@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
-        \App\Models\Numeros::factory()->count(100)->create();
+        \App\Models\Numeros::factory(100)->create();
+
+        \App\Models\Customers::factory(10)->create();
     }
 }
