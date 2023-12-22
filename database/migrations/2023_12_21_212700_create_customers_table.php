@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\Customers::class, 'numero_id');
+            $table->unsignedBigInteger('numeros_id');
             $table->string('name');
             $table->integer('ci');
             $table->timestamps();
+            $table->foreign('numeros_id')->references('id')->on('numeros')
+            ->onDelete('cascade');
         });
     }
 
