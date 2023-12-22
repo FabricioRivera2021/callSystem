@@ -67,10 +67,7 @@
                     {{-- _________________________________________________________________________end numero activo visor --}}
 
                     {{-- _______________________________________________________________________________visor agentes --}}
-                    <div class="bg-slate-100 col-span-3 row-span-2 border rounded m-1 p-5 text-slate-700 overflow-y-auto 
-                    
-                    {{-- overflow-x-hidden --}}
-                    ">
+                    <div class="bg-slate-100 col-span-3 row-span-2 border rounded m-1 p-5 text-slate-700 overflow-y-auto overflow-x-hidden">
                         <table class="min-w-full text-left text-sm font-light">
                             <thead class="border-b font-medium dark:border-neutral-500 whitespace-nowrap">
                               <tr>
