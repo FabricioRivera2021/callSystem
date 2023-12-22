@@ -18,7 +18,8 @@ class CustomersFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'ci' => fake()->numberBetween(5600, 90000)
+            'ci' => fake()->numberBetween(5600, 90000),
+            'numero_id' => fake()->numberBetween(1, 100)
         ];
     }
 }

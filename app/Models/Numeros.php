@@ -20,4 +20,9 @@ class Numeros extends Model
     {
         return $this->hasMany(Estados::class);
     }
+
+    public function customer(): BelongsTo
+    {
+        return $this->belongsTo(Customers::class);
+    }
 }

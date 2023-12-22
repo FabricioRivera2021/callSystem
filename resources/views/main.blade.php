@@ -32,7 +32,7 @@
                                   <td class="whitespace-nowrap px-1 py-1">{{$numero->fila}}</td>
                                   <td class="whitespace-nowrap px-1 py-1">10:20</td>
                                   <td class="whitespace-nowrap px-1 py-1">{{$numero->estado}}</td>
-                                  <td class="whitespace-nowrap px-1 py-1">Daniel Cassim</td>
+                                  <td class="whitespace-nowrap px-1 py-1">{{$customer}}</td>
                                 </tr>
                               @empty
                                 No hay numeros para mostrar
