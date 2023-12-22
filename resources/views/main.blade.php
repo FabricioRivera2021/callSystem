@@ -30,9 +30,9 @@
                                   <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
                                   <td class="whitespace-nowrap px-1 py-1">{{$numero->numero}}</td>
                                   <td class="whitespace-nowrap px-1 py-1">{{$numero->fila}}</td>
-                                  <td class="whitespace-nowrap px-1 py-1">10:20</td>
+                                  <td class="whitespace-nowrap px-1 py-1">{{gmdate("i:s", $numero->created_at->diffInSeconds())}}</td>
                                   <td class="whitespace-nowrap px-1 py-1">{{$numero->estado}}</td>
-                                  <td class="whitespace-nowrap px-1 py-1">{{$customer}}</td>
+                                  <td class="whitespace-nowrap px-1 py-1">{{$numero['customers'][0]['name']}}</td>
                                 </tr>
                               @empty
                                 No hay numeros para mostrar
@@ -79,55 +79,17 @@
                               </tr>
                             </thead>
                             <tbody>
+                            @forelse ($usuarios as $usuario)
                               <tr class="border-b dark:border-neutral-500">
                                 <td class="whitespace-nowrap px-2 py-1">Pedir numero</td>
-                                <td class="whitespace-nowrap px-2 py-1 font-medium">Marcos Alberta</td>
+                                <td class="whitespace-nowrap px-2 py-1 font-medium">{{$usuario->name}}</td>
                                 <td class="whitespace-nowrap px-2 py-1">Entrega</td>
                                 <td class="whitespace-nowrap px-2 py-1">Comun</td>
                                 <td class="whitespace-nowrap px-2 py-1">004</td>
                               </tr>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-2 py-1">Pedir numero</td>
-                                <td class="whitespace-nowrap px-2 py-1 font-medium">Marcos Alberta</td>
-                                <td class="whitespace-nowrap px-2 py-1">Entrega</td>
-                                <td class="whitespace-nowrap px-2 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-2 py-1">004</td>
-                              </tr>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-2 py-1">Pedir numero</td>
-                                <td class="whitespace-nowrap px-2 py-1 font-medium">Marcos Alberta</td>
-                                <td class="whitespace-nowrap px-2 py-1">Entrega</td>
-                                <td class="whitespace-nowrap px-2 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-2 py-1">004</td>
-                              </tr>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-2 py-1">Pedir numero</td>
-                                <td class="whitespace-nowrap px-2 py-1 font-medium">Marcos Alberta</td>
-                                <td class="whitespace-nowrap px-2 py-1">Entrega</td>
-                                <td class="whitespace-nowrap px-2 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-2 py-1">004</td>
-                              </tr>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-2 py-1">Pedir numero</td>
-                                <td class="whitespace-nowrap px-2 py-1 font-medium">Marcos Alberta</td>
-                                <td class="whitespace-nowrap px-2 py-1">Entrega</td>
-                                <td class="whitespace-nowrap px-2 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-2 py-1">004</td>
-                              </tr>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-2 py-1">Pedir numero</td>
-                                <td class="whitespace-nowrap px-2 py-1 font-medium">Marcos Alberta</td>
-                                <td class="whitespace-nowrap px-2 py-1">Entrega</td>
-                                <td class="whitespace-nowrap px-2 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-2 py-1">004</td>
-                              </tr>
-                              <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-2 py-1">Pedir numero</td>
-                                <td class="whitespace-nowrap px-2 py-1 font-medium">Marcos Alberta</td>
-                                <td class="whitespace-nowrap px-2 py-1">Entrega</td>
-                                <td class="whitespace-nowrap px-2 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-2 py-1">004</td>
-                              </tr>
+                            @empty
+                              <p>No hay data</p>
+                            @endforelse
                             </tbody>
                           </table>
                     </div>

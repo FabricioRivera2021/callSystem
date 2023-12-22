@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customers;
 use App\Models\Numeros;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class NumerosController extends Controller
@@ -14,10 +15,13 @@ class NumerosController extends Controller
     public function index()
     {
         return view('main', [
-            'numeros' => Numeros::with('customer')->latest()->get()
+            'numeros' => Numeros::with('customers')->latest()->get(),
+            'usuarios' => User::with('numero')->get()
         ]);
+        // $test = \App\Models\Numeros::with('customers')->latest()->get();
+        // dd($test);
     }
-
+    
     /**
      * Show the form for creating a new resource.
      */

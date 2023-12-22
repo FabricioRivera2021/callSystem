@@ -49,4 +49,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Roles::class);
     }
+
+    public function numero(): HasOne
+    {
+        return $this->hasOne(Numeros::class);
+    }
 }

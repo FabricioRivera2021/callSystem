@@ -21,6 +21,6 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\Numeros::factory(100)->create();
 
-        \App\Models\Customers::factory(10)->create();
+        \App\Models\Customers::factory(100)->create();
     }
 }
