@@ -14,9 +14,12 @@ return new class extends Migration
         Schema::create('numeros', function (Blueprint $table) {
             $table->id();
             $table->integer('numero')->unique();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->string('fila');
             $table->string('estado');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')
+            ->onDelete('cascade');
         });
     }
 

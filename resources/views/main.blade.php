@@ -67,7 +67,10 @@
                     {{-- _________________________________________________________________________end numero activo visor --}}
 
                     {{-- _______________________________________________________________________________visor agentes --}}
-                    <div class="bg-slate-100 col-span-3 row-span-2 border rounded m-1 p-5 text-slate-700 overflow-y-auto overflow-x-hidden">
+                    <div class="bg-slate-100 col-span-3 row-span-2 border rounded m-1 p-5 text-slate-700 overflow-y-auto 
+                    
+                    {{-- overflow-x-hidden --}}
+                    ">
                         <table class="min-w-full text-left text-sm font-light">
                             <thead class="border-b font-medium dark:border-neutral-500 whitespace-nowrap">
                               <tr>
@@ -83,9 +86,9 @@
                               <tr class="border-b dark:border-neutral-500">
                                 <td class="whitespace-nowrap px-2 py-1">Pedir numero</td>
                                 <td class="whitespace-nowrap px-2 py-1 font-medium">{{$usuario->name}}</td>
-                                <td class="whitespace-nowrap px-2 py-1">Entrega</td>
-                                <td class="whitespace-nowrap px-2 py-1">Comun</td>
-                                <td class="whitespace-nowrap px-2 py-1">004</td>
+                                <td class="whitespace-nowrap px-2 py-1">{{ isset($usuario->role) ? $usuario->role : '' }}</td>
+                                <td class="whitespace-nowrap px-2 py-1">{{ isset($usuario->numero->fila) ? $usuario->numero->fila : '' }}</td>
+                                <td class="whitespace-nowrap px-2 py-1">{{ isset($usuario->numero->numero) ? $usuario->numero->numero : '' }}</td>
                               </tr>
                             @empty
                               <p>No hay data</p>

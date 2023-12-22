@@ -21,6 +21,7 @@ class NumerosFactory extends Factory
     {
         return [
             'numero' => self::$counter++,
+            'user_id' => fake()->numberBetween(1,10),
             'estado' => fake()->randomElement([
                 'Sin atender',
                 'En preparación',

@@ -18,6 +18,7 @@ class NumerosController extends Controller
             'numeros' => Numeros::with('customers')->latest()->get(),
             'usuarios' => User::with('numero')->get()
         ]);
+
         // $test = \App\Models\Numeros::with('customers')->latest()->get();
         // dd($test);
     }
