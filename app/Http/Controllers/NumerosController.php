@@ -16,7 +16,7 @@ class NumerosController extends Controller
     {
         return view('main', [
             'numeros' => Numeros::with('customers')->latest()->get(),
-            'usuarios' => User::with('numero')->get()
+            'usuarios' => User::with('numero')->orderBy('role')->get()
         ]);
     }
     

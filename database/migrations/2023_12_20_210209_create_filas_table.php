@@ -14,13 +14,10 @@ return new class extends Migration
         Schema::create('filas', function (Blueprint $table) {
             $table->id();
             $table->enum('fila', [
-                'Sin atender',
-                'En preparación',
-                'Para pagar',
-                'Para entregar',
-                'Pausados',
-                'Cancelados',
-                'Finalizados',
+                'Comun',
+                'Emergencia',
+                'FNR',
+                'Prioridad'
             ]);
             $table->timestamps();
         });
