@@ -24,8 +24,6 @@ Route::get('/admin', function(){
     return view('admin.dashboard');
 });
 
-Route::resource('numeros', NumerosController::class);
-
 Route::get('login', fn() => to_route('auth.create'))->name('login'); //redirects to the create page
 Route::resource('auth', AuthController::class)
     ->only(['create', 'store']);
@@ -34,3 +32,8 @@ Route::delete('logout', fn() => to_route('auth.destroy'))->name('logout');
 Route::delete('auth', [AuthController::class, 'destroy'])->name('auth.destroy');
 
 Route::get('online-user', [UserController::class, 'index']);
+
+Route::middleware('auth')->group(function (){
+    Route::resource('numeros', NumerosController::class)
+        ->only(['index']);
+});

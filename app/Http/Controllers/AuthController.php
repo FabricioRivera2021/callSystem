@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 
 class AuthController extends Controller
 {
@@ -33,6 +35,13 @@ class AuthController extends Controller
 
     public function destroy()
     {
+        if (Auth::check()){
+            Cache::forget(Auth::user());
+
+            /* Last seen */
+            User::where('id', Auth::user()->id)->update(['last_seen' => null]);
+        }
+
         Auth::logout();
 
         request()->session()->invalidate();

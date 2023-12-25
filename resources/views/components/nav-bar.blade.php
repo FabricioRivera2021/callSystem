@@ -12,7 +12,13 @@
                     <option value="Hola">Tetas y culos</option>
                 </select>
             </li>
-            <li><a href="#">Salir</a></li>
+            <li>
+                <form action="{{route('auth.destroy')}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="text-red-500 font-semibold text-sm">Salir</button>
+                </form>
+            </li>
         </ul>
     </nav>
 </div>
