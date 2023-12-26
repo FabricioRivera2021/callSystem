@@ -1,7 +1,7 @@
 <x-layout>
 
     <div class="w-screen h-screen flex justify-center items-center">
-        <div class="grid grid-cols-3 grid-rows-4 content-center">
+        <div class="grid grid-cols-3 grid-rows-4 ">
             <div class="col-span-1">1</div>
             <div class="col-span-1">2</div>
             <div class="col-span-1">3</div>
