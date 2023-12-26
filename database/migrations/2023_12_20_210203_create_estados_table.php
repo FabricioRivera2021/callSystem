@@ -14,10 +14,14 @@ return new class extends Migration
         Schema::create('estados', function (Blueprint $table) {
             $table->id();
             $table->enum('estado', [
-                'Comun',
-                'Emergencia',
-                'FNR',
-                'Prioridad'
+                'Sin atender',
+                'En ventanilla',
+                'En preparación',
+                'Para pagar',
+                'Para entregar',
+                'Pausados',
+                'Cancelados',
+                'Finalizados',
             ]);
             $table->timestamps();
         });
@@ -31,3 +35,4 @@ return new class extends Migration
         Schema::dropIfExists('estados');
     }
 };
+

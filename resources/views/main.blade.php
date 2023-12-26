@@ -81,11 +81,11 @@
                             <tbody>
                             @forelse ($usuarios as $usuario)
                               <tr class="border-b dark:border-neutral-500">
-                                <td class="whitespace-nowrap px-2 py-1">Pedir numero</td>
+                                <td class="whitespace-nowrap px-2 py-1 font-semibold"><a class="hover:text-blue-400" href="#">Pedir numero</a></td>
                                 <td class="whitespace-nowrap px-2 py-1 font-medium">{{$usuario->name}}</td>
                                 <td class="whitespace-nowrap px-2 py-1">{{ isset($usuario->role) ? $usuario->role : '' }}</td>
-                                <td class="whitespace-nowrap px-2 py-1">{{ isset($usuario->numero->fila) ? $usuario->numero->fila : '' }}</td>
-                                <td class="whitespace-nowrap px-2 py-1">{{ isset($usuario->numero->numero) ? $usuario->numero->numero : '' }}</td>
+                                <td class="whitespace-nowrap px-2 py-1">{{ isset($usuario->numero->fila) ? $usuario->numero->fila : 'Sin asignar' }}</td>
+                                <td class="whitespace-nowrap px-2 py-1">{{ isset($usuario->numero->numero) ? $usuario->numero->numero : '---' }}</td>
                               </tr>
                             @empty
                               <p>No hay data</p>

@@ -11,15 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('filas', function (Blueprint $table) {
-            $table->id();
-            $table->enum('fila', [
-                'Comun',
-                'Emergencia',
-                'FNR',
-                'Prioridad'
-            ]);
-            $table->timestamps();
+        Schema::table('users', function(Blueprint $table){
+            $table->timestamp('last_seen')->nullable();
         });
     }
 
@@ -28,6 +21,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('filas');
+        //
     }
 };

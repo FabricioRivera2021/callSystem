@@ -16,14 +16,16 @@ class NumerosFactory extends Factory
      */
 
     private static $counter = 1;
+    private static $counter2 = 1;
 
     public function definition(): array
     {
         return [
             'numero' => self::$counter++,
-            'user_id' => fake()->numberBetween(1,10),
+            'user_id' => self::$counter2 < 9 ? self::$counter2++ : null,
             'estado' => fake()->randomElement([
                 'Sin atender',
+                'En ventanilla',
                 'En preparación',
                 'Para pagar',
                 'Para entregar',

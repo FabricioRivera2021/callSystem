@@ -14,50 +14,17 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        \App\Models\User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
-        \App\Models\User::factory()->create([
-            'name' => 'Agente 1',
-            'email' => 'agente1@example.com',
-        ]);
-        \App\Models\User::factory()->create([
-            'name' => 'Agente 2',
-            'email' => 'agente2@example.com',
-        ]);
-        \App\Models\User::factory()->create([
-            'name' => 'Agente 3',
-            'email' => 'agente3@example.com',
-        ]);
-        \App\Models\User::factory()->create([
-            'name' => 'Agente 4',
-            'email' => 'agente4@example.com',
-        ]);
-        \App\Models\User::factory()->create([
-            'name' => 'Agente 5',
-            'email' => 'agente5@example.com',
-        ]);
-        \App\Models\User::factory()->create([
-            'name' => 'Agente 6',
-            'email' => 'agente6@example.com',
-        ]);
-        \App\Models\User::factory()->create([
-            'name' => 'Agente 7',
-            'email' => 'agente7@example.com',
-        ]);
-        \App\Models\User::factory()->create([
-            'name' => 'Agente 8',
-            'email' => 'agente8@example.com',
-        ]);
-        \App\Models\User::factory()->create([
-            'name' => 'Agente 9',
-            'email' => 'agente9@example.com',
-        ]);
-        \App\Models\User::factory()->create([
-            'name' => 'Agente 10',
-            'email' => 'agente10@example.com',
-        ]);
+        \App\Models\User::factory()->create(['name' => 'admin','email' => 'admin@example.com','role' => 'admin']);
+        \App\Models\User::factory()->create(['name' => 'ventanilla 1','email' => 'ceci@example.com','role' => 'ventanilla']);
+        \App\Models\User::factory()->create(['name' => 'ventanilla 2','email' => 'vero@example.com','role' => 'ventanilla']);
+        \App\Models\User::factory()->create(['name' => 'ventanilla 3','email' => 'luci@example.com','role' => 'ventanilla']);
+        \App\Models\User::factory()->create(['name' => 'ventanilla 4','email' => 'vale@example.com','role' => 'ventanilla']);
+        \App\Models\User::factory()->create(['name' => 'Entrega 1','email' => 'marcos@example.com','role' => 'entrega']);
+        \App\Models\User::factory()->create(['name' => 'Entrega 2','email' => 'fabi@example.com','role' => 'entrega']);
+        \App\Models\User::factory()->create(['name' => 'Preparacion 1','email' => 'generico@example.com','role' => 'preparacion']);
+        \App\Models\User::factory()->create(['name' => 'Preparacion 2','email' => 'generico2@example.com','role' => 'preparacion']);
+        \App\Models\User::factory()->create(['name' => 'Caja 1','email' => 'yaque@example.com','role' => 'caja']);
+        \App\Models\User::factory()->create(['name' => 'Caja 2','email' => 'pazos@example.com','role' => 'caja']);
         
         \App\Models\Numeros::factory(100)->create();
 
