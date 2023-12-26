@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('estados', function (Blueprint $table) {
             $table->id();
-            $table->enum('estado', [
+            $table->enum('estados', [
                 'Sin atender',
                 'En ventanilla',
                 'En preparación',

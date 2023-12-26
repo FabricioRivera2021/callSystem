@@ -15,8 +15,8 @@ class NumerosController extends Controller
     public function index()
     {
         return view('main', [
-            'numeros' => Numeros::with('customers')->latest()->get(),
-            'usuarios' => User::with('numero')->orderBy('role')->get()
+            'numeros' => Numeros::with(['customers', 'filas', 'estados'])->get(),
+            'usuarios' => User::with('numero')->orderBy('roles_id')->get()
         ]);
     }
     

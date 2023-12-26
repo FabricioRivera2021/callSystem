@@ -23,8 +23,8 @@ class NumerosFactory extends Factory
         return [
             'numero' => self::$counter++,
             'user_id' => self::$counter2 < 9 ? self::$counter2++ : null,
-            'estado_id' => fake()->numberBetween(1, 8),
-            'fila_id' => fake()->numberBetween(1, 4)
+            'estados_id' => fake()->numberBetween(1, 8),
+            'filas_id' => fake()->numberBetween(1, 4)
         ];
     }
 }

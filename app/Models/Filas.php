@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Filas extends Model
 {
@@ -14,8 +14,8 @@ class Filas extends Model
         'estado'
     ];
 
-    public function numero():BelongsTo
+    public function numero():HasMany
     {
-        return $this->belongsTo(Numeros::class);
+        return $this->hasMany(Numeros::class);
     }
 }

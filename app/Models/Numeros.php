@@ -6,19 +6,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Numeros extends Model
 {
     use HasFactory;
 
-    public function filas(): HasMany
+    public function filas(): BelongsTo
     {
-        return $this->hasMany(Filas::class);
+        return $this->belongsTo(Filas::class);
     }
 
-    public function estados(): HasMany
+    public function estados(): BelongsTo
     {
-        return $this->hasMany(Estados::class);
+        return $this->belongsTo(Estados::class);
     }
 
     public function customers(): HasMany
@@ -26,8 +27,8 @@ class Numeros extends Model
         return $this->hasMany(Customers::class);
     }
 
-//     public function numeros():BelongsTo
-//     {
-//         return $this->belongsTo(User::class);
-//     }
+    // public function numeros():BelongsTo
+    // {
+    //     return $this->belongsTo(User::class);
+    // }
 }

@@ -20,19 +20,19 @@ class DatabaseSeeder extends Seeder
         \App\Models\Roles::factory()->create(['roles' => 'caja']);
         \App\Models\Roles::factory()->create(['roles' => 'regular']);
 
-        \App\Models\Estados::factory()->create(['estado' => 'Sin atender']);
-        \App\Models\Estados::factory()->create(['estado' => 'En ventanilla']);
-        \App\Models\Estados::factory()->create(['estado' => 'En preparación']);
-        \App\Models\Estados::factory()->create(['estado' => 'Para pagar']);
-        \App\Models\Estados::factory()->create(['estado' => 'Para entregar']);
-        \App\Models\Estados::factory()->create(['estado' => 'Pausado']);
-        \App\Models\Estados::factory()->create(['estado' => 'Cancelado']);
-        \App\Models\Estados::factory()->create(['estado' => 'Finalizado']);
+        \App\Models\Estados::factory()->create(['estados' => 'Sin atender']);
+        \App\Models\Estados::factory()->create(['estados' => 'En ventanilla']);
+        \App\Models\Estados::factory()->create(['estados' => 'En preparación']);
+        \App\Models\Estados::factory()->create(['estados' => 'Para pagar']);
+        \App\Models\Estados::factory()->create(['estados' => 'Para entregar']);
+        \App\Models\Estados::factory()->create(['estados' => 'Pausado']);
+        \App\Models\Estados::factory()->create(['estados' => 'Cancelado']);
+        \App\Models\Estados::factory()->create(['estados' => 'Finalizado']);
 
-        \App\Models\Filas::factory()->create(['fila' => 'Comun']);
-        \App\Models\Filas::factory()->create(['fila' => 'Emergencia']);
-        \App\Models\Filas::factory()->create(['fila' => 'FNR']);
-        \App\Models\Filas::factory()->create(['fila' => 'Prioridad']);
+        \App\Models\Filas::factory()->create(['filas' => 'Comun']);
+        \App\Models\Filas::factory()->create(['filas' => 'Emergencia']);
+        \App\Models\Filas::factory()->create(['filas' => 'FNR']);
+        \App\Models\Filas::factory()->create(['filas' => 'Prioridad']);
 
         \App\Models\User::factory()->create(['name' => 'admin','email' => 'admin@example.com','roles_id' => 1]);
         \App\Models\User::factory()->create(['name' => 'ventanilla 1','email' => 'ceci@example.com','roles_id' => 2]);
