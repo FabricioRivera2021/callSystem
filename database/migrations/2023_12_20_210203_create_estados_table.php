@@ -19,9 +19,9 @@ return new class extends Migration
                 'En preparación',
                 'Para pagar',
                 'Para entregar',
-                'Pausados',
-                'Cancelados',
-                'Finalizados',
+                'Pausado',
+                'Cancelado',
+                'Finalizado',
             ]);
             $table->timestamps();
         });

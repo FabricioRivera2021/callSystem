@@ -11,7 +11,7 @@ class Roles extends Model
     use HasFactory;
 
     protected $fillable = [
-        'role'
+        'roles'
     ];
 
     public function user():BelongsTo

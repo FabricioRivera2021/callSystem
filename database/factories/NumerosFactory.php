@@ -23,22 +23,8 @@ class NumerosFactory extends Factory
         return [
             'numero' => self::$counter++,
             'user_id' => self::$counter2 < 9 ? self::$counter2++ : null,
-            'estado' => fake()->randomElement([
-                'Sin atender',
-                'En ventanilla',
-                'En preparación',
-                'Para pagar',
-                'Para entregar',
-                'Pausados',
-                'Cancelados',
-                'Finalizados',
-            ]),
-            'fila' => fake()->randomElement([
-                'Comun',
-                'Emergencia',
-                'FNR',
-                'Prioridad'
-            ])
+            'estado_id' => fake()->numberBetween(1, 8),
+            'fila_id' => fake()->numberBetween(1, 4)
         ];
     }
 }
