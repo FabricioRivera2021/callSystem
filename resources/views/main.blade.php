@@ -9,7 +9,7 @@
             <div class="w-[calc(100vw-10rem)]">
 
                 {{-- _______________________________________________________________________________GRID --}}
-                <div class="w-full grid grid-cols-7 grid-rows-3 pt-10 h-[calc(100vh-3.5rem)] gap-1 px-2">
+                <div class="w-full grid grid-cols-7 grid-rows-3 pt-10 h-[calc(100vh-3.5rem)] gap-1 px-2 mt-6">
 
                     {{-- _______________________________________________________________________________table numeros --}}
                     <div class="bg-slate-100 col-span-4 row-span-3 border rounded m-1 p-1 overflow-y-auto overflow-x-hidden">
