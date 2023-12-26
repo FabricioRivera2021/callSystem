@@ -2,10 +2,10 @@
 
     <div class="h-screen flex justify-center items-center mx-auto bg-gradient-to-b from-sky-200 via-transparent to-white">
         
-        <form action="{{route('auth.store')}}" method="POST" class="flex flex-col gap-4 items-center justify-center bg-slate-300 p-5 shadow-md rounded-sm w-[32rem]">
+        <form action="{{route('auth.store')}}" method="POST" class="flex flex-col gap-4 items-center justify-center bg-indigo-100 p-5 shadow-md rounded-sm w-[32rem]">
             @csrf
             
-            <h3 class="font-bold text-slate-500 text-lg">LOGIN</h3>
+            <h3 class="font-bold text-slate-400 text-lg">LOGIN</h3>
             <label for="name" class="w-full text-slate-600">Usuario
                 <input name="name" type="text" class="bg-slate-50 w-full rounded-sm" >
             </label>

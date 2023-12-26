@@ -5,11 +5,9 @@
             <li>Agente - <span class="font-semibold">{{auth()->user()->name}}</span></li>
             <li>Rol -
                 <select name="" id="">
-                    <option value="Hola" selected>Tetas y culos</option>
-                    <option value="Hola">Tetas y culos</option>
-                    <option value="Hola">Tetas y culos</option>
-                    <option value="Hola">Tetas y culos</option>
-                    <option value="Hola">Tetas y culos</option>
+                    @foreach (\App\Models\Roles::all() as $role)
+                        <option value="Hola">{{$role->roles}}</option>
+                    @endforeach
                 </select>
             </li>
             <li>

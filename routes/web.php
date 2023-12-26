@@ -33,6 +33,9 @@ Route::delete('auth', [AuthController::class, 'destroy'])->name('auth.destroy');
 
 Route::get('online-user', [UserController::class, 'index']);
 
+Route::resource('numeros', NumerosController::class)
+    ->only(['create', 'store']);
+
 Route::middleware('auth')->group(function (){
     Route::resource('numeros', NumerosController::class)
         ->only(['index']);
