@@ -9,7 +9,7 @@
             <div class="w-[calc(100vw-10rem)]">
 
                 {{-- _______________________________________________________________________________GRID --}}
-                <div class="w-full grid grid-cols-7 grid-rows-3 pt-10 h-[calc(100vh-3.5rem)] gap-1 px-2 mt-6">
+                <div class="w-full grid grid-cols-7 grid-rows-3 pt-10 h-[calc(100vh-3.5rem)] gap-1 px-2 mt-6  overflow-x-hidden">
 
                     {{-- _______________________________________________________________________________table numeros --}}
                     <div class="bg-slate-100 col-span-4 row-span-3 border rounded m-1 p-1 overflow-y-auto">
@@ -83,8 +83,8 @@
                               <tr class="border-b dark:border-neutral-500">
                                 <td class="whitespace-nowrap px-2 py-1 font-semibold"><a class="hover:text-blue-400" href="#">Pedir numero</a></td>
                                 <td class="whitespace-nowrap px-2 py-1 font-medium">{{$usuario->name}}</td>
-                                <td class="whitespace-nowrap px-2 py-1">{{ isset($usuario->role) ? $usuario->role : '' }}</td>
-                                <td class="whitespace-nowrap px-2 py-1">{{ isset($usuario->numero->fila) ? $usuario->numero->fila : 'Sin asignar' }}</td>
+                                <td class="whitespace-nowrap px-2 py-1">{{ isset($usuario->roles) ? $usuario->roles->roles : '' }}</td>
+                                <td class="whitespace-nowrap px-2 py-1">{{ isset($usuario->numero->filas->filas) ? $usuario->numero->filas->filas : 'Sin asignar' }}</td>
                                 <td class="whitespace-nowrap px-2 py-1">{{ isset($usuario->numero->numero) ? $usuario->numero->numero : '---' }}</td>
                               </tr>
                             @empty
