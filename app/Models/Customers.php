@@ -10,6 +10,10 @@ class Customers extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'numeros_id', 'name', 'ci'
+    ];
+
     public function numeros():BelongsTo
     {
         return $this->belongsTo(Numeros::class);
