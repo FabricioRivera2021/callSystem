@@ -7,7 +7,6 @@ use Livewire\Component;
 
 class NumerosVista extends Component
 {
-    public static $numeros = '';
 
     public function render()
     {

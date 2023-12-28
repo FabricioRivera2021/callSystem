@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Numeros extends Model
@@ -26,9 +25,9 @@ class Numeros extends Model
         return $this->belongsTo(Estados::class);
     }
 
-    public function customers(): HasMany
+    public function customers(): BelongsTo
     {
-        return $this->hasMany(Customers::class);
+        return $this->belongsTo(Customers::class);
     }
 
     // public function numeros():BelongsTo
