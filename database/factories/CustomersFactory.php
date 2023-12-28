@@ -22,7 +22,6 @@ class CustomersFactory extends Factory
         return [
             'name' => fake()->name(),
             'ci' => fake()->numberBetween(5600, 90000),
-            'numeros_id' => self::$counter++
         ];
     }
 }
