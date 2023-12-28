@@ -2,7 +2,6 @@
 
 namespace App\Livewire;
 
-use App\Models\Customers;
 use App\Models\Numeros;
 use Livewire\Component;
 
@@ -10,20 +9,19 @@ class PanelNumerico extends Component
 {
     public $numero = '';
 
+    public $data = '';
+
     public function save()
     {
-        Numeros::create([
-            'numero' => $this->numero,
+        $data = Numeros::create([
+            'numero' => 114,
             // hardcodeado
+            'customers_id' => $this->numero,
             'estados_id' => 1,
             'filas_id' => 2,
         ]);
 
-        Customers::create([
-            'numeros_id' => 90,
-            'name' => 'testing',
-            'ci' => 1234565
-        ]);
+        $this->dispatch('numero-creado'); 
     }
 
     public function render()

@@ -12,7 +12,7 @@
         </thead>
         <tbody>
             @forelse ($numeros as $numero)
-            <tr class="border-b dark:border-neutral-500">
+            <tr class="border-b dark:border-neutral-500" wire:key="{{ $numero->id }}">
                 <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
                 <td class="whitespace-nowrap px-1 py-1">{{$numero->numero}}</td>
                 <td class="whitespace-nowrap px-1 py-1">{{$numero->filas->filas}}</td>
