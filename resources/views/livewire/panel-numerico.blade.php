@@ -1,6 +1,6 @@
 <div>
     <div class="w-screen h-screen flex justify-center items-center">
-        <form class="grid grid-cols-3 grid-rows-4 gap-1" wire:submit="save">
+        <form class="grid grid-cols-3 grid-rows-4 gap-1">
             <div wire:click="appendNumber(1)" class="col-span-1 p-5 bg-slate-300 border font-semibold text-slate-500 hover:bg-blue-300">1</div>
             <div wire:click="appendNumber(2)" class="col-span-1 p-5 bg-slate-300 border font-semibold text-slate-500 hover:bg-blue-300">2</div>
             <div wire:click="appendNumber(3)" class="col-span-1 p-5 bg-slate-300 border font-semibold text-slate-500 hover:bg-blue-300">3</div>
@@ -14,6 +14,9 @@
 
             <input type="text" wire:model="displayNumber" readonly>
 
+            
+
+            <button wire:click="clear" class="border rounded-xs bg-blue-400 w-full col-span-3 py-1 font-semibold text-slate-100">Clear</button>
             <button wire:click="save" class="border rounded-xs bg-blue-400 w-full col-span-3 py-1 font-semibold text-slate-100">Siguiente</button>
         </form>
     </div>

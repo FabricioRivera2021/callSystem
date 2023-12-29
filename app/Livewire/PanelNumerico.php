@@ -16,10 +16,17 @@ class PanelNumerico extends Component
         $this->displayNumber .= $number;
     }
 
+    public function clear()
+    {
+        $this->displayNumber = '';
+    }
+    
     public function save()
     {
+        $numerito = Numeros::latest()->first();
+
         Numeros::create([
-            'numero' => 1,
+            'numero' => (Numeros::latest()->first()) ? Numeros::latest()->first()->numero + 1 : 1,
             // hardcodeado
             'customers_id' => intval($this->displayNumber),
             'estados_id' => 1,
@@ -29,6 +36,7 @@ class PanelNumerico extends Component
         // Clear the display for a new number
         $this->displayNumber = '';
     }
+
 
     public function render()
     {

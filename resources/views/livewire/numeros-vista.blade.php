@@ -16,7 +16,7 @@
                 <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
                 <td class="whitespace-nowrap px-1 py-1">{{$numero->numero}}</td>
                 <td class="whitespace-nowrap px-1 py-1">{{$numero->filas->filas}}</td>
-                <td class="whitespace-nowrap px-1 py-1"><span x-data="clock('{{$numero->created_at}}')" x-init="startClock()" x-text="formattedTime"></span> </td>
+                <td class="whitespace-nowrap px-1 py-1"> <span x-data="clock('{{$numero->created_at}}')" x-init="startClock()" x-text="formattedTime"></span> </td>
                 <td class="whitespace-nowrap px-1 py-1">{{$numero->estados->estados}}</td>
                 <td class="whitespace-nowrap px-1 py-1">{{$numero->customers->name}}</td>
             </tr>
