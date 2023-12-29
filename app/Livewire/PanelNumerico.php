@@ -14,7 +14,7 @@ class PanelNumerico extends Component
     public function save()
     {
         $data = Numeros::create([
-            'numero' => 114,
+            'numero' => 115,
             // hardcodeado
             'customers_id' => $this->numero,
             'estados_id' => 1,
