@@ -9,19 +9,25 @@ class PanelNumerico extends Component
 {
     public $numero = '';
 
-    public $data = '';
+    public $displayNumber = '';
+
+    public function appendNumber($number)
+    {
+        $this->displayNumber .= $number;
+    }
 
     public function save()
     {
-        $data = Numeros::create([
-            'numero' => 115,
+        Numeros::create([
+            'numero' => 1,
             // hardcodeado
-            'customers_id' => $this->numero,
+            'customers_id' => intval($this->displayNumber),
             'estados_id' => 1,
             'filas_id' => 2,
         ]);
 
-        $this->dispatch('numero-creado'); 
+        // Clear the display for a new number
+        $this->displayNumber = '';
     }
 
     public function render()
