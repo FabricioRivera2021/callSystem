@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Numeros;
+use App\Models\User;
 use Livewire\Component;
 
 class PanelNumerico extends Component
@@ -23,7 +24,11 @@ class PanelNumerico extends Component
     
     public function save()
     {
-        $numerito = Numeros::latest()->first();
+        // id(User::)
+
+        // $this->validate([
+        //     'customers_id'
+        // ]);
 
         Numeros::create([
             'numero' => (Numeros::latest()->first()) ? Numeros::latest()->first()->numero + 1 : 1,
