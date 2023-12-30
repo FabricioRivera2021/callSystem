@@ -2,8 +2,9 @@
 
 namespace App\Livewire;
 
+use App\Models\Customers;
 use App\Models\Numeros;
-use App\Models\User;
+use Illuminate\Validation\Rule;
 use Livewire\Component;
 
 class PanelNumerico extends Component
@@ -11,6 +12,12 @@ class PanelNumerico extends Component
     public $numero = '';
 
     public $displayNumber = '';
+
+    public $customers_id = '';
+
+    public $estados_id = 1;
+
+    public $filas_id = 2;
 
     public function appendNumber($number)
     {
@@ -24,18 +31,19 @@ class PanelNumerico extends Component
     
     public function save()
     {
-        // id(User::)
-
-        // $this->validate([
-        //     'customers_id'
-        // ]);
+        $this->customers_id = intval($this->displayNumber);
+        
+        $validated = $this->validate([
+            'customers_id' => 'exists:customers,ci',
+            // 'estados_id' => 'required|in:1',
+            // 'filas_id' => 'required|in:2'
+        ]);
 
         Numeros::create([
             'numero' => (Numeros::latest()->first()) ? Numeros::latest()->first()->numero + 1 : 1,
-            // hardcodeado
-            'customers_id' => intval($this->displayNumber),
+            'customers_id' => Customers::where('ci', $validated['customers_id'])->get('id')[0]->id,
             'estados_id' => 1,
-            'filas_id' => 2,
+            'filas_id' => 2
         ]);
 
         // Clear the display for a new number
