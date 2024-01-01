@@ -32,6 +32,10 @@ class PanelNumerico extends Component
     public function save()
     {
         $this->customers_id = intval($this->displayNumber);
+
+        // Clear the display for a new number
+        $this->displayNumber = '';
+        $this->dispatch('error');
         
         $validated = $this->validate([
             'customers_id' => 'exists:customers,ci',
@@ -46,8 +50,7 @@ class PanelNumerico extends Component
             'filas_id' => 2
         ]);
 
-        // Clear the display for a new number
-        $this->displayNumber = '';
+        $this->dispatch('numberCreated');
     }
 
 

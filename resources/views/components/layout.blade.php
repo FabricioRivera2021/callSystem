@@ -46,11 +46,12 @@
 
                     formatTime(time) {
                         // Get minutes and seconds
+                        const hours = time.getHours().toString().padStart(2, '0');
                         const minutes = time.getMinutes().toString().padStart(2, '0');
                         const seconds = time.getSeconds().toString().padStart(2, '0');
 
                         // Return the formatted time
-                        return `${minutes}:${seconds}`;
+                        return `${hours}:${minutes}:${seconds}`;
                     },
                 };
             }

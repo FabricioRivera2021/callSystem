@@ -17,78 +17,79 @@
             <div wire:click="appendNumber(0)" class="col-span-2 p-5 text-4xl bg-slate-300 border font-semibold text-slate-500 hover:bg-blue-300 text-center">0</div>
             <div wire:click="appendNumber(0)" class="col-span-1 p-5 text-4xl bg-orange-300 border font-semibold text-slate-500 hover:bg-blue-300 text-center"><</div>
         </div>
-        
-        <input class="my-5 px-5 py-2 border rounded-sm" type="text" wire:model="displayNumber" readonly>
 
+        <input class="my-5 px-5 py-2 border rounded-sm" type="text" wire:model="displayNumber" readonly>
+        
         @error('customers_id')
-            <div class="fixed inset-x-0 bottom-0 flex items-end justify-center px-4 py-6 pointer-events-none sm:p-6 sm:items-start sm:justify-end z-50">
-                <div 
-                x-data="{ show: false }"
-                    x-init="() => {
-                        setTimeout(() => show = true, 100);
-                    }"
-                x-show="show" 
-                x-description="Notification panel, show/hide based on alert state." 
-                x-transition:enter="transition ease-out duration-300"
-                x-transition:enter-start="opacity-0 transform scale-90"
-                x-transition:enter-end="opacity-100 transform scale-100"
-                x-transition:leave="transition ease-in duration-300"
-                x-transition:leave-start="opacity-100 transform scale-100"
-                x-transition:leave-end="opacity-0 transform scale-90"
-                    class="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto">
+            <div class="fixed inset-x-0 bottom-10 flex items-center justify-center px-4 py-6 pointer-events-none sm:p-6 sm:items-start z-50">
+                <div    
+                    x-data="{ show: false, timeout: null }"
+                    x-init="@this.on('error', () => {
+                        clearTimeout(timeout);
+                        show = true;
+                        timeout = setTimeout(() => show = false, 5000);
+                    })"
+                    x-show="show" 
+                    x-description="Notification panel, show/hide based on alert state." 
+                    x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0 transform scale-90"
+                    x-transition:enter-end="opacity-100 transform scale-100"
+                    x-transition:leave="transition ease-in duration-300"
+                    x-transition:leave-start="opacity-100 transform scale-100"
+                    x-transition:leave-end="opacity-0 transform scale-90"
+                    class="max-w-xs w-full bg-white shadow-lg rounded-lg pointer-events-auto"
+                >
                     <div class="rounded-lg shadow-xs overflow-hidden bg-red-500">
                         <div class="p-4">
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0">
-                            </div>
-                            <div class="ml-3 w-0 flex-1 pt-0.5">
-                            <p class="font-semibold leading-5 text-gray-100">
-                                No se encontro el documento
-                            </p>
+                            <div class="flex items-start">
+                                <div class="ml-3 w-0 flex-1 pt-0.5">
+                                    <p class="font-semibold leading-5 text-gray-100">
+                                        No se encontro el documento
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                        </div>
-                </div>
+                    </div>
                 </div>
             </div>
         @else
-            <div class="fixed inset-x-0 bottom-0 flex items-end justify-center px-4 py-6 pointer-events-none sm:p-6 sm:items-start sm:justify-end z-50">
+            <div class="fixed inset-x-0 bottom-10 flex items-center justify-center px-4 py-6 pointer-events-none sm:p-6 sm:items-start z-50">
                 <div 
-                x-data="{ show: false }"
-                    x-init="() => {
-                        setTimeout(() => show = true, 100);
-                        setTimeout(() => show = false, 3000);
-                    }"
-                x-show="show" 
-                x-description="Notification panel, show/hide based on alert state." 
-                @click.away="show = false" 
-                x-transition:enter="transition ease-out duration-300"
-                x-transition:enter-start="opacity-0 transform scale-90"
-                x-transition:enter-end="opacity-100 transform scale-100"
-                x-transition:leave="transition ease-in duration-300"
-                x-transition:leave-start="opacity-100 transform scale-100"
-                x-transition:leave-end="opacity-0 transform scale-90"
-                    class="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto">
+                    x-data="{ show: false, timeout: null }"
+                    x-init="@this.on('numberCreated', () => {
+                        clearTimeout(timeout);
+                        show = true;
+                        timeout = setTimeout(() => show = false, 3000);
+                    })"
+                    x-show="show" 
+                    x-description="Notification panel, show/hide based on alert state." 
+                    x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0 transform scale-90"
+                    x-transition:enter-end="opacity-100 transform scale-100"
+                    x-transition:leave="transition ease-in duration-300"
+                    x-transition:leave-start="opacity-100 transform scale-100"
+                    x-transition:leave-end="opacity-0 transform scale-90"
+                    class="max-w-xs w-full bg-white shadow-lg rounded-lg pointer-events-auto"
+                >
                     <div class="rounded-lg shadow-xs overflow-hidden bg-green-500">
                         <div class="p-4">
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0">
-                            </div>
-                            <div class="ml-3 w-0 flex-1 pt-0.5">
-                            <p class="font-semibold leading-5 text-gray-100">
-                                Imprimiendo numero
-                            </p>
+                            <div class="flex items-start">
+                                <div class="ml-3 w-0 flex-1 pt-0.5">
+                                    <p class="font-semibold leading-5 text-gray-100">
+                                        Imprimiendo numero
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                        </div>
-                </div>
+                    </div>
                 </div>
             </div>
         @enderror
-
+        
         <div>
             <button wire:click="clear" class="border rounded-xs bg-blue-400 px-3 col-span-3 py-1 font-semibold text-slate-100">Cancelar</button>
-            <button wire:click="save" class="border rounded-xs bg-blue-400 px-3 col-span-3 py-1 font-semibold text-slate-100">Siguiente</button>
+            <button wire:click="save" x-show="show = true" class="border rounded-xs bg-blue-400 px-3 col-span-3 py-1 font-semibold text-slate-100">Siguiente</button>
         </div>
+        
     </div>
 </div>
