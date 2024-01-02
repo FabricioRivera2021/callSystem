@@ -47,7 +47,7 @@ class PanelNumerico extends Component
             'numero' => (Numeros::latest()->first()) ? Numeros::latest()->first()->numero + 1 : 1,
             'customers_id' => Customers::where('ci', $validated['customers_id'])->get('id')[0]->id,
             'estados_id' => 1,
-            'filas_id' => 2
+            'filas_id' => 1
         ]);
 
         $this->dispatch('numberCreated');

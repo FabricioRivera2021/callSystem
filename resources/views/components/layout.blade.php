@@ -24,7 +24,6 @@
             window.Alpine = Alpine
  
             // Alpine.start()
-
             function clock(timeDifferenceInSeconds) {
 
                 let date = new Date()
@@ -46,9 +45,11 @@
 
                     formatTime(time) {
                         // Get minutes and seconds
-                        const hours = time.getHours().toString().padStart(2, '0');
+                        const hours = time.getHours().toString().padStart(1, '0');
                         const minutes = time.getMinutes().toString().padStart(2, '0');
                         const seconds = time.getSeconds().toString().padStart(2, '0');
+
+                        console.log(hours);
 
                         // Return the formatted time
                         return `${hours}:${minutes}:${seconds}`;
