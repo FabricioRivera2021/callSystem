@@ -4,7 +4,6 @@ namespace App\Livewire;
 
 use App\Models\Customers;
 use App\Models\Numeros;
-use Illuminate\Validation\Rule;
 use Livewire\Component;
 
 class PanelNumerico extends Component
@@ -24,6 +23,11 @@ class PanelNumerico extends Component
         $this->displayNumber .= $number;
     }
 
+    public function deleteNumber()
+    {
+        $this->displayNumber = substr($this->displayNumber, 0, -1);
+    }
+
     public function clear()
     {
         $this->displayNumber = '';
@@ -39,8 +43,8 @@ class PanelNumerico extends Component
         
         $validated = $this->validate([
             'customers_id' => 'exists:customers,ci',
-            // 'estados_id' => 'required|in:1',
-            // 'filas_id' => 'required|in:2'
+            'estados_id' => 'required',
+            'filas_id' => 'required'
         ]);
 
         Numeros::create([
