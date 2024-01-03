@@ -15,14 +15,14 @@ class NumerosFactory extends Factory
      * @return array<string, mixed>
      */
 
-    // private static $counter = 1;
+    private static $counter = 1;
     private static $counter2 = 1;
     private static $counter3 = 1;
 
     public function definition(): array
     {
         return [
-            // 'numero' => self::$counter++,
+            'numero' => self::$counter++,
             'customers_id' => self::$counter2++,
             'user_id' => self::$counter3 < 9 ? self::$counter3++ : null,
             'estados_id' => fake()->numberBetween(1, 8),

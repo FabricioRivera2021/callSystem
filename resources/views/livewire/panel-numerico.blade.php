@@ -75,7 +75,7 @@
                         <div class="p-4">
                             <div class="flex items-start">
                                 <div class="ml-3 w-0 flex-1 pt-0.5">
-                                    <p class="font-semibold leading-5 text-gray-100">
+                                    <p class="font-semibold text-center leading-5 text-gray-100">
                                         Imprimiendo numero
                                     </p>
                                 </div>
