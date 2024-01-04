@@ -36,7 +36,8 @@
               </select>
               <div>
                 <div><label for="search">Buscar</label></div>
-                <div><input class="w-32 text-slate-700" wire:model="search" name="search" type="text"></div>
+                <div><input class="w-32 text-slate-700" wire:model.live="handleSearch" type="text"></div>
+                <div><span class="text-red-400 text-xs">Error</span></div>
               </div>
             </div>
         </div>

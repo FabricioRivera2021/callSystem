@@ -8,6 +8,13 @@ class SideBar extends Component
 {
     public $filtro = '';
 
+    public $search = '';
+
+    public function handleSearch()
+    {
+        dd('hola');
+    }
+
     public function filter($estado)
     {
         $this->filtro = $estado;

@@ -88,7 +88,7 @@
         
         <div>
             <button wire:click="clear" class="border rounded-xs bg-blue-400 px-3 col-span-3 py-1 font-semibold text-slate-100">Cancelar</button>
-            <button wire:click="save" x-show="show = true" class="border rounded-xs bg-blue-400 px-3 col-span-3 py-1 font-semibold text-slate-100">Siguiente</button>
+            <button wire:click="save"  class="border rounded-xs bg-blue-400 px-3 col-span-3 py-1 font-semibold text-slate-100">Siguiente</button>
         </div>
         
     </div>

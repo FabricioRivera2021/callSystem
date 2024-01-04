@@ -24,10 +24,9 @@ class NumerosVista extends Component
 
         return view('livewire.numeros-vista', [
             'numeros' => Numeros::with(['customers', 'filas', 'estados'])
-                                    ->when($filter ?? null, function($query) use ($filter){
-                                            $query->where('estados_id', $filter);
-                                        })
-                                    ->get()
+                ->when($filter ?? null, function($query) use ($filter){
+                        $query->where('estados_id', $filter);
+                    })->get()
         ]);
     }
 }
