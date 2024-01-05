@@ -16,6 +16,8 @@ class SideBar extends Component
         2 => 'Preparacion',
         3 => 'Cajas',
         4 => 'Entrega',
+        5 => 'Pausados',
+        6 => 'Cancelados',
     ];
 
     public function handleSearch()

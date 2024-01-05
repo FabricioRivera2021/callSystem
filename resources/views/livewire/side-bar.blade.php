@@ -5,7 +5,7 @@
               <h5>Filtrar</h5>
               @foreach ($filters as $key => $filter)
                   <button 
-                      class="rounded hover:bg-orange-400"
+                      class="rounded hover:bg-orange-400 hover:text-slate-100"
                       :class="{
                          'bg-orange-400': activeFilter === '{{ $key }}', 
                          'bg-slate-100': activeFilter !== '{{ $key }}',
