@@ -10,9 +10,17 @@ class SideBar extends Component
 
     public $search = '';
 
+    public $filters = [
+        0 => 'Todos',
+        1 => 'Ventanilla',
+        2 => 'Preparacion',
+        3 => 'Cajas',
+        4 => 'Entrega',
+    ];
+
     public function handleSearch()
     {
-        dd('hola');
+        $this->dispatch('search', searchParameter: $this->search);
     }
 
     public function filter($estado)
@@ -24,6 +32,8 @@ class SideBar extends Component
 
     public function render()
     {
-        return view('livewire.side-bar');
+        return view('livewire.side-bar', [
+            'filtros' => $this->filters
+        ]);
     }
 }
