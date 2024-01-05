@@ -46,6 +46,6 @@ class DatabaseSeeder extends Seeder
         
         \App\Models\Customers::factory(100)->create();
         
-        // \App\Models\Numeros::factory(50)->create();
+        \App\Models\Numeros::factory(30)->create();
     }
 }
