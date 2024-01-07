@@ -16,11 +16,11 @@ class CustomersFactory extends Factory
      */
 
     private static $counter = 1;
-
     public function definition(): array
     {
         return [
             'name' => fake()->name(),
+            'numeros_id' => self::$counter++,
             'ci' => fake()->numberBetween(1000000, 5000000),
         ];
     }

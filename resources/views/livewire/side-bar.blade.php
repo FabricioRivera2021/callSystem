@@ -20,8 +20,13 @@
               @endforeach
               <hr>
               <select class="text-slate-100 px-2 py-1 bg-orange-400 rounded-sm" name="" id="">
-                @foreach (\App\Models\Filas::all() as $fila)
-                    <option value="Hola">{{$fila->filas}}</option>
+                @foreach ($filas as $key => $fila)
+                    <option 
+                        wire:model="fila"
+                        wire:click="handleFila({{$key}})" 
+                        value="{{$fila}}">
+                        {{$fila}}
+                    </option>
                 @endforeach
               </select>
               <div>

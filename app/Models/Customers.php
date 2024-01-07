@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Customers extends Model
 {
     use HasFactory;
 
-    public function numero():HasMany
+    public function numeros():BelongsTo
     {
-        return $this->hasMany(Numeros::class);
+        return $this->BelongsTo(Numeros::class);
     }
 }

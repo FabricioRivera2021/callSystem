@@ -37,7 +37,7 @@
 
   <footer class="z-50 w-24 absolute bottom-2 left-2 whitespace-nowrap text-xs text-slate-200">
       <div>
-          <p>Fabricio Rivera &copy; 2024</p>
+          <p> &copy; 2024</p>
       </div>
   </footer>
 

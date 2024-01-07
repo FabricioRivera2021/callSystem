@@ -8,17 +8,34 @@ class SideBar extends Component
 {
     public $filtro = '';
 
+    public $fila = '';
+
     public $search = '';
 
     public $filters = [
         0 => 'Todos',
         1 => 'Ventanilla',
-        2 => 'Preparacion',
-        3 => 'Cajas',
-        4 => 'Entrega',
-        5 => 'Pausados',
-        6 => 'Cancelados',
+        3 => 'Preparacion',
+        4 => 'Cajas',
+        5 => 'Entrega',
+        6 => 'Pausados',
+        7 => 'Cancelados',
     ];
+
+    public $filas = [
+        0 => 'Todos',
+        1 => 'Comun',
+        2 => 'Emergencia',
+        3 => 'FNR',
+        4 => 'Prioridad'
+    ];
+
+    public function handleFila($fila)
+    {
+        $this->fila = $fila;
+
+        $this->dispatch('filterByFila', fila: $this->fila);
+    }
 
     public function handleSearch()
     {
