@@ -35,8 +35,6 @@ class NumerosVista extends Component
         $this->searchBox = $searchParameter;
     }
 
-
-
     public function render()
     {
         $filter = $this->estado_id;

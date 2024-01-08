@@ -31,16 +31,28 @@
                 return {
                     timeDifference: Date.parse(timeDifferenceInSeconds),
                     formattedTime: '',
+                    intervalId: null, // Store the interval ID for later clearing
 
                     startClock() {
+                        // Clear existing interval
+                        this.clearClock();
+
                         // Update formattedTime periodically based on timeDifference
-                        setInterval(() => {
+                        this.intervalId = setInterval(() => {
                             const currentTime = new Date();
-                            const userCreationTime = new Date(currentTime.getTime() - this.timeDifference); // Convert seconds to milliseconds
+                            const userCreationTime = new Date(currentTime.getTime() - this.timeDifference);
 
                             // Format the time as "mm:ss"
                             this.formattedTime = this.formatTime(userCreationTime);
                         }, 1000); // Update every second
+                    },
+
+                    clearClock() {
+                        // Clear the interval if it's set
+                        if (this.intervalId !== null) {
+                            clearInterval(this.intervalId);
+                            this.intervalId = null;
+                        }
                     },
 
                     formatTime(time) {
