@@ -44,9 +44,8 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create(['name' => 'Ricardo','email' => 'generico@example.com','roles_id' => 6]);
         \App\Models\User::factory()->create(['name' => 'Miguel','email' => 'generico2@example.com','roles_id' => 6]);
         
-        \App\Models\Numeros::factory(30)->create();
+        \App\Models\Numeros::factory(20)->create();
 
-        \App\Models\Customers::factory(29)->create();
-        
+        \App\Models\Customers::factory(100)->create(); 
     }
 }

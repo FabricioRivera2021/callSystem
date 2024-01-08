@@ -47,12 +47,19 @@ class PanelNumerico extends Component
             'filas_id' => 'required'
         ]);
 
-        Numeros::create([
-            'numero' => (Numeros::latest()->first()) ? Numeros::latest()->first()->numero + 1 : 1,
-            'customers_id' => Customers::where('ci', $validated['customers_id'])->get('id')[0]->id,
+        $number = Numeros::create([
+            'numero' => (Numeros::latest()->first()) ? Numeros::latest()->orderBy('id', 'desc')->first()->numero + 1 : 1,
+            // 'customers_id' => Customers::where('ci', $validated['customers_id'])->get('id')->id,
             'estados_id' => 1,
             'filas_id' => 1
         ]);
+
+        if(isset($number)){
+            Customers::where('ci', $validated['customers_id'])->update([
+                'numeros_id' => Numeros::latest()->orderBy('id', 'desc')->first()->id
+            ]);
+        }
+        
 
         $this->dispatch('numberCreated');
     }
