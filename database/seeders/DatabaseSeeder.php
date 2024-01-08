@@ -35,14 +35,14 @@ class DatabaseSeeder extends Seeder
         \App\Models\Filas::factory()->create(['filas' => 'Prioridad']);
 
         \App\Models\User::factory()->create(['name' => 'admin','email' => 'admin@example.com','roles_id' => 1]);
-        \App\Models\User::factory()->create(['name' => 'ventanilla 1','email' => 'ceci@example.com','roles_id' => 2]);
-        \App\Models\User::factory()->create(['name' => 'ventanilla 2','email' => 'vero@example.com','roles_id' => 3]);
-        \App\Models\User::factory()->create(['name' => 'ventanilla 3','email' => 'luci@example.com','roles_id' => 4]);
-        \App\Models\User::factory()->create(['name' => 'ventanilla 4','email' => 'vale@example.com','roles_id' => 5]);
-        \App\Models\User::factory()->create(['name' => 'Entrega 1','email' => 'marcos@example.com','roles_id' => 6]);
-        \App\Models\User::factory()->create(['name' => 'Entrega 2','email' => 'fabi@example.com','roles_id' => 6]);
-        \App\Models\User::factory()->create(['name' => 'Preparacion 1','email' => 'generico@example.com','roles_id' => 6]);
-        \App\Models\User::factory()->create(['name' => 'Preparacion 2','email' => 'generico2@example.com','roles_id' => 6]);
+        \App\Models\User::factory()->create(['name' => 'Marcos','email' => 'ceci@example.com','roles_id' => 2]);
+        \App\Models\User::factory()->create(['name' => 'Diego','email' => 'vero@example.com','roles_id' => 3]);
+        \App\Models\User::factory()->create(['name' => 'Gimena','email' => 'luci@example.com','roles_id' => 4]);
+        \App\Models\User::factory()->create(['name' => 'Diana','email' => 'vale@example.com','roles_id' => 5]);
+        \App\Models\User::factory()->create(['name' => 'Marcela','email' => 'marcos@example.com','roles_id' => 6]);
+        \App\Models\User::factory()->create(['name' => 'Pepe','email' => 'fabi@example.com','roles_id' => 6]);
+        \App\Models\User::factory()->create(['name' => 'Ricardo','email' => 'generico@example.com','roles_id' => 6]);
+        \App\Models\User::factory()->create(['name' => 'Miguel','email' => 'generico2@example.com','roles_id' => 6]);
         
         \App\Models\Numeros::factory(30)->create();
 

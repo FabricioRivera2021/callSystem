@@ -15,8 +15,8 @@
                 <td class="whitespace-nowrap px-2 py-1 font-semibold"><a class="hover:text-blue-400" href="#">Pedir numero</a></td>
                 <td class="whitespace-nowrap px-2 py-1 font-medium">{{$usuario->name}}</td>
                 <td class="whitespace-nowrap px-2 py-1">{{ isset($usuario->roles) ? $usuario->roles->roles : '' }}</td>
-                <td class="whitespace-nowrap px-2 py-1">{{ isset($usuario->numero->filas->filas) ? $usuario->numero->filas->filas : 'Sin asignar' }}</td>
-                <td class="whitespace-nowrap px-2 py-1">{{ isset($usuario->numero->numero) ? $usuario->numero->numero : '---' }}</td>
+                <td class="whitespace-nowrap px-2 py-1">{{ $usuario->numeros->filas->filas ?? 'Sin asignar' }}</td>
+                <td class="whitespace-nowrap px-2 py-1">{{ isset($usuario->numeros->numero) ? $usuario->numeros->numero : '---' }}</td>
             </tr>
             @empty
                 <p>No hay data</p>
