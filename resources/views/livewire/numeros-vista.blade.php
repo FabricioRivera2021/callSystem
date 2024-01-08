@@ -10,26 +10,24 @@
             <th scope="col" class="px-1 py-4 text-slate-500 font-semibold">Nombre</th>
             </tr>
         </thead>
-        <tbody class="odd" >
+        <tbody class="odd">
             @forelse ($numeros as $numero)
-            <tr class="even:bg-gray-50 odd:bg-slate-200 border-b dark:border-neutral-500" 
-                wire:key="{{ $numero->id }}"
-                x-data="clock('{{$numero->created_at}}')" 
-                x-init="startClock()" >
-                    <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
-                    <td class="whitespace-nowrap px-1 py-1">{{$numero->numero}}</td>
-                    <td class="whitespace-nowrap px-1 py-1">{{$numero->filas->filas}}</td>
-                    <td class="whitespace-nowrap px-1 py-1">
-                        <span 
-                            class="px-1 text-slate-500 font-semibold" 
-
-                            x-text="formattedTime">
-                        </span>
-                    </td>
-                    <td class="whitespace-nowrap px-1 py-1">{{$numero->estados->estados}}</td>
-                    @foreach ($numero->customers as $customer)
-                        <td class="whitespace-nowrap px-1 py-1">{{$customer->name}}</td>
-                    @endforeach
+            <tr class="even:bg-gray-50 odd:bg-slate-200 border-b dark:border-neutral-500" wire:key="{{ $numero->id }}">
+                <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
+                <td class="whitespace-nowrap px-1 py-1">{{$numero->numero}}</td>
+                <td class="whitespace-nowrap px-1 py-1">{{$numero->filas->filas}}</td>
+                <td class="whitespace-nowrap px-1 py-1">
+                    <span 
+                        class="px-1 text-slate-500 font-semibold" 
+                        x-data="clock('{{$numero->created_at}}')" 
+                        x-init="startClock()" 
+                        x-text="formattedTime">
+                    </span>
+                </td>
+                <td class="whitespace-nowrap px-1 py-1">{{$numero->estados->estados}}</td>
+                @foreach ($numero->customers as $customer)
+                    <td class="whitespace-nowrap px-1 py-1">{{$customer->name}}</td>
+                @endforeach
             </tr>
             @empty
                 No hay numeros para mostrar
