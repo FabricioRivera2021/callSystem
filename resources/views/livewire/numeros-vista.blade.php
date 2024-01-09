@@ -20,7 +20,7 @@
                     <span 
                         class="px-1 text-slate-500 font-semibold" 
                         x-data="clock('{{$numero->created_at}}')" 
-                        x-init="$watch(startClock())" 
+                        x-init="startClock()" 
                         x-text="formattedTime">
                     </span>
                 </td>
