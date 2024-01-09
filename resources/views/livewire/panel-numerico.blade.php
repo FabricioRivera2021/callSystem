@@ -1,5 +1,5 @@
 <div>
-    <div class="w-screen h-screen flex flex-col justify-center items-center" x-data="{'isModalOpen': false}" x-on:keydown.escape="isModalOpen=false">
+    <div class="w-screen h-screen flex flex-col justify-start items-center pt-20" x-data="{'isModalOpen': false}" x-on:keydown.escape="isModalOpen=false">
 
         <h1 class="text-xl uppercase font-semibold text-slate-500 mb-1">Ingrese su documento</h1>
         <h2 class="text-sm font-semibold text-slate-500 mb-10">Sin puntos ni guiones</h2>
@@ -101,9 +101,10 @@
             </div>
         @enderror
         
-        <div>
-            <button wire:click="clear" class="border rounded-xs bg-blue-400 px-3 col-span-3 py-1 font-semibold text-slate-100">Cancelar</button>
-            <button wire:click="save" x-on:click="isModalOpen = true"  class="border rounded-xs bg-blue-400 px-3 col-span-3 py-1 font-semibold text-slate-100">Siguiente</button>
+        <div class="flex flex-col gap-1">
+            <button wire:click="clear" class="border rounded-xs bg-red-400 px-3 col-span-3 py-1 font-semibold text-slate-100">Cancelar</button>
+            <button wire:click="clear" class="border rounded-xs bg-blue-400 px-3 col-span-3 py-1 font-semibold text-slate-100">Agregar otra cedula</button>
+            <button wire:click="save"  class="border rounded-xs bg-blue-400 px-3 col-span-3 py-1 font-semibold text-slate-100">Sacar numero</button>
         </div>
         
     </div>

@@ -14,4 +14,9 @@ class Customers extends Model
     {
         return $this->BelongsTo(Numeros::class);
     }
+
+    public function filas():BelongsTo
+    {
+        return $this->BelongsTo(Filas::class);
+    }
 }

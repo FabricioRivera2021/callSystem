@@ -15,12 +15,9 @@ return new class extends Migration
             $table->id();
             $table->integer('numero')->unique();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('filas_id');
             $table->unsignedBigInteger('estados_id');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')
-            ->onDelete('cascade');
-            $table->foreign('filas_id')->references('id')->on('filas')
             ->onDelete('cascade');
             $table->foreign('estados_id')->references('id')->on('estados')
             ->onDelete('cascade');

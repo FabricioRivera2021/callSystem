@@ -4,19 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Filas extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'estado'
-    ];
-
-    public function numero():HasMany
+    public function customers():HasMany
     {
-        return $this->HasMany(Numeros::class);
+        return $this->HasMany(Customers::class);
     }
 }
