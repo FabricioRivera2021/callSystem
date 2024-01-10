@@ -98,6 +98,9 @@ class PanelNumerico extends Component
                 "name" => "Adriana Cronin"
             ]
         ]
+
+        ya que cada cedula que se ingresa al array tiene una key seria ideal borrar los registros del array con esa key
+        -- pendiente
         */
 
 
