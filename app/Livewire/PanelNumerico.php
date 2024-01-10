@@ -20,7 +20,9 @@ class PanelNumerico extends Component
 
     public $number = '';
 
-    public $repeatedNumber = false;
+    public $repeatedNumber = false;//valida si se esta repitiendo una cedula al ingresarla
+
+    public $numberAlreadyTaken = false;//valida si el numero ya lo tenia otra cedula
 
     public function appendNumber($number)
     {
@@ -76,13 +78,52 @@ class PanelNumerico extends Component
 
         $this->repeatedNumber = false;
         $this->dispatch('numberAdded');
-        return $validated;
+    }
+
+    public function deleteCi($ciToDelete)
+    {
+        /*
+        formato de manyCustomers
+        array:3 [▼ // app\Livewire\PanelNumerico.php:90
+            0 => array:2 [▼
+                "ci" => 1901444
+                "name" => "Prof. Rogers Ondricka"
+            ]
+            1 => array:2 [▼
+                "ci" => 2165616
+                "name" => "Mr. Ted Rath V"
+            ]
+            2 => array:2 [▼
+                "ci" => 1096066
+                "name" => "Adriana Cronin"
+            ]
+        ]
+        */
+
+
+        //borrar ci del array de manyCustomers
+        //validar que halla cedulas ingresadas
+        if(count($this->manyCustomers) > 0){
+            
+        //buscar la cedula ingresada por "ci"
+        dd($this->manyCustomers);
+        unset($this->manyCustomers['ci'][$ciToDelete]);
+        }
     }
 
     public function save()
     {
-        //Valido que se halla creado el array de customers en el paso anterior
-        if(count($this->manyCustomers) > 0){
+        //antes de crear el numero hay que validar que el o los customers no esten ya asginados a un numero
+        foreach($this->manyCustomers as $customer){
+            if(Customers::where('ci', $customer['ci'])->get()[0]->numeros_id !== null){
+                $this->numberAlreadyTaken = true;
+                $this->dispatch('errorNumberAlreadyTaken');
+            }
+        }
+
+        //Valido que se halla creado el array de customers en el paso anterior y que no tengan ya un numero asignado
+        if(count($this->manyCustomers) > 0 && $this->numberAlreadyTaken === false){
+            //creo el numero
             $this->number = Numeros::create([
                 'numero' => (Numeros::latest()->first()) ? Numeros::latest()->orderBy('id', 'desc')->first()->numero + 1 : 1,
                 'estados_id' => 1
@@ -105,7 +146,6 @@ class PanelNumerico extends Component
         }else{
             $this->dispatch('error');
         }
-            
             
         $this->dispatch('numberCreated');                    
     }

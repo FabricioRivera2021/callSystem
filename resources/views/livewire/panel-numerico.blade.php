@@ -30,7 +30,10 @@
         >
             @forelse ($cedulas as $cedula)
             <div class="w-full flex items-center justify-start bg-slate-100">
-                <p class="pl-3 text-slate-500 "><span class="text-slate-500">{{$cedula['ci']}} - {{$cedula['name']}}</span></p>
+                <div class="pl-3 py-1 text-slate-500 flex w-full justify-between">
+                    <div><p class="text-slate-500">{{$cedula['ci']}} - {{$cedula['name']}}</p></div>
+                    <div><button wire:click="deleteCi({{$cedula['ci']}})" class="border rounded bg-red-400 shadow-sm text-slate-100 px-2 mr-3">Eliminar</button></div>
+                </div>
             </div>
             @empty
             <p></p>
