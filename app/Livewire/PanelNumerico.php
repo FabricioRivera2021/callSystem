@@ -20,6 +20,8 @@ class PanelNumerico extends Component
 
     public $number = '';
 
+    public $repeatedNumber = false;
+
     public function appendNumber($number)
     {
         //se van añadiendo los numeros a medida que el usuario usa el panel
@@ -57,14 +59,22 @@ class PanelNumerico extends Component
             'estados_id' => 'required'
         ]);
 
-        //! Validar que no se este ingresando una cedula que ya esta dentro del array
-
+        // Validar que no se este ingresando una cedula que ya esta dentro del array
+        foreach ($this->manyCustomers as $key => $value) {
+            if($value['ci'] === $this->customers_id){
+                $this->dispatch('ci_repetida');
+                $this->repeatedNumber = true;
+            }
+        }
 
         //se inserta al array de customers despues de la validacion de que existen
-        array_push($this->manyCustomers, [
-            'ci' => $this->customers_id, 'name' => Customers::where('ci', $this->customers_id)->get('name')[0]->name
-        ]);
-        
+        if($this->repeatedNumber == false){
+            array_push($this->manyCustomers, [
+                'ci' => $this->customers_id, 'name' => Customers::where('ci', $this->customers_id)->get('name')[0]->name
+            ]);
+        }
+
+        $this->repeatedNumber = false;
         $this->dispatch('numberAdded');
         return $validated;
     }
