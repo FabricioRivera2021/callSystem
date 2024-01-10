@@ -18,6 +18,8 @@ class PanelNumerico extends Component
 
     public $filas_id = 2;
 
+    public $number = '';
+
     public function appendNumber($number)
     {
         //se van añadiendo los numeros a medida que el usuario usa el panel
@@ -36,6 +38,8 @@ class PanelNumerico extends Component
         $this->manyCustomers = [];
         //se limpia el numero que este en el panel
         $this->displayNumber = '';
+
+        $this->dispatch('clearDisplay');
     }
     
     public function add()
@@ -45,39 +49,56 @@ class PanelNumerico extends Component
 
         // limpia el display para ingresar otra cedula
         $this->displayNumber = '';
-        // $this->dispatch('error');
+        $this->dispatch('error');
         
         //validaciones
         $validated = $this->validate([
             'customers_id' => 'exists:customers,ci',
             'estados_id' => 'required'
         ]);
+
+        //! Validar que no se este ingresando una cedula que ya esta dentro del array
+
+
         //se inserta al array de customers despues de la validacion de que existen
         array_push($this->manyCustomers, [
             'ci' => $this->customers_id, 'name' => Customers::where('ci', $this->customers_id)->get('name')[0]->name
         ]);
-        $this->dispatch('numberAdded');
-
-        // //creo el numero
-        // $number = Numeros::create([
-        //     'numero' => (Numeros::latest()->first()) ? Numeros::latest()->orderBy('id', 'desc')->first()->numero + 1 : 1,
-        //     'estados_id' => 1
-        // ]);
-
-        // //si el numero se crea, entonces se le asigna el numero al customer que halla ingresado su cedula
-        // if(isset($number)){
-        //     Customers::where('ci', $validated['customers_id'])->update([
-        //         'numeros_id' => Numeros::latest()->orderBy('id', 'desc')->first()->id
-        //     ]);
-        // }else{
-        //     //sino se envia un error al panel
-        //     $this->dispatch('error');
-        // }
         
-
-        // $this->dispatch('numberCreated');
+        $this->dispatch('numberAdded');
+        return $validated;
     }
 
+    public function save()
+    {
+        //Valido que se halla creado el array de customers en el paso anterior
+        if(count($this->manyCustomers) > 0){
+            $this->number = Numeros::create([
+                'numero' => (Numeros::latest()->first()) ? Numeros::latest()->orderBy('id', 'desc')->first()->numero + 1 : 1,
+                'estados_id' => 1
+            ]);
+        }
+
+        //si el numero se crea, entonces se le asigna el numero al o los customers que halla ingresado su cedula
+        if(isset($this->number) && count($this->manyCustomers) == 1){
+            //una cedula
+            Customers::where('ci', $this->manyCustomers[0]['ci'])->update([
+                'numeros_id' => Numeros::latest()->orderBy('id', 'desc')->first()->id
+            ]);
+        }elseif(isset($this->number) && count($this->manyCustomers) > 1){
+            //multipes cedulas
+            foreach($this->manyCustomers as $customer){
+                Customers::where('ci', $customer['ci'])->update([
+                    'numeros_id' => Numeros::latest()->orderBy('id', 'desc')->first()->id
+                ]);
+            }
+        }else{
+            $this->dispatch('error');
+        }
+            
+            
+        $this->dispatch('numberCreated');                    
+    }
 
     public function render()
     {
