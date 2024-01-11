@@ -124,7 +124,7 @@
                     <div class="flex items-start">
                         <div class="ml-3 w-0 flex-1 pt-0.5">
                             <p class="font-semibold text-center leading-5 text-gray-100">
-                                La cedula ingresada ya tiene otro numero asignado
+                                La o alguna cedula ya tienen un numero asignado
                             </p>
                         </div>
                     </div>

@@ -33,6 +33,7 @@ class PanelNumerico extends Component
     public function deleteNumber()
     {
         //se van eliminando numeros a medida que se presiona el boton de borrar
+        //validar que hay algo para borrar
         $this->displayNumber = substr($this->displayNumber, 0, -1);
     }
 
@@ -80,42 +81,22 @@ class PanelNumerico extends Component
         $this->dispatch('numberAdded');
     }
 
-    public function deleteCi($ciToDelete)
+    public function deleteCi($index)
     {
-        /*
-        formato de manyCustomers
-        array:3 [▼ // app\Livewire\PanelNumerico.php:90
-            0 => array:2 [▼
-                "ci" => 1901444
-                "name" => "Prof. Rogers Ondricka"
-            ]
-            1 => array:2 [▼
-                "ci" => 2165616
-                "name" => "Mr. Ted Rath V"
-            ]
-            2 => array:2 [▼
-                "ci" => 1096066
-                "name" => "Adriana Cronin"
-            ]
-        ]
-
-        ya que cada cedula que se ingresa al array tiene una key seria ideal borrar los registros del array con esa key
-        -- pendiente
-        */
-
-
         //borrar ci del array de manyCustomers
         //validar que halla cedulas ingresadas
-        if(count($this->manyCustomers) > 0){
-            
-        //buscar la cedula ingresada por "ci"
-        dd($this->manyCustomers);
-        unset($this->manyCustomers['ci'][$ciToDelete]);
+        if(count($this->manyCustomers) > 1){
+            //buscar la cedula ingresada por "ci"
+            unset($this->manyCustomers[$index]);
+        }elseif(count($this->manyCustomers) == 1){
+            unset($this->manyCustomers[$index]);
+            $this->dispatch('clearDisplay');
         }
     }
 
     public function save()
     {
+        // dd($this->manyCustomers);
         //antes de crear el numero hay que validar que el o los customers no esten ya asginados a un numero
         foreach($this->manyCustomers as $customer){
             if(Customers::where('ci', $customer['ci'])->get()[0]->numeros_id !== null){
@@ -134,13 +115,7 @@ class PanelNumerico extends Component
         }
 
         //si el numero se crea, entonces se le asigna el numero al o los customers que halla ingresado su cedula
-        if(isset($this->number) && count($this->manyCustomers) == 1){
-            //una cedula
-            Customers::where('ci', $this->manyCustomers[0]['ci'])->update([
-                'numeros_id' => Numeros::latest()->orderBy('id', 'desc')->first()->id
-            ]);
-        }elseif(isset($this->number) && count($this->manyCustomers) > 1){
-            //multipes cedulas
+        if(isset($this->number) && count($this->manyCustomers) >= 1){
             foreach($this->manyCustomers as $customer){
                 Customers::where('ci', $customer['ci'])->update([
                     'numeros_id' => Numeros::latest()->orderBy('id', 'desc')->first()->id
@@ -150,6 +125,7 @@ class PanelNumerico extends Component
             $this->dispatch('error');
         }
             
+        $this->clear();
         $this->dispatch('numberCreated');                    
     }
 
