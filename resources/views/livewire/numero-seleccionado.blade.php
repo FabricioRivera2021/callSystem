@@ -1,6 +1,6 @@
 <div class="flex 2xl:flex-col 2xl:space-y-2 justify-around items-center w-full h-full">
     <div class="bg-orange-400 h-28 flex flex-col justify-center items-center px-14 2xl:px-28 2xl:w-full rounded shadow-sm">
-      <h2 class="text-5xl text-slate-700 font-bold">145</h2>
+      <h2 class="text-xl text-slate-700 font-bold">{{$numero[0]}}</h2>
       <span class="text-xl text-slate-700 font-semibold">Comun</span>
     </div>
     <div class="flex 2xl:flex-col gap-2 justify-between items-center border rounded border-dotted border-slate-700 pl-2 p-1">

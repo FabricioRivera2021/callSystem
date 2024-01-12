@@ -13,7 +13,9 @@
         <tbody class="odd">
             @forelse ($numeros as $numero)
             <tr class="even:bg-gray-50 odd:bg-slate-200 border-b dark:border-neutral-500" wire:key="{{ $numero->id }}">
-                <td class="whitespace-nowrap px-1 py-1 font-medium">Llamar</td>
+                <td class="whitespace-nowrap px-1 py-1 font-medium" wire:click="callNumber({{$numero->numero}})">
+                    <button class="hover:cursor-pointer">Llamar</button>
+                </td>
                 <td class="whitespace-nowrap px-1 py-1">{{$numero->numero}}</td>
                 <td class="whitespace-nowrap px-1 py-1">{{$numero->filas->filas}}</td>
                 <td class="whitespace-nowrap px-1 py-1">

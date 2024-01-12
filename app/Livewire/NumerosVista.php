@@ -16,6 +16,14 @@ class NumerosVista extends Component
 
     public $searchBox = '';
 
+    //llamoda al numero que este sin atender
+    public function callNumber($number)
+    {
+        //si el rol actual es ventanilla lo deja llamar
+        if(auth()->user()->roles->roles === 'admin'){
+            $this->dispatch('currentNumber', numero: $number);
+        }
+    }
     
     #[On('filter')]
     public function filter($filter)
