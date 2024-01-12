@@ -25,9 +25,12 @@
                     </span>
                 </td>
                 <td class="whitespace-nowrap px-1 py-1">{{$numero->estados->estados}}</td>
+                <td class="whitespace-nowrap px-1 py-1">
                 @foreach ($numero->customers as $customer)
-                    <td class="whitespace-nowrap px-1 py-1">{{$customer->name}}</td>
+                    {{$customer->name}}
+                    {{(count($numero->customers) > 1) ? '|' : ''}}
                 @endforeach
+                </td>
             </tr>
             @empty
                 No hay numeros para mostrar
