@@ -49,14 +49,28 @@ class PanelNumerico extends Component
     
     public function add()
     {
-        //se setea la variable customer_id con la cedula que halla ingresado el usuario en el panel
+        //se setea la variable customer_id con la cedula que ingresa el usuario en el panel
         $this->customers_id = intval($this->displayNumber);
 
+        //reseteo la validacion de que no existe otra cedula con un numero ya asignado
+        $this->numberAlreadyTaken = false;
+
+        //antes de añadir la cedula hay que validar que el o los customers no esten ya asginados a un numero
+        if(Customers::where('ci', $this->customers_id)->first('numeros_id')->numeros_id !== null){
+            $this->numberAlreadyTaken = true;
+            //si no hay nada en el array de customers se oculta el boton de finalizar
+            if(count($this->manyCustomers) == 0){
+                $this->dispatch('clearDisplay');
+            }
+            $this->dispatch('errorNumberAlreadyTaken');
+        }
+
+        
         // limpia el display para ingresar otra cedula
         $this->displayNumber = '';
         $this->dispatch('error');
         
-        //validaciones
+        //validaciones ! sino existe la cedula el codigo no sigue
         $validated = $this->validate([
             'customers_id' => 'exists:customers,ci',
             'estados_id' => 'required'
@@ -70,15 +84,14 @@ class PanelNumerico extends Component
             }
         }
 
-        //se inserta al array de customers despues de la validacion de que existen
-        if($this->repeatedNumber == false){
+        //si pasa las validaciones de no repetido y numero no asignado se inserta en el array
+        if($this->repeatedNumber == false && $this->numberAlreadyTaken == false){
             array_push($this->manyCustomers, [
                 'ci' => $this->customers_id, 'name' => Customers::where('ci', $this->customers_id)->get('name')[0]->name
             ]);
+            $this->repeatedNumber = false;
+            $this->dispatch('numberAdded');
         }
-
-        $this->repeatedNumber = false;
-        $this->dispatch('numberAdded');
     }
 
     public function deleteCi($index)
@@ -96,15 +109,6 @@ class PanelNumerico extends Component
 
     public function save()
     {
-        // dd($this->manyCustomers);
-        //antes de crear el numero hay que validar que el o los customers no esten ya asginados a un numero
-        foreach($this->manyCustomers as $customer){
-            if(Customers::where('ci', $customer['ci'])->get()[0]->numeros_id !== null){
-                $this->numberAlreadyTaken = true;
-                $this->dispatch('errorNumberAlreadyTaken');
-            }
-        }
-
         //Valido que se halla creado el array de customers en el paso anterior y que no tengan ya un numero asignado
         if(count($this->manyCustomers) > 0 && $this->numberAlreadyTaken === false){
             //creo el numero
@@ -137,3 +141,9 @@ class PanelNumerico extends Component
         ]);
     }
 }
+
+//boris brejcha
+//mila rubio
+//miss monique
+//fer palacio
+//valentina bravo

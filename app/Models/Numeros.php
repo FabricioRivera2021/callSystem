@@ -22,7 +22,7 @@ class Numeros extends Model
 
     public function filas(): BelongsTo
     {
-        return $this->belongsTo(Estados::class);
+        return $this->belongsTo(Filas::class);
     }
 
     public function customers(): HasMany
