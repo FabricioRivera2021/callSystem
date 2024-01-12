@@ -12,10 +12,15 @@ class Numeros extends Model
     use HasFactory;
 
     protected $fillable = [
-        'numero', 'estados_id', 'customers_id'
+        'numero', 'estados_id', 'filas_id', 'customers_id'
     ];
 
     public function estados(): BelongsTo
+    {
+        return $this->belongsTo(Estados::class);
+    }
+
+    public function filas(): BelongsTo
     {
         return $this->belongsTo(Estados::class);
     }

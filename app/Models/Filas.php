@@ -10,8 +10,12 @@ class Filas extends Model
 {
     use HasFactory;
 
-    public function customers():HasMany
+    protected $fillable = [
+        'filas'
+    ];
+
+    public function filas():HasMany
     {
-        return $this->HasMany(Customers::class);
+        return $this->HasMany(Filas::class);
     }
 }

@@ -110,7 +110,8 @@ class PanelNumerico extends Component
             //creo el numero
             $this->number = Numeros::create([
                 'numero' => (Numeros::latest()->first()) ? Numeros::latest()->orderBy('id', 'desc')->first()->numero + 1 : 1,
-                'estados_id' => 1
+                'estados_id' => 1,
+                'filas_id' => 1
             ]);
         }
 
