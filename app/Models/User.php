@@ -55,4 +55,9 @@ class User extends Authenticatable
     {
         return $this->HasOne(Numeros::class);
     }
+
+    public function position(): HasMany
+    {
+        return $this->hasMany(UserPosition::class);
+    }
 }

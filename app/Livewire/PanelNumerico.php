@@ -142,8 +142,3 @@ class PanelNumerico extends Component
     }
 }
 
-//boris brejcha
-//mila rubio
-//miss monique
-//fer palacio
-//valentina bravo
