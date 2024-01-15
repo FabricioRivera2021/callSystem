@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Numeros;
+use App\Models\UserPosition;
 use Livewire\Component;
 use Livewire\Attributes\On;
 
@@ -15,6 +16,8 @@ class NumerosVista extends Component
     public $query = '';
 
     public $searchBox = '';
+
+    public $canCall = '';
 
     //llamoda al numero que este sin atender
     public function callNumber($number)
@@ -46,7 +49,9 @@ class NumerosVista extends Component
     #[On('currentPosition')]
     public function puesto($position)
     {
-        // dd('test');
+        //tengo el id del puesto en la vista de los numeros
+        //dependiendo del puesto que este activo, el boton de llamar cambia de acuerdo al estado donde este el numero
+        $this->canCall = UserPosition::where('id', $position)->get('id')[0]->id;
     }
 
     public function render()
@@ -70,7 +75,8 @@ class NumerosVista extends Component
                                                 $query->where('name', 'LIKE', "%" . $search . "%");
                                             });
                                 })
-                                ->get()
+                                ->get(),
+            'canCall' => $this->cancall
         ]);
     }
 }

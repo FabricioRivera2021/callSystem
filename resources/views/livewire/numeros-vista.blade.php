@@ -15,7 +15,22 @@
             <tr class="even:bg-gray-50 odd:bg-slate-200 border-b dark:border-neutral-500" wire:key="{{ $numero->id }}">
                 <td class="whitespace-nowrap px-1 py-1 font-medium" wire:click="callNumber({{$numero->numero}})">
                     {{-- ! si el puesto esta sin asignar no puede llamar a nadie --}}
-                    <button class="hover:cursor-pointer">Llamar</button>
+                    <button class="hover:cursor-pointer">
+                        {{--
+                             ! juegan - estado y puesto aqui
+                            Dependiendo de que puesto este activo se tiene que mostrar el boton llamar
+                            en base al estado del numero
+                            |- Estado -|        -       |- Puesto -|
+                            -----------------------------------------
+                            Sin atender         -       Ventanilla
+                            para preparar       -       preparacion
+                            para pagar          -       caja
+                            para entregar       -       entrega
+                            pausado             -       depende el ultimo estado donde estuvo
+                            cancelado           -       idem
+                            finalizado          -       ninguno
+                             --}}
+                    </button>
                 </td>
                 <td class="whitespace-nowrap px-1 py-1">{{$numero->numero}}</td>
                 <td class="whitespace-nowrap px-1 py-1">{{$numero->filas->filas}}</td>
