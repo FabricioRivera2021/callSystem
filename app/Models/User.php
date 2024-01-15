@@ -56,8 +56,8 @@ class User extends Authenticatable
         return $this->HasOne(Numeros::class);
     }
 
-    public function position(): HasMany
+    public function positions(): BelongsTo
     {
-        return $this->hasMany(UserPosition::class);
+        return $this->BelongsTo(UserPosition::class);
     }
 }
