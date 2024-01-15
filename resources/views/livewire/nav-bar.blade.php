@@ -8,19 +8,19 @@
                         @foreach ($positions as $key => $position)
                             <option 
                                 wire:model="position"
-                                wire:click="handlePosition({{$key}})" 
+                                wire:click="handlePosition({{$key+1}})" 
                                 value="{{$position->position}}">
                                 {{$position->position}}
                             </option>
                         @endforeach
                       </select>
-                      <button class="rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 px-5 text-sm">Cambiar</button>
+                      <button class="rounded-md bg-slate-200 text-slate-700 hover:bg-slate-300 px-5 py-0.5 text-sm">Cambiar</button>
                 </div>
             </div>
             
             <li class="font-semibold text-xs">Agente -> <span>{{auth()->user()->name}}</span></li>
             {{-- <li class="font-semibold">Rol -> {{auth()->user()->roles->roles}}</li> --}}
-            <li class="font-semibold text-xs">Puesto actual -> {{auth()->user()->positions->position}}</li>
+            <li class="font-semibold text-xs" wire:model="position">Puesto actual -> {{$currPosition[0]->positions->position}}</li>
             <li>
                 <form action="{{route('auth.destroy')}}" method="POST">
                     @csrf

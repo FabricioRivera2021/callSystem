@@ -43,6 +43,12 @@ class NumerosVista extends Component
         $this->searchBox = $searchParameter;
     }
 
+    #[On('currentPosition')]
+    public function puesto($position)
+    {
+        // dd('test');
+    }
+
     public function render()
     {
         $filter = $this->estado_id;
