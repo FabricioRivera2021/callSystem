@@ -17,7 +17,7 @@ class NumerosVista extends Component
 
     public $searchBox = '';
 
-    public $canCall = '';
+    public $canCall = ''; //!tenemos un problema, esto se resetea cada ves que se carga la pagina, localstorage??
 
     //llamoda al numero que este sin atender
     public function callNumber($number)
@@ -76,7 +76,7 @@ class NumerosVista extends Component
                                             });
                                 })
                                 ->get(),
-            'canCall' => $this->cancall
+            'canCall' => $this->canCall
         ]);
     }
 }

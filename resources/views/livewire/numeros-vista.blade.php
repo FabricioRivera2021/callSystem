@@ -8,6 +8,7 @@
             <th scope="col" class="px-1 py-4 text-slate-500 font-semibold"><a href="#">T. de espera</a></th>
             <th scope="col" class="px-1 py-4 text-slate-500 font-semibold">Estado</th>
             <th scope="col" class="px-1 py-4 text-slate-500 font-semibold">Nombre</th>
+            <th scope="col" class="px-1 py-4 text-slate-500 font-semibold">{{$canCall}}</th>
             </tr>
         </thead>
         <tbody class="odd">
@@ -29,13 +30,13 @@
                             pausado             -       depende el ultimo estado donde estuvo
                             cancelado           -       idem
                             finalizado          -       ninguno
-                             --}}
-                    </button>
-                </td>
-                <td class="whitespace-nowrap px-1 py-1">{{$numero->numero}}</td>
-                <td class="whitespace-nowrap px-1 py-1">{{$numero->filas->filas}}</td>
-                <td class="whitespace-nowrap px-1 py-1">
-                    <span 
+                            --}}
+                        </button>
+                    </td>
+                    <td class="whitespace-nowrap px-1 py-1">{{$numero->numero}}</td>
+                    <td class="whitespace-nowrap px-1 py-1">{{$numero->filas->filas}}</td>
+                    <td class="whitespace-nowrap px-1 py-1">
+                        <span 
                         class="px-1 text-slate-500 font-semibold" 
                         x-data="clock('{{$numero->created_at}}')" 
                         x-init="startClock()" 
@@ -44,10 +45,10 @@
                 </td>
                 <td class="whitespace-nowrap px-1 py-1">{{$numero->estados->estados}}</td>
                 <td class="whitespace-nowrap px-1 py-1">
-                @foreach ($numero->customers as $customer)
+                    @foreach ($numero->customers as $customer)
                     {{$customer->name}}
                     {{(count($numero->customers) > 1) ? '|' : ''}}
-                @endforeach
+                    @endforeach
                 </td>
             </tr>
             @empty
