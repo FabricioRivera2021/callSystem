@@ -8,16 +8,24 @@
             <th scope="col" class="px-1 py-4 text-slate-500 font-semibold"><a href="#">T. de espera</a></th>
             <th scope="col" class="px-1 py-4 text-slate-500 font-semibold">Estado</th>
             <th scope="col" class="px-1 py-4 text-slate-500 font-semibold">Nombre</th>
-            <th scope="col" class="px-1 py-4 text-slate-500 font-semibold">{{$canCall}}</th>
+            <th scope="col" class="px-1 py-4 text-slate-500 font-semibold">Numero en proceso</th>
             </tr>
         </thead>
         <tbody class="odd">
             @forelse ($numeros as $numero)
-            <tr class="even:bg-gray-50 odd:bg-slate-200 border-b dark:border-neutral-500" wire:key="{{ $numero->id }}">
-                <td class="whitespace-nowrap px-1 py-1 font-medium" wire:click="callNumber({{$numero->numero}})">
+            <tr @class([
+                'even:bg-gray-50',
+                'odd:bg-slate-200',
+                'border-b',
+                'dark:border-neutral-500',
+                '!bg-orange-300' => $currentSelectedNumber === $numero->numero,
+                   ])
+                wire:key="{{ $numero->id }}"
+                >
+                <td class="whitespace-nowrap px-1 py-1 font-medium">
                     {{-- ! si el puesto esta sin asignar no puede llamar a nadie --}}
-                    <button class="hover:cursor-pointer">
-                        {{--
+                        <button class="hover:cursor-pointer" wire:click="callNumber({{$numero->numero}})">
+                            {{--
                              ! juegan - estado y puesto aqui
                             Dependiendo de que puesto este activo se tiene que mostrar el boton llamar
                             en base al estado del numero
@@ -31,6 +39,7 @@
                             cancelado           -       idem
                             finalizado          -       ninguno
                             --}}
+                            {{($canCall === $numero->estados->estados) ? 'Llamar' : ''}}
                         </button>
                     </td>
                     <td class="whitespace-nowrap px-1 py-1">{{$numero->numero}}</td>
@@ -49,6 +58,9 @@
                     {{$customer->name}}
                     {{(count($numero->customers) > 1) ? '|' : ''}}
                     @endforeach
+                </td>
+                <td class="whitespace-nowrap px-1 py-1" wire:model="currentSelectedNumber">
+                    {{($currentSelectedNumber === $numero->numero) ? 'en proceso' : ''}}
                 </td>
             </tr>
             @empty

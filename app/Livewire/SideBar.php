@@ -15,11 +15,11 @@ class SideBar extends Component
     public $filters = [
         0 => 'Todos',
         1 => 'Ventanilla',
-        3 => 'Preparacion',
-        4 => 'Cajas',
-        5 => 'Entrega',
-        6 => 'Pausados',
-        7 => 'Cancelados',
+        2 => 'Preparacion',
+        3 => 'Cajas',
+        4 => 'Entrega',
+        5 => 'Pausados',
+        6 => 'Cancelados',
     ];
 
     public $filas = [

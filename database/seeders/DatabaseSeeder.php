@@ -16,14 +16,13 @@ class DatabaseSeeder extends Seeder
         \App\Models\Roles::factory()->create(['roles' => 'admin']);
         \App\Models\Roles::factory()->create(['roles' => 'regular']);
 
-        \App\Models\Estados::factory()->create(['estados' => 'Sin atender']);
-        \App\Models\Estados::factory()->create(['estados' => 'En ventanilla']);
-        \App\Models\Estados::factory()->create(['estados' => 'En preparación']);
-        \App\Models\Estados::factory()->create(['estados' => 'Para pagar']);
-        \App\Models\Estados::factory()->create(['estados' => 'Para entregar']);
-        \App\Models\Estados::factory()->create(['estados' => 'Pausado']);
-        \App\Models\Estados::factory()->create(['estados' => 'Cancelado']);
-        \App\Models\Estados::factory()->create(['estados' => 'Finalizado']);
+        \App\Models\Estados::factory()->create(['estados' => 'ventanilla']);
+        \App\Models\Estados::factory()->create(['estados' => 'preparacion']);
+        \App\Models\Estados::factory()->create(['estados' => 'caja']);
+        \App\Models\Estados::factory()->create(['estados' => 'entrega']);
+        \App\Models\Estados::factory()->create(['estados' => 'pausado']);
+        \App\Models\Estados::factory()->create(['estados' => 'cancelado']);
+        \App\Models\Estados::factory()->create(['estados' => 'finalizado']);
 
         \App\Models\Filas::factory()->create(['filas' => 'Comun']);
         \App\Models\Filas::factory()->create(['filas' => 'Emergencia']);

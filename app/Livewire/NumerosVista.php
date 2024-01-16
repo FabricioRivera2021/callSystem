@@ -19,11 +19,14 @@ class NumerosVista extends Component
 
     public $canCall = ''; //!tenemos un problema, esto se resetea cada ves que se carga la pagina, localstorage??
 
+    public $currentSelectedNumber = '';//numero actual seleccionado
+
     //llamoda al numero que este sin atender
     public function callNumber($number)
     {
         //si el rol actual es ventanilla lo deja llamar
-        if(auth()->user()->roles->roles === 'admin'){
+        if(auth()->user()->roles->roles === 'regular'){
+            $this->currentSelectedNumber = $number;
             $this->dispatch('currentNumber', numero: $number);
         }
     }
@@ -51,7 +54,7 @@ class NumerosVista extends Component
     {
         //tengo el id del puesto en la vista de los numeros
         //dependiendo del puesto que este activo, el boton de llamar cambia de acuerdo al estado donde este el numero
-        $this->canCall = UserPosition::where('id', $position)->get('id')[0]->id;
+        $this->canCall = UserPosition::where('id', $position)->get('position')[0]->position;
     }
 
     public function render()
