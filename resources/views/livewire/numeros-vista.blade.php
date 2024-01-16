@@ -29,15 +29,6 @@
                              ! juegan - estado y puesto aqui
                             Dependiendo de que puesto este activo se tiene que mostrar el boton llamar
                             en base al estado del numero
-                            |- Estado -|        -       |- Puesto -|
-                            -----------------------------------------
-                            Sin atender         -       Ventanilla
-                            para preparar       -       preparacion
-                            para pagar          -       caja
-                            para entregar       -       entrega
-                            pausado             -       depende el ultimo estado donde estuvo
-                            cancelado           -       idem
-                            finalizado          -       ninguno
                             --}}
                             {{($canCall === $numero->estados->estados) ? 'Llamar' : ''}}
                         </button>
