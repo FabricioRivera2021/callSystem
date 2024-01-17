@@ -23,20 +23,20 @@
                 wire:key="{{ $numero->id }}"
                 >
                 <td class="whitespace-nowrap px-1 py-1 font-medium">
-                    {{-- ! si el puesto esta sin asignar no puede llamar a nadie --}}
-                        <button class="hover:cursor-pointer" wire:click="callNumber({{$numero->numero}})">
-                            {{--
-                             ! juegan - estado y puesto aqui
-                            Dependiendo de que puesto este activo se tiene que mostrar el boton llamar
-                            en base al estado del numero
-                            --}}
-                            {{($canCall === $numero->estados->estados) ? 'Llamar' : ''}}
-                        </button>
-                    </td>
-                    <td class="whitespace-nowrap px-1 py-1">{{$numero->numero}}</td>
-                    <td class="whitespace-nowrap px-1 py-1">{{$numero->filas->filas}}</td>
-                    <td class="whitespace-nowrap px-1 py-1">
-                        <span 
+                {{-- ! si el puesto esta sin asignar no puede llamar a nadie --}}
+                    <button class="hover:cursor-pointer" wire:click="callNumber({{$numero->numero}})">
+                        {{--
+                            ! juegan - estado y puesto aqui
+                        Dependiendo de que puesto este activo se tiene que mostrar el boton llamar
+                        en base al estado del numero
+                        --}}
+                        {{($canCall === $numero->estados->estados) ? 'Llamar' : ''}}
+                    </button>
+                </td>
+                <td class="whitespace-nowrap px-1 py-1">{{$numero->numero}}</td>
+                <td class="whitespace-nowrap px-1 py-1">{{$numero->filas->filas}}</td>
+                <td class="whitespace-nowrap px-1 py-1">
+                    <span 
                         class="px-1 text-slate-500 font-semibold" 
                         x-data="clock('{{$numero->created_at}}')" 
                         x-init="startClock()" 
