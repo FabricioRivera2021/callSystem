@@ -16,6 +16,7 @@
     </head>
     <body class="antialiased w-screen h-screen">
 
+        {{-- Main aplication --}}
         {{ $slot }}
     
         @livewireScripts

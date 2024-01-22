@@ -18,5 +18,8 @@
             <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-red-500 shadow-sm" href="#">Cancelar</a>
             <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-yellow-400 hover:text-slate-700 shadow-sm" href="#">Pausar</a>
         </div>
+        <div>
+          <p class="bg-red-500 text-slate-100 px-5">{{($numberAlreadyTaken) ? 'Ya tiene un numero en proceso!' : ''}}</p>
+        </div>
     </div>
   </div>

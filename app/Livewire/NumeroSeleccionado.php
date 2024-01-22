@@ -11,6 +11,9 @@ class NumeroSeleccionado extends Component
     //current number
     public $number = '';
 
+    //was the number already taken??
+    public $numberAlreadyTaken = '';
+
     //deberia setearse desde el boton de llamar numero, no desde aqui
 
     //numero activo en el usuario que este logueado ahora
@@ -26,6 +29,12 @@ class NumeroSeleccionado extends Component
 
     //guardar el tiempo de espera
     //guardar las acciones del usuario que este trabajando
+
+    #[On('numberAlreadyTaken')]
+    public function numberAlreadyTaken()
+    {
+        return $this->numberAlreadyTaken = true;
+    }
 
     #[On('currentNumber')]
     public function filter($numero)

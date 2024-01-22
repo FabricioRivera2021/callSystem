@@ -21,13 +21,25 @@ class NumerosVista extends Component
 
     public $currentSelectedNumber = '';//numero actual seleccionado
 
+    public $firstCall = false;
+
     //llamoda al numero que este sin atender
     public function callNumber($number)
     {
-        //si el rol actual es ventanilla lo deja llamar
+        //si el rol actual no es administrador
         if(auth()->user()->roles->roles === 'regular'){
-            $this->currentSelectedNumber = $number;
-            $this->dispatch('currentNumber', numero: $number);
+            //si ya hay un numero seteado habria que buscar la forma de que, no se pueda llamar a otro numero si ya hay uno en proceso
+            if($this->firstCall === false){
+                $this->currentSelectedNumber = $number;
+                $this->dispatch('currentNumber', numero: $number);
+                $this->firstCall = true;
+            }
+            elseif($this->currentSelectedNumber != ''){
+                $this->dispatch('numberAlreadyTaken');
+            }else{
+                $this->currentSelectedNumber = $number;
+                $this->dispatch('currentNumber', numero: $number);
+            }
         }
     }
     

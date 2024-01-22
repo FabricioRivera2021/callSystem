@@ -23,7 +23,7 @@
                 wire:key="{{ $numero->id }}"
                 >
                 <td class="whitespace-nowrap px-1 py-1 font-medium">
-                {{-- ! si el puesto esta sin asignar no puede llamar a nadie --}}
+                {{-- ! si el puesto esta sin asignar no puede llamar a nadie -------------------------------------------------------------------------------------------------------}}
                     <button class="hover:cursor-pointer" wire:click="callNumber({{$numero->numero}})">
                         {{--
                             ! juegan - estado y puesto aqui
