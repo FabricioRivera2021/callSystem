@@ -20,7 +20,6 @@
                 'dark:border-neutral-500',
                 '!bg-orange-300' => $currentSelectedNumber === $numero->numero,
                    ])
-                wire:key="{{ $numero->id }}"
                 >
                 <td class="whitespace-nowrap px-1 py-1 font-medium">
                 {{-- ! si el puesto esta sin asignar no puede llamar a nadie -------------------------------------------------------------------------------------------------------}}
