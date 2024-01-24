@@ -18,7 +18,7 @@
                 'odd:bg-slate-200',
                 'border-b',
                 'dark:border-neutral-500',
-                '!bg-orange-300' => $currentSelectedNumber === $numero->numero,
+                '!bg-orange-300' => session('numeroSeleccionado') === $numero->numero,
                    ])
                 >
                 <td class="whitespace-nowrap px-1 py-1 font-medium">
@@ -50,7 +50,7 @@
                     @endforeach
                 </td>
                 <td class="whitespace-nowrap px-1 py-1" wire:model="currentSelectedNumber">
-                    {{($currentSelectedNumber === $numero->numero) ? 'en proceso' : ''}}
+                    {{(session('numeroSeleccionado') === $numero->numero) ? 'en proceso' : ''}}
                 </td>
             </tr>
             @empty

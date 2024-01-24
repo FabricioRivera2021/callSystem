@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Numeros;
+use App\Models\User;
 use App\Models\UserPosition;
 use Livewire\Component;
 use Livewire\Attributes\On;
@@ -26,19 +27,23 @@ class NumerosVista extends Component
     //llamoda al numero que este sin atender
     public function callNumber($number)
     {
+        //seteo el ultimo numero que se llamo
+        $this->currentSelectedNumber = session('numeroSeleccionado');
+
         //si el rol actual no es administrador
         if(auth()->user()->roles->roles === 'regular'){
             //si ya hay un numero seteado habria que buscar la forma de que, no se pueda llamar a otro numero si ya hay uno en proceso
-            if($this->firstCall === false){
+            if($this->currentSelectedNumber === ''){
                 $this->currentSelectedNumber = $number;
+                session(['numeroSeleccionado' => $this->currentSelectedNumber]);
                 $this->dispatch('currentNumber', numero: $number);
+                //asociar el numero que se llamo al usuario que lo llamo
+                $this->dispatch('setNumberToUser', numberToUser: $number);
                 $this->firstCall = true;
             }
-            elseif($this->currentSelectedNumber != ''){
+            else{
+                //si el usuario ya tiene un numero seteado no lo va a dejar tomar otro
                 $this->dispatch('numberAlreadyTaken');
-            }else{
-                $this->currentSelectedNumber = $number;
-                $this->dispatch('currentNumber', numero: $number);
             }
         }
     }
@@ -96,6 +101,7 @@ class NumerosVista extends Component
                                                 $query->where('name', 'LIKE', "%" . $search . "%");
                                             });
                                 })
+                                ->orderBy('numero')
                                 ->get(),
             'canCall' => $this->canCall
         ]);
