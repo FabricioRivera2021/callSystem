@@ -69,6 +69,12 @@ class NumerosVista extends Component
         $this->canCall = UserPosition::where('id', $position)->get('position')[0]->position;
     }
 
+    #[On('numberCreated')]
+    public function numberCreated()
+    {
+        //actualizar los numeros en la vista de numeros
+    }
+
     public function render()
     {
         $filter = $this->estado_id;

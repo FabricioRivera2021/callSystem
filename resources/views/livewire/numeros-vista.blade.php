@@ -1,5 +1,5 @@
 <div>
-    <table wire:poll class="min-w-full text-left text-sm font-light">
+    <table class="min-w-full text-left text-sm font-light">
         <thead class="border-b font-medium dark:border-neutral-500">
             <tr>
             <th scope="col" class="px-1 py-4 text-slate-500 font-semibold">Accion</th>
