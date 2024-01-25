@@ -8,28 +8,26 @@ use Livewire\Component;
 
 class NavBar extends Component
 {
-    //input del current puesto
-    public $position_id = '';
+    //data del puesto que se halla seleccionado
+    public $position_data = '';
 
-    //actualizo el puesto
+    //nombre del puesto que se halla seleccionado
     public $position = '';
 
+    //selecciona la pocicion donde se encuentra el usuario actualmente (ventanilla, preparacion, etc)
     public function handlePosition($id)
     {
-        //! hay que seguir aca, reever la logica de esto
-
-        if($this->position_id = UserPosition::findOrFail($id))
+        if($this->position_data = UserPosition::findOrFail($id))
         {
             //actualizo el nuevo puesto donde esta el usuario
-            //tengo el id del puesto, necesito actualizar en la BD en la TABLA de USER el puesto_id
             User::where('id', auth()->user()->id)->update([
                 'positions_id' => $id
             ]);
 
             //luego de actualizar el current puesto, habria que mostrarlo en el navbar
 
-            //este seria el dispatch hacia la vista de todos los numeros
-            $this->dispatch('currentPosition', position: $this->position_id);
+            //dispatch hacia la vista de numeros, enviando el id
+            $this->dispatch('currentPosition', position: $this->position_data);
         }
     }
 

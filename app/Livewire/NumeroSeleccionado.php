@@ -39,6 +39,7 @@ class NumeroSeleccionado extends Component
     #[On('currentNumber')]
     public function filter($numero)
     {
+        $this->numberAlreadyTaken = false;
         return $this->number = Numeros::where('numero', $numero)->get();
     }
 

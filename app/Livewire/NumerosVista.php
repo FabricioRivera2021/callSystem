@@ -33,9 +33,9 @@ class NumerosVista extends Component
         //si el rol actual no es administrador
         if(auth()->user()->roles->roles === 'regular'){
             //si ya hay un numero seteado habria que buscar la forma de que, no se pueda llamar a otro numero si ya hay uno en proceso
-            if($this->currentSelectedNumber === ''){
+            if($this->currentSelectedNumber === null){
                 $this->currentSelectedNumber = $number;
-                session(['numeroSeleccionado' => $this->currentSelectedNumber]);
+                // session(['numeroSeleccionado' => $this->currentSelectedNumber]);
                 $this->dispatch('currentNumber', numero: $number);
                 //asociar el numero que se llamo al usuario que lo llamo
                 $this->dispatch('setNumberToUser', numberToUser: $number);
