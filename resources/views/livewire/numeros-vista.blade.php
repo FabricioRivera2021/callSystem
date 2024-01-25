@@ -23,13 +23,14 @@
                 >
                 <td class="whitespace-nowrap px-1 py-1 font-medium">
                 {{-- ! si el puesto esta sin asignar no puede llamar a nadie -------------------------------------------------------------------------------------------------------}}
-                    <button class="hover:cursor-pointer" wire:click="callNumber({{$numero->numero}})">
+                    <button class="hover:cursor-pointer"
+                            wire:click="callNumber({{$numero->numero}})">
                         {{--
                             ! juegan - estado y puesto aqui
                         Dependiendo de que puesto este activo se tiene que mostrar el boton llamar
                         en base al estado del numero
                         --}}
-                        {{($canCall === $numero->estados->estados) ? 'Llamar' : ''}}
+                        {{($canCall === $numero->estados->estados && session('numeroSeleccionado') !== $numero->numero) ? 'Llamar' : ''}}
                     </button>
                 </td>
                 <td class="whitespace-nowrap px-1 py-1">{{$numero->numero}}</td>

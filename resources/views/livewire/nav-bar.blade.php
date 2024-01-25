@@ -9,12 +9,13 @@
                             <option 
                                 wire:model="position"
                                 wire:click="handlePosition({{$key+1}})" 
-                                value="{{$position->position}}">
+                                value="{{$position->position}}"
+                                {{-- selected="{{$position->position}}" --}}
+                                >
                                 {{$position->position}}
                             </option>
                         @endforeach
                       </select>
-                      <button class="rounded-md bg-slate-200 text-slate-700 hover:bg-slate-300 px-5 py-0.5 text-sm">Cambiar</button>
                 </div>
             </div>
             

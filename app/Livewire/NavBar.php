@@ -16,6 +16,8 @@ class NavBar extends Component
 
     public function handlePosition($id)
     {
+        //! hay que seguir aca, reever la logica de esto
+
         if($this->position_id = UserPosition::findOrFail($id))
         {
             //actualizo el nuevo puesto donde esta el usuario
