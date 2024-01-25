@@ -33,7 +33,8 @@ class NumeroSeleccionado extends Component
     #[On('numberAlreadyTaken')]
     public function numberAlreadyTaken()
     {
-        return $this->numberAlreadyTaken = true;
+        $this->dispatch('numberAlreadyTakenToView');
+        // return $this->numberAlreadyTaken = true;
     }
 
     #[On('currentNumber')]
