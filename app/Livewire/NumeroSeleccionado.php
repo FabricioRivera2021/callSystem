@@ -40,7 +40,9 @@ class NumeroSeleccionado extends Component
     public function filter($numero)
     {
         $this->numberAlreadyTaken = false;
-        return $this->number = Numeros::where('numero', $numero)->get();
+        $this->number = Numeros::where('numero', $numero)->get();
+        //guardo el numero en la sesion para persistencia
+        session(['numero' => $this->number]);
     }
 
     public function render()

@@ -10,7 +10,7 @@
                                 wire:model="position"
                                 wire:click="handlePosition({{$key+1}})" 
                                 value="{{$position->position}}"
-                                {{-- selected="{{$position->position}}" --}}
+                                {{ (session('position') === $key+1) ? 'selected' : '' }}
                                 >
                                 {{$position->position}}
                             </option>

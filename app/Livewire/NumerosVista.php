@@ -20,7 +20,7 @@ class NumerosVista extends Component
 
     public $canCall = ''; //!tenemos un problema, esto se resetea cada ves que se carga la pagina, localstorage??
 
-    public $currentSelectedNumber = '';//numero actual seleccionado
+    public $currentSelectedNumber = null;//numero actual seleccionado
 
     public $firstCall = false;
 
@@ -28,18 +28,22 @@ class NumerosVista extends Component
     public function callNumber($number)
     {
         //seteo el ultimo numero que se llamo
-        $this->currentSelectedNumber = session('numeroSeleccionado');
+        if(session('numeroSeleccionado') != null){
+            $this->currentSelectedNumber = session('numeroSeleccionado');
+        }
 
         //si el rol actual no es administrador
         if(auth()->user()->roles->roles === 'regular'){
             //si ya hay un numero seteado habria que buscar la forma de que, no se pueda llamar a otro numero si ya hay uno en proceso
             if($this->currentSelectedNumber === null){
                 $this->currentSelectedNumber = $number;
-                // session(['numeroSeleccionado' => $this->currentSelectedNumber]);
+                session(['numeroSeleccionado' => $this->currentSelectedNumber]);
+                //muestra el numero seleccionado en el panel chico
                 $this->dispatch('currentNumber', numero: $number);
                 //asociar el numero que se llamo al usuario que lo llamo
                 $this->dispatch('setNumberToUser', numberToUser: $number);
                 $this->firstCall = true;
+                // dd($this->currentSelectedNumber);
             }
             else{
                 //si el usuario ya tiene un numero seteado no lo va a dejar tomar otro
