@@ -18,7 +18,7 @@
                 'odd:bg-slate-200',
                 'border-b',
                 'dark:border-neutral-500',
-                '!bg-orange-300' => session('numeroSeleccionado') === $numero->numero,
+                '!bg-orange-300' => session('numeroSeleccionadoForColor') === $numero->numero,
                    ])
                 >
                 <td class="whitespace-nowrap px-1 py-1 font-medium">
@@ -50,8 +50,8 @@
                     {{(count($numero->customers) > 1) ? '|' : ''}}
                     @endforeach
                 </td>
-                <td class="whitespace-nowrap px-1 py-1" wire:model="currentSelectedNumber">
-                    {{(session('numeroSeleccionado') === $numero->numero) ? 'en proceso' : ''}}
+                <td class="whitespace-nowrap px-1 py-1 font-semibold text-slate-600" wire:model="currentSelectedNumber">
+                    {{(session('numeroSeleccionadoForColor') === $numero->numero) ? 'en proceso' : ''}}
                 </td>
             </tr>
             @empty

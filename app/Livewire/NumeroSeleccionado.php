@@ -14,6 +14,9 @@ class NumeroSeleccionado extends Component
     //was the number already taken??
     public $numberAlreadyTaken = '';
 
+    //estado actual del numero
+    public $currentState = '';
+
     //deberia setearse desde el boton de llamar numero, no desde aqui
 
     //numero activo en el usuario que este logueado ahora
@@ -33,17 +36,24 @@ class NumeroSeleccionado extends Component
     public function handleSetVentanillaToPreparacion($number)
     {
         //saber donde esta el estado a cambiar
-        $position = Numeros::where('numero', $number)->get()[0]->estados_id;
+        if($number === ''){
+            return;
+        }
 
-        //enviar el numero hacia la vista de numeros
-        if($position === 1){
+        $this->currentState = Numeros::where('numero', $number)->get()[0]->estados_id;
+        session(['currentState' => $this->currentState]);
+
+        //enviar el numero hacia la vista de numeros y hacia el panel de agentes
+        if($this->currentState === 1){
             $this->dispatch('setPositionVentanillaToPreparacion', numero: $number);
-
+            $this->dispatch('setClearUserNumber', numero: $number);
         }
 
         //resetear el valor de la sesion para que no se siga mostrando el numero
         session()->forget('numero');
         session()->forget('numeroSeleccionado');
+        session()->forget('numeroSeleccionadoForColor');
+        session()->forget('numeroToNextState');
     }
 
     #[On('numberAlreadyTaken')]
@@ -65,7 +75,8 @@ class NumeroSeleccionado extends Component
     public function render()
     {
         return view('livewire.numero-seleccionado',[
-            'numero' => ($this->number) ? $this->number : ''
+            'numero' => ($this->number) ? $this->number : '',
+            'currentState' => $this->currentState
         ]);
     }
 }

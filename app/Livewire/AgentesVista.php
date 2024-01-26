@@ -27,6 +27,16 @@ class AgentesVista extends Component
             ]);
     }
 
+    #[On('setClearUserNumber')]
+    public function clearNumber($numero)
+    {
+        //limpio el numero que estaba atendiendo el usuario
+        Numeros::where('numero', $numero)
+        ->update([
+            'user_id' => null
+        ]);
+    }
+
     public function render()
     {
         return view('livewire.agentes-vista', [
