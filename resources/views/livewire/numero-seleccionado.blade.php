@@ -8,13 +8,19 @@
           <p>Fila: {{($numero) ? $numero[0]->filas->filas : 'Sin datos'}}</p>
           <p>Nombre: {{($numero) ? $numero[0]->customers[0]->name : 'Sin datos'}}</p>
           <p>CI: {{($numero) ? $numero[0]->customers[0]->ci : 'Sin datos'}}</p>
-          <p>ESTADO: {{($numero) ? $numero[0] : 'Sin datos'}}</p>
+          <p>ESTADO: {{($numero) ? $numero[0]->estados : 'Sin datos'}}</p>
         </div>
         <div class="gap-1 flex flex-col 2xl:flex-row 2xl:px-16 whitespace-nowrap text-center text-sm">
           {{-- 
             Queda realizar el pasaje de estado con los botones
             --}}
-            <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-blue-400 hover:text-slate-100 shadow-sm" href="#">A preparacion</a>
+            <a 
+              class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-blue-400 hover:text-slate-100 shadow-sm" 
+              href="#"
+              wire:click="handleSetVentanillaToPreparacion({{session('numero')}})"
+              >
+                A preparacion
+            </a>
             <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-blue-400 hover:text-slate-100 shadow-sm" href="#">Derivar a</a>
             <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-red-500 shadow-sm" href="#">Cancelar</a>
             <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-yellow-400 hover:text-slate-700 shadow-sm" href="#">Pausar</a>

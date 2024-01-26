@@ -30,7 +30,7 @@
                         Dependiendo de que puesto este activo se tiene que mostrar el boton llamar
                         en base al estado del numero
                         --}}
-                        {{($canCall === $numero->estados->estados && session('numeroSeleccionado') !== $numero->numero) ? 'Llamar' : ''}}
+                        {{(session('positionName') === $numero->estados->estados && session('numeroSeleccionado') !== $numero->numero) ? 'Llamar' : ''}}
                     </button>
                 </td>
                 <td class="whitespace-nowrap px-1 py-1">{{$numero->numero}}</td>

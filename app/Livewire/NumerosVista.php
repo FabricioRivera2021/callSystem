@@ -27,6 +27,9 @@ class NumerosVista extends Component
     //llamoda al numero que este sin atender
     public function callNumber($number)
     {
+        //tomar el numero
+        $numero = Numeros::where('numero', $number)->get();
+
         //seteo el ultimo numero que se llamo
         if(session('numeroSeleccionado') != null){
             $this->currentSelectedNumber = session('numeroSeleccionado');
@@ -36,8 +39,11 @@ class NumerosVista extends Component
         if(auth()->user()->roles->roles === 'regular'){
             //si ya hay un numero seteado habria que buscar la forma de que, no se pueda llamar a otro numero si ya hay uno en proceso
             if($this->currentSelectedNumber === null){
-                $this->currentSelectedNumber = $number;
-                session(['numeroSeleccionado' => $this->currentSelectedNumber]);
+                $this->currentSelectedNumber = $numero;
+                // dd($this->currentSelectedNumber);
+                session([
+                    'numeroSeleccionado' => $this->currentSelectedNumber
+                ]);
                 //muestra el numero seleccionado en el panel chico
                 $this->dispatch('currentNumber', numero: $number);
                 //asociar el numero que se llamo al usuario que lo llamo
@@ -51,6 +57,17 @@ class NumerosVista extends Component
             }
         }
     }
+
+    
+    //cambiar el estado a preparacion
+    #[On('setVentanillaToPreparacion')]
+    public function setVentanillaToPreparacion($number)
+    {
+        Numeros::where('numero', $number)->update([
+            'estados_id' => 2
+        ]);
+    }
+    
     
     #[On('filter')]
     public function filter($filter)

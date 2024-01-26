@@ -30,6 +30,22 @@ class NumeroSeleccionado extends Component
     //guardar el tiempo de espera
     //guardar las acciones del usuario que este trabajando
 
+    public function handleSetVentanillaToPreparacion($number)
+    {
+        //saber donde esta el estado a cambiar
+        $position = Numeros::where('numero', $number)->get()[0]->estados_id;
+
+        //enviar el numero hacia la vista de numeros
+        if($position === 1){
+            $this->dispatch('setPositionVentanillaToPreparacion', numero: $number);
+
+        }
+
+        //resetear el valor de la sesion para que no se siga mostrando el numero
+        session()->forget('numero');
+        session()->forget('numeroSeleccionado');
+    }
+
     #[On('numberAlreadyTaken')]
     public function numberAlreadyTaken()
     {
