@@ -4,16 +4,21 @@
             <div class="self-start w-full flex">
                 <div class="pl-5 py-3 font-bold text-xl text-slate-700">Panel de agente</div>
                 <div class="pl-5 py-3 font-bold text-xl text-slate-700">
-                    <select class="text-slate-100 px-2 py-0.5 bg-blue-400 font-normal rounded text-sm" name="" id="">
-                        @foreach ($positions as $key => $position)
-                            <option 
-                                wire:model="position"
-                                wire:click="handlePosition({{$key+1}})" 
-                                value="{{$position->position}}"
-                                {{ (session('position') === $key+1) ? 'selected' : '' }}
-                                >
-                                {{$position->position}}
-                            </option>
+                    <select
+                        {{($blockPosition != '') ? 'disabled' : ''}}    
+                        class="text-slate-100 px-2 py-0.5 bg-blue-400 font-normal rounded text-sm" 
+                        name="" 
+                        id=""
+                    >
+                    @foreach ($positions as $key => $position)
+                        <option
+                            wire:model="position"
+                            wire:click="handlePosition({{$key+1}})" 
+                            value="{{$position->position}}"
+                            {{ (session('position') === $key+1) ? 'selected' : '' }}
+                            >
+                            {{$position->position}}
+                        </option>
                         @endforeach
                       </select>
                 </div>

@@ -33,7 +33,7 @@ class NumeroSeleccionado extends Component
     //guardar el tiempo de espera
     //guardar las acciones del usuario que este trabajando
 
-    public function handleSetVentanillaToPreparacion($number)
+    public function handleSetNextState($number)
     {
         //saber donde esta el estado a cambiar
         if($number === ''){
@@ -41,13 +41,14 @@ class NumeroSeleccionado extends Component
         }
 
         $this->currentState = Numeros::where('numero', $number)->get()[0]->estados_id;
-        session(['currentState' => $this->currentState]);
 
-        //enviar el numero hacia la vista de numeros y hacia el panel de agentes
-        if($this->currentState === 1){
-            $this->dispatch('setPositionVentanillaToPreparacion', numero: $number);
-            $this->dispatch('setClearUserNumber', numero: $number);
-        }
+        //estea va hacia la vista de numeros
+        $this->dispatch('setNextPosition', numero: $number, currentState: $this->currentState);
+        //hacia panel de agente
+        $this->dispatch('setClearUserNumber', numero: $number);
+
+        //desbloquear el selector de position
+        $this->dispatch('unBlockPosition');
 
         //resetear el valor de la sesion para que no se siga mostrando el numero
         session()->forget('numero');

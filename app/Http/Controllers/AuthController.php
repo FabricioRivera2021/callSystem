@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Numeros;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,6 +36,13 @@ class AuthController extends Controller
 
     public function destroy()
     {
+        //desvincular el numero del usuario que lo estaba atendiendo
+        Numeros::where('user_id', auth()->user()->id)
+        ->update([
+            'user_id' => null
+        ]);
+
+
         if (Auth::check()){
             Cache::forget(Auth::user());
 
@@ -43,7 +51,6 @@ class AuthController extends Controller
         }
 
         Auth::logout();
-
 
         request()->session()->invalidate();
         request()->session()->flush();

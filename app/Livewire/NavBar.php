@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\User;
 use App\Models\UserPosition;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class NavBar extends Component
@@ -14,15 +15,25 @@ class NavBar extends Component
     //nombre del puesto que se halla seleccionado
     public $position = '';
 
+    public $blockPosition = '';
+
+    #[On('blockPosition')]
+    public function blockPosition($numero)
+    {
+        $this->blockPosition = $numero;
+    }
+
+    #[On('unBlockPosition')]
+    public function unBlockPosition()
+    {
+        $this->blockPosition = '';
+    }
+
     //selecciona la pocicion donde se encuentra el usuario actualmente (ventanilla, preparacion, etc)
     public function handlePosition($id)
     {
         if($this->position_data = UserPosition::findOrFail($id))
         {
-            //actualizo el nuevo puesto donde esta el usuario
-            User::where('id', auth()->user()->id)->update([
-                'positions_id' => $id
-            ]);
 
             //luego de actualizar el current puesto, habria que mostrarlo en el navbar
             $currentPosition = UserPosition::find($id);

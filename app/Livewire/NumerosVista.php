@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Customers;
+use App\Models\Estados;
 use App\Models\Numeros;
 use App\Models\User;
 use App\Models\UserPosition;
@@ -30,7 +31,6 @@ class NumerosVista extends Component
     //llamoda al numero que este sin atender
     public function callNumber($number)
     {
-        
         //tomar el numero
         $numero = Numeros::where('numero', $number)->get();
         
@@ -45,16 +45,23 @@ class NumerosVista extends Component
             if($this->currentSelectedNumber === null){
                 $this->currentSelectedNumber = $numero;
                 
-                $proximoEstado = Numeros::find($this->currentSelectedNumber[0]->estados_id + 1);
+                // dd(Numeros::find($this->currentSelectedNumber[0]->estados_id + 1));
+                // dd($this->currentSelectedNumber[0]->numero);
+                $proximoEstado = Numeros::find($this->currentSelectedNumber[0]->numero)->estados_id;
+                // dd(Numeros::find($this->currentSelectedNumber[0]->numero)->estados_id);
 
                 // dd($this->currentSelectedNumber);
                 session([
                     'numeroSeleccionado' => $this->currentSelectedNumber,
                     'numeroSeleccionadoForColor' => $this->currentSelectedNumber[0]->numero,
-                    'numeroToNextState' => $proximoEstado->estados->estados
+                    'numeroToNextState' => Estados::where('id', $proximoEstado + 1)->get()[0]->estados
                 ]);
+                //bloquear el select de position del navbar cuando se tenga un numero elejido
+                $this->dispatch('blockPosition', numero: $number);
+
                 //muestra el numero seleccionado en el panel chico
                 $this->dispatch('currentNumber', numero: $number);
+
                 //asociar el numero que se llamo al usuario que lo llamo
                 $this->dispatch('setNumberToUser', numberToUser: $number);
                 $this->firstCall = true;
@@ -67,13 +74,20 @@ class NumerosVista extends Component
         }
     }
 
+    #[On('currentPosition')]
+    public function puesto($position)
+    {
+        //tengo el id del puesto en la vista de los numeros
+        //dependiendo del puesto que este activo, el boton de llamar cambia de acuerdo al estado donde este el numero
+        $this->canCall = UserPosition::where('id', $position)->get('position')[0]->position;
+    }
     
     //cambiar el estado a preparacion
-    #[On('setPositionVentanillaToPreparacion')]
-    public function setVentanillaToPreparacion($numero)
+    #[On('setNextPosition')]
+    public function setNextPosition($numero, $currentState)
     {
         Numeros::where('numero', $numero)->update([
-            'estados_id' => 2
+            'estados_id' => $currentState + 1 
         ]);
         $this->currentSelectedNumber = null;
     }
@@ -95,14 +109,6 @@ class NumerosVista extends Component
     public function search($searchParameter)
     {
         $this->searchBox = $searchParameter;
-    }
-
-    #[On('currentPosition')]
-    public function puesto($position)
-    {
-        //tengo el id del puesto en la vista de los numeros
-        //dependiendo del puesto que este activo, el boton de llamar cambia de acuerdo al estado donde este el numero
-        $this->canCall = UserPosition::where('id', $position)->get('position')[0]->position;
     }
 
     #[On('createNumber')]

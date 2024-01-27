@@ -16,7 +16,7 @@ class AgentesVista extends Component
     {
         //verificar que el agente que llamo al numero no tiene ya otro numero en proceso
         //si algun numero tiene el id del autenticated user no pasa
-        if (Numeros::where('user_id', auth()->user()->id)->get() !== null){
+        if (Numeros::where('user_id', auth()->user()->id)->count() !== 0){
             //el usuario ya tiene otro numero en proceso
             return;
         }
@@ -34,6 +34,15 @@ class AgentesVista extends Component
         Numeros::where('numero', $numero)
         ->update([
             'user_id' => null
+        ]);
+    }
+
+    #[On('currentPosition')]
+    public function puesto($position)
+    {
+        //actualizo el nuevo puesto donde esta el usuario
+        User::where('id', auth()->user()->id)->update([
+            'positions_id' => $position['id']
         ]);
     }
 
