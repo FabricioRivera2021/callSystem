@@ -35,15 +35,41 @@ class NumeroSeleccionado extends Component
 
     public function handleSetNextState($number)
     {
-        //saber donde esta el estado a cambiar
+        //sino hay numero seleccionado sale
         if($number === ''){
             return;
         }
 
+        //estado actual del numero
         $this->currentState = Numeros::where('numero', $number)->get()[0]->estados_id;
 
         //estea va hacia la vista de numeros
         $this->dispatch('setNextPosition', numero: $number, currentState: $this->currentState);
+        //hacia panel de agente
+        $this->dispatch('setClearUserNumber', numero: $number);
+
+        //desbloquear el selector de position
+        $this->dispatch('unBlockPosition');
+
+        //resetear el valor de la sesion para que no se siga mostrando el numero
+        session()->forget('numero');
+        session()->forget('numeroSeleccionado');
+        session()->forget('numeroSeleccionadoForColor');
+        session()->forget('numeroToNextState');
+    }
+
+    public function handlePausarNumero($number)
+    {
+        //sino hay numero seleccionado sale
+        if($number === ''){
+            return;
+        }
+
+        //estado actual del numero
+        $this->currentState = Numeros::where('numero', $number)->get()[0]->estados_id;
+
+        //estea va hacia la vista de numeros
+        $this->dispatch('setPausarNumero', numero: $number, currentState: $this->currentState);
         //hacia panel de agente
         $this->dispatch('setClearUserNumber', numero: $number);
 

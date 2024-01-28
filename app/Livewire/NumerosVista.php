@@ -82,12 +82,28 @@ class NumerosVista extends Component
         $this->canCall = UserPosition::where('id', $position)->get('position')[0]->position;
     }
     
-    //cambiar el estado a preparacion
+    //cambiar el estado al siguiente
     #[On('setNextPosition')]
     public function setNextPosition($numero, $currentState)
     {
+        //si el estado esta en 4(entrega) se termina el proceso
+        if($currentState === 4){
+            $this->currentSelectedNumber = null;
+            return;
+        }
+
         Numeros::where('numero', $numero)->update([
             'estados_id' => $currentState + 1 
+        ]);
+        $this->currentSelectedNumber = null;
+    }
+
+    //cambiar el estado a pausado
+    #[On('setPausarNumero')]
+    public function setPausarNumero($numero, $currentState)
+    {
+        Numeros::where('numero', $numero)->update([
+            'estados_id' => 5 
         ]);
         $this->currentSelectedNumber = null;
     }

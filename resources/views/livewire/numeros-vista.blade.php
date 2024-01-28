@@ -19,6 +19,7 @@
                 'border-b',
                 'dark:border-neutral-500',
                 '!bg-orange-300' => session('numeroSeleccionadoForColor') === $numero->numero,
+                '!bg-yellow-300' => $numero->estados->estados === 'pausado',
                    ])
                 >
                 <td class="whitespace-nowrap px-1 py-1 font-medium">
@@ -30,7 +31,8 @@
                         Dependiendo de que puesto este activo se tiene que mostrar el boton llamar
                         en base al estado del numero
                         --}}
-                        {{(session('positionName') === $numero->estados->estados && session('numeroSeleccionado') !== $numero->numero) ? 'Llamar' : ''}}
+                        {{(
+                            session('positionName') === $numero->estados->estados && session('numeroSeleccionado') !== $numero->numero) ? 'Llamar' : ''}}
                     </button>
                 </td>
                 <td class="whitespace-nowrap px-1 py-1">{{$numero->numero}}</td>

@@ -23,7 +23,13 @@
             </a>
             <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-blue-400 hover:text-slate-100 shadow-sm" href="#">Derivar a</a>
             <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-red-500 shadow-sm" href="#">Cancelar</a>
-            <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-yellow-400 hover:text-slate-700 shadow-sm" href="#">Pausar</a>
+            <a 
+              class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-yellow-400 hover:text-slate-700 shadow-sm" 
+              href="#"
+              wire:click="handlePausarNumero({{(session('numero')) ? session('numero')[0]->numero : ''}})"
+              >
+                Pausar
+            </a>
             
             <x-numero-seleccionado-msg />
         </div>
