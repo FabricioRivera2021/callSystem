@@ -19,20 +19,20 @@
                 'border-b',
                 'dark:border-neutral-500',
                 '!bg-orange-300' => session('numeroSeleccionadoForColor') === $numero->numero,
-                '!bg-yellow-300' => $numero->estados->estados === 'pausado',
+                '!bg-yellow-300' => $numero->paused === true,
+                '!bg-red-300' => $numero->canceled === true,
                    ])
                 >
                 <td class="whitespace-nowrap px-1 py-1 font-medium">
                 {{-- ! si el puesto esta sin asignar no puede llamar a nadie -------------------------------------------------------------------------------------------------------}}
-                    <button class="hover:cursor-pointer"
+                    <button class="rounded bg-blue-400 text-slate-100 px-2 hover:bg-blue-500"
                             wire:click="callNumber({{$numero->numero}})">
                         {{--
                             ! juegan - estado y puesto aqui
                         Dependiendo de que puesto este activo se tiene que mostrar el boton llamar
                         en base al estado del numero
                         --}}
-                        {{(
-                            session('positionName') === $numero->estados->estados && session('numeroSeleccionado') !== $numero->numero) ? 'Llamar' : ''}}
+                        {{(session('positionName') === $numero->estados->estados && session('numeroSeleccionado') !== $numero->numero && ($numero->paused === false) && ($numero->canceled === false)) ? 'Llamar' : ''}}
                     </button>
                 </td>
                 <td class="whitespace-nowrap px-1 py-1">{{$numero->numero}}</td>
@@ -53,7 +53,29 @@
                     @endforeach
                 </td>
                 <td class="whitespace-nowrap px-1 py-1 font-semibold text-slate-600" wire:model="currentSelectedNumber">
-                    {{(session('numeroSeleccionadoForColor') === $numero->numero) ? 'en proceso' : ''}}
+                    @if($numero->paused === true)
+                        <span>Pausado 
+                            <button 
+                                class="rounded bg-blue-400 text-slate-100 px-2 hover:bg-blue-500"
+                                {{-- wire:click do somithing --}}
+                                >
+                                Retomar
+                            </button>
+                        </span>
+                    @endif 
+                    @if($numero->canceled === true)
+                        <span>Cancelado 
+                            <button 
+                                class="rounded bg-blue-400 text-slate-100 px-2 hover:bg-blue-500"
+                                {{-- wire:click do something --}}
+                                >
+                                Retomar
+                            </button>
+                        </span>
+                    @endif 
+                    @if(session('numeroSeleccionadoForColor') === $numero->numero)
+                        <span>En proceso</span>
+                    @endif
                 </td>
             </tr>
             @empty

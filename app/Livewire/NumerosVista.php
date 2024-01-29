@@ -103,7 +103,19 @@ class NumerosVista extends Component
     public function setPausarNumero($numero, $currentState)
     {
         Numeros::where('numero', $numero)->update([
-            'estados_id' => 5 
+            'estados_id' => $currentState,
+            'paused' => true
+        ]);
+        $this->currentSelectedNumber = null;
+    }
+
+    //cambiar el estado a cancelado
+    #[On('setCancelarNumero')]
+    public function setCancelarNumero($numero, $currentState)
+    {
+        Numeros::where('numero', $numero)->update([
+            'estados_id' => $currentState,
+            'canceled' => true
         ]);
         $this->currentSelectedNumber = null;
     }

@@ -23,6 +23,8 @@ class NumerosFactory extends Factory
         return [
             'numero' => self::$counter++,
             // 'user_id' => self::$counter3 < 9 ? self::$counter3++ : null,
+            'paused' => 0,
+            'canceled' => 0,
             'estados_id' => 1,
             'filas_id' => 1
         ];
