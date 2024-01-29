@@ -57,7 +57,7 @@
                         <span>Pausado 
                             <button 
                                 class="rounded bg-blue-400 text-slate-100 px-2 hover:bg-blue-500"
-                                {{-- wire:click do somithing --}}
+                                wire:click="retomarNumero({{$numero->numero}}, 'paused')"
                                 >
                                 Retomar
                             </button>
@@ -67,7 +67,7 @@
                         <span>Cancelado 
                             <button 
                                 class="rounded bg-blue-400 text-slate-100 px-2 hover:bg-blue-500"
-                                {{-- wire:click do something --}}
+                                wire:click="retomarNumero({{$numero->numero}}, 'canceled')"
                                 >
                                 Retomar
                             </button>

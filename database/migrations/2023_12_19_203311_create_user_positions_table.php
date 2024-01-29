@@ -19,7 +19,6 @@ return new class extends Migration
                 'preparacion', 
                 'entrega', 
                 'caja',
-                'pausado',
             ]);
             $table->timestamps();
         });

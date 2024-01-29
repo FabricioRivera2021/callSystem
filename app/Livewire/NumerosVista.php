@@ -28,7 +28,7 @@ class NumerosVista extends Component
 
     public $firstCall = false;
 
-    //llamoda al numero que este sin atender
+    //llamoda a un numero desde la vista
     public function callNumber($number)
     {
         //tomar el numero
@@ -72,6 +72,20 @@ class NumerosVista extends Component
                 $this->dispatch('numberAlreadyTaken');
             }
         }
+    }
+
+    //retomar un numero pausado o cancelado
+    public function retomarNumero($numero, $state)
+    {
+        //basicamente hay que sacar el paused o el canceled dependiendo de cual sea el que tiene
+        //hay que tener en cuenta que lo puede llamar otro usuario
+        //y hay que tener en cuenta desde que posicion lo esta llamando
+        Numeros::where('numero', $numero)
+            ->update([
+                $state => false
+            ]);
+
+        //se puede tomar una ruta o otra dependiendo de si esta 
     }
 
     #[On('currentPosition')]
