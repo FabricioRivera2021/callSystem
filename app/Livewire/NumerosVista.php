@@ -77,15 +77,25 @@ class NumerosVista extends Component
     //retomar un numero pausado o cancelado
     public function retomarNumero($numero, $state)
     {
-        //basicamente hay que sacar el paused o el canceled dependiendo de cual sea el que tiene
-        //hay que tener en cuenta que lo puede llamar otro usuario
-        //y hay que tener en cuenta desde que posicion lo esta llamando
-        Numeros::where('numero', $numero)
-            ->update([
-                $state => false
-            ]);
+        //! el usuario que retome el numero lo tiene que retomar desde la pocision en la que este
+        //si hay un numero seleccionado se llama al error
+        if($this->currentSelectedNumber === null){
+            //basicamente hay que sacar el paused o el canceled dependiendo de cual sea el que tiene
+            //hay que tener en cuenta que lo puede llamar otro usuario
+            //y hay que tener en cuenta desde que posicion lo esta llamando
+            Numeros::where('numero', $numero)
+                ->update([
+                    $state => false
+                ]);
+    
+            //una ves que se libera el numero se deberia llamar a ese numero
+            //para eso llamo a la funcion callNumber como si el usuario ubiera tecleado llamar
+            $this->callNumber($numero);
+        }else{
+            //si el usuario ya tiene un numero seteado no lo va a dejar tomar otro
+            $this->dispatch('numberAlreadyTaken');
+        }
 
-        //se puede tomar una ruta o otra dependiendo de si esta 
     }
 
     #[On('currentPosition')]
