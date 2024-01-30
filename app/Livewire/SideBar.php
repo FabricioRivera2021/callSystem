@@ -42,9 +42,15 @@ class SideBar extends Component
         $this->dispatch('search', searchParameter: $this->search);
     }
 
-    public function filter($estado)
+    public function filter($key)
     {
-        $this->filtro = $estado;
+        if($key <= 4){
+            $this->filtro = $key;
+        }elseif($key == 5){
+            $this->filtro = 'paused';
+        }elseif($key == 6){
+            $this->filtro = 'canceled';
+        }
 
         $this->dispatch('filter', filter: $this->filtro);
     }

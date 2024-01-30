@@ -84,9 +84,11 @@ class NumerosVista extends Component
             //basicamente hay que sacar el paused o el canceled dependiendo de cual sea el que tiene
             //hay que tener en cuenta que lo puede llamar otro usuario
             //y hay que tener en cuenta desde que posicion lo esta llamando
+
             Numeros::where('numero', $numero)
                 ->update([
-                    $state => false
+                    $state => false, //paused or canceled => false
+                    'estados_id' => session('position') - 1 //estados_id => el estado que se halla elejido en el navbar
                 ]);
     
             //una ves que se libera el numero se deberia llamar a ese numero
@@ -202,7 +204,13 @@ class NumerosVista extends Component
 
         return view('livewire.numeros-vista', [
             'numeros' => Numeros::when($filter ?? null, function($query) use ($filter){
-                                            $query->where('estados_id', $filter);
+                                            if($filter == 'paused'){
+                                                $query->where('paused', true);
+                                            }elseif($filter == 'canceled'){
+                                                $query->where('canceled', true);
+                                            }else{
+                                                $query->where('estados_id', $filter);
+                                            }
                                         })
                                 ->when($fila ?? null, function($query) use ($fila){
                                         $query->where('filas_id', 'LIKE', "%" . $fila . "%");

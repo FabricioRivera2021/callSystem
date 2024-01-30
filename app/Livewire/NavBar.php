@@ -29,7 +29,7 @@ class NavBar extends Component
         $this->blockPosition = '';
     }
 
-    //selecciona la pocicion donde se encuentra el usuario actualmente (ventanilla, preparacion, etc)
+    //selecciona la posicion donde se encuentra el usuario actualmente (ventanilla, preparacion, etc)
     public function handlePosition($id)
     {
         if($this->position_data = UserPosition::findOrFail($id))
