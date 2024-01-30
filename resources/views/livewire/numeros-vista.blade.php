@@ -18,9 +18,9 @@
                 'odd:bg-slate-200',
                 'border-b',
                 'dark:border-neutral-500',
-                '!bg-orange-300' => session('numeroSeleccionadoForColor') === $numero->numero,
-                '!bg-yellow-300' => $numero->paused === true,
-                '!bg-red-300' => $numero->canceled === true,
+                '!bg-orange-300' => session('numeroSeleccionadoForColor') == $numero->numero,
+                '!bg-yellow-300' => $numero->paused == true,
+                '!bg-red-300' => $numero->canceled == true,
                    ])
                 >
                 <td class="whitespace-nowrap px-1 py-1 font-medium">
@@ -32,7 +32,7 @@
                         Dependiendo de que puesto este activo se tiene que mostrar el boton llamar
                         en base al estado del numero
                         --}}
-                        {{(session('positionName') === $numero->estados->estados && session('numeroSeleccionado') !== $numero->numero && ($numero->paused === false) && ($numero->canceled === false)) ? 'Llamar' : ''}}
+                        {{(session('positionName') === $numero->estados->estados && session('numeroSeleccionadoForColor') !== $numero->numero && $numero->paused == false && $numero->canceled == false) ? 'Llamar' : ''}}
                     </button>
                 </td>
                 <td class="whitespace-nowrap px-1 py-1">{{$numero->numero}}</td>
@@ -53,7 +53,7 @@
                     @endforeach
                 </td>
                 <td class="whitespace-nowrap px-1 py-1 font-semibold text-slate-600" wire:model="currentSelectedNumber">
-                    @if($numero->paused === true)
+                    @if($numero->paused == true)
                         <span>Pausado 
                             <button 
                                 class="rounded bg-blue-400 text-slate-100 px-2 hover:bg-blue-500"
@@ -63,7 +63,7 @@
                             </button>
                         </span>
                     @endif 
-                    @if($numero->canceled === true)
+                    @if($numero->canceled == true)
                         <span>Cancelado 
                             <button 
                                 class="rounded bg-blue-400 text-slate-100 px-2 hover:bg-blue-500"

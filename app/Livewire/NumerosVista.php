@@ -66,6 +66,7 @@ class NumerosVista extends Component
                 $this->dispatch('setNumberToUser', numberToUser: $number);
                 $this->firstCall = true;
                 // dd($this->currentSelectedNumber);
+                // dd(session('numeroSeleccionado'), session('positionName'));
             }
             else{
                 //si el usuario ya tiene un numero seteado no lo va a dejar tomar otro
