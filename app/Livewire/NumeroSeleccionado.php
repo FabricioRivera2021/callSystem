@@ -36,7 +36,7 @@ class NumeroSeleccionado extends Component
     public function handleSetNextState($number)
     {
         //sino hay numero seleccionado sale
-        if($number === ''){
+        if($number === 0){
             return;
         }
 
@@ -61,7 +61,7 @@ class NumeroSeleccionado extends Component
     public function handlePausarNumero($number)
     {
         //sino hay numero seleccionado sale
-        if($number === ''){
+        if($number === 0){
             return;
         }
 
@@ -86,7 +86,7 @@ class NumeroSeleccionado extends Component
     public function handleCancelarNumero($number)
     {
         //sino hay numero seleccionado sale
-        if($number === ''){
+        if($number === 0){
             return;
         }
 

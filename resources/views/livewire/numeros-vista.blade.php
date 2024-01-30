@@ -18,7 +18,7 @@
                 'odd:bg-slate-200',
                 'border-b',
                 'dark:border-neutral-500',
-                '!bg-orange-300' => session('numeroSeleccionadoForColor') == $numero->numero,
+                '!bg-blue-400 text-slate-100 font-semibold' => session('numeroSeleccionadoForColor') == $numero->numero,
                 '!bg-yellow-300' => $numero->paused == true,
                 '!bg-red-300' => $numero->canceled == true,
                    ])
@@ -39,7 +39,7 @@
                 <td class="whitespace-nowrap px-1 py-1">{{$numero->filas->filas}}</td>
                 <td class="whitespace-nowrap px-1 py-1">
                     <span 
-                        class="px-1 text-slate-500 font-semibold" 
+                        class="px-1" 
                         x-data="clock('{{$numero->created_at}}')" 
                         x-init="startClock()" 
                         x-text="formattedTime">
@@ -52,7 +52,7 @@
                     {{(count($numero->customers) > 1) ? '|' : ''}}
                     @endforeach
                 </td>
-                <td class="whitespace-nowrap px-1 py-1 font-semibold text-slate-600" wire:model="currentSelectedNumber">
+                <td class="whitespace-nowrap px-1 py-1" wire:model="currentSelectedNumber">
                     @if($numero->paused == true)
                         <span>Pausado 
                             <button 
