@@ -53,7 +53,7 @@
                     @endforeach
                 </td>
                 <td class="whitespace-nowrap px-1 py-1" wire:model="currentSelectedNumber">
-                    @if($numero->paused == true)
+                    @if($numero->paused == true && session('positionName') !== 'sin asignar')
                         <span>Pausado 
                             <button 
                                 class="rounded bg-blue-400 text-slate-100 px-2 hover:bg-blue-500"
@@ -62,8 +62,11 @@
                                 Retomar
                             </button>
                         </span>
+                    @elseif($numero->paused == true && session('positionName') === 'sin asignar')
+                        <span>Pausado</span>
                     @endif 
-                    @if($numero->canceled == true)
+
+                    @if($numero->canceled == true && session('positionName') !== 'sin asignar')
                         <span>Cancelado 
                             <button 
                                 class="rounded bg-blue-400 text-slate-100 px-2 hover:bg-blue-500"
@@ -72,6 +75,8 @@
                                 Retomar
                             </button>
                         </span>
+                    @elseif($numero->canceled == true && session('positionName') === 'sin asignar')
+                        <span>Cancelado</span>
                     @endif 
                     @if(session('numeroSeleccionadoForColor') === $numero->numero)
                         <span>En proceso</span>
