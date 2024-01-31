@@ -21,7 +21,7 @@
                         name="" 
                         id=""
                     >
-                    @foreach ($positions as $key => $position)
+                        @foreach ($positions as $key => $position)
                         <option
                             wire:model="position"
                             wire:click="handlePosition({{$key+1}})" 
@@ -31,7 +31,7 @@
                             {{$position->position}}
                         </option>
                         @endforeach
-                      </select>
+                    </select>
                 </div>
             </div>
             

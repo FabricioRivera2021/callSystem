@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Numeros;
+use App\Models\UserPosition;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
@@ -47,6 +48,28 @@ class NumeroSeleccionado extends Component
         $this->dispatch('setNextPosition', numero: $number, currentState: $this->currentState);
         //hacia panel de agente
         $this->dispatch('setClearUserNumber', numero: $number);
+
+        //desbloquear el selector de position
+        $this->dispatch('unBlockPosition');
+
+        //resetear el valor de la sesion para que no se siga mostrando el numero
+        session()->forget('numero');
+        session()->forget('numeroSeleccionado');
+        session()->forget('numeroSeleccionadoForColor');
+        session()->forget('numeroToNextState');
+    }
+
+    public function handleDerivarA($key, $numero)
+    {
+        //si no hay numero elejido no hacer nada
+        if($numero === 0){
+            return;
+        }
+        $this->dispatch('setDerivarA', key: $key, numero: $numero);
+        
+
+        //hacia panel de agente
+        $this->dispatch('setClearUserNumber', numero: session('numero'));
 
         //desbloquear el selector de position
         $this->dispatch('unBlockPosition');
@@ -128,7 +151,8 @@ class NumeroSeleccionado extends Component
     {
         return view('livewire.numero-seleccionado',[
             'numero' => ($this->number) ? $this->number : '',
-            'currentState' => $this->currentState
+            'currentState' => $this->currentState,
+            'positions' => UserPosition::all(),
         ]);
     }
 }

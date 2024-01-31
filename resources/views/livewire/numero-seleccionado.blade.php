@@ -14,28 +14,50 @@
           {{-- 
             Queda realizar el pasaje de estado con los botones
             --}}
+
             <a 
               class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-blue-400 hover:text-slate-100 shadow-sm" 
               href="#"
+              {{(session('numero') !== null) ? '' : 'disabled'}}
               wire:click="handleSetNextState({{(session('numero')) ? session('numero')[0]->numero : 0}})"
               >
                 A... {{(session('numeroToNextState')) ? session('numeroToNextState') : ''}}
             </a>
-            <a class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-blue-400 hover:text-slate-100 shadow-sm" href="#">Derivar a</a>
+            
+            <select 
+              class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-blue-400 hover:text-slate-100 shadow-sm"
+              {{(session('numero') !== null) ? '' : 'disabled'}}
+              >
+              <option value="" selected disabled hidden>Derivar a..</option>
+                @foreach ($positions as $key => $position)
+                  <option
+                      {{($key === 0) ? 'disabled hidden' : '' }}
+                      value="{{$position->position}}"
+                      wire:click="handleDerivarA( {{ $key }}, {{ (session('numero')) ? session('numero')[0]->numero : 0 }})"
+                      >
+                      {{$position->position}}
+                  </option>
+                @endforeach
+            </select>
+            
             <a 
               class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-red-500 shadow-sm" 
               href="#"
+              {{(session('numero') !== null) ? '' : 'disabled'}}
               wire:click="handleCancelarNumero({{(session('numero')) ? session('numero')[0]->numero : 0}})"
               >
                 Cancelar
             </a>
+            
             <a 
               class="border-slate-200 px-2 py-0.5 bg-blue-500 text-slate-200 hover:bg-yellow-400 hover:text-slate-700 shadow-sm" 
               href="#"
+              {{(session('numero') !== null) ? '' : 'disabled'}}
               wire:click="handlePausarNumero({{(session('numero')) ? session('numero')[0]->numero : 0}})"
               >
                 Pausar
             </a>
+            
             <x-numero-seleccionado-msg />
         </div>
     </div>

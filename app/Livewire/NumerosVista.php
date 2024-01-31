@@ -147,6 +147,17 @@ class NumerosVista extends Component
         $this->currentSelectedNumber = null;
     }
     
+    //cambia el estado a lo que sea que halla eljeido el usuario
+    #[On('setDerivarA')]
+    public function setDerivarA($key, $numero)
+    {
+        Numeros::where('numero', $numero)->update([
+            'estados_id' => $key
+        ]);
+        
+        $this->currentSelectedNumber = null;
+    }
+    
     
     #[On('filter')]
     public function filter($filter)
