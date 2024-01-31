@@ -28,6 +28,10 @@ class NumerosVista extends Component
 
     public $firstCall = false;
 
+    protected $listeners = [
+        'componentAction' => 'handleComponentAction',
+    ];
+
     //llamoda a un numero desde la vista
     public function callNumber($number)
     {
@@ -177,32 +181,59 @@ class NumerosVista extends Component
         $this->searchBox = $searchParameter;
     }
 
-    #[On('createNumber')]
-    public function numberCreated()
+    // #[On('createNumber')]
+    // public function numberCreated($numero, $customers, $numberAlreadyTaken)
+    // {
+    //     //Valido que se halla creado el array de customers en el paso anterior y que no tengan ya un numero asignado
+    //     dd('test');
+    //     if(count($customers) > 0 && $numberAlreadyTaken === false){
+    //         //creo el numero
+    //         $number = Numeros::create([
+    //             'numero' => (Numeros::latest()->first()) ? Numeros::latest()->orderBy('id', 'desc')->first()->numero + 1 : 1,
+    //             'estados_id' => 1,
+    //             'filas_id' => 1,
+    //             'paused' => false,
+    //             'canceled' => false,
+    //         ]);
+    //     }
+
+    //     //si el numero se crea, entonces se le asigna el numero al o los customers que halla ingresado su cedula
+    //     if($number && count($customers) >= 1){
+    //         foreach($customers as $customer){
+    //             Customers::where('ci', $customer['ci'])->update([
+    //                 'numeros_id' => Numeros::latest()->orderBy('id', 'desc')->first()->id
+    //             ]);
+    //         }
+    //     }else{
+    //         $this->dispatch('error');
+    //     }               
+    // }
+
+    public function handleComponentAction($data)
     {
         //Valido que se halla creado el array de customers en el paso anterior y que no tengan ya un numero asignado
-        if(count($this->manyCustomers) > 0 && $this->numberAlreadyTaken === false){
+        dd('test');
+        if(count($data->customers) > 0 && $data->numberAlreadyTaken === false){
             //creo el numero
-            $this->number = Numeros::create([
+            $number = Numeros::create([
                 'numero' => (Numeros::latest()->first()) ? Numeros::latest()->orderBy('id', 'desc')->first()->numero + 1 : 1,
                 'estados_id' => 1,
-                'filas_id' => 1
+                'filas_id' => 1,
+                'paused' => false,
+                'canceled' => false,
             ]);
         }
 
         //si el numero se crea, entonces se le asigna el numero al o los customers que halla ingresado su cedula
-        if(isset($this->number) && count($this->manyCustomers) >= 1){
-            foreach($this->manyCustomers as $customer){
+        if($number && count($data->customers) >= 1){
+            foreach($data->customers as $customer){
                 Customers::where('ci', $customer['ci'])->update([
                     'numeros_id' => Numeros::latest()->orderBy('id', 'desc')->first()->id
                 ]);
             }
         }else{
             $this->dispatch('error');
-        }
-            
-        $this->clear();
-        $this->dispatch('numberCreated');                    
+        }       
     }
 
     public function render()

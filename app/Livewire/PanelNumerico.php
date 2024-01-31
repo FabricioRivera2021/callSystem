@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Customers;
+use App\Events\ComponentActionEvent;
 use App\Models\Numeros;
 use Livewire\Component;
 
@@ -109,11 +110,23 @@ class PanelNumerico extends Component
 
     public function save()
     {
+        // Inside your Livewire component method
+        $data = [
+            'numero' => $this->number,
+            'customers' => $this->manyCustomers,
+            'numberAlreadyTaken' => $this->numberAlreadyTaken,
+        ];
+
+        event(new ComponentActionEvent($data));
+
         //envio el dispatch hacia la vista de numeros para crear el nuevo numero
-        $this->dispatch('createNumber', 
-            numero: $this->number,
-            customers: $this->manyCustomers
-        );               
+        // $this->dispatch('createNumber', 
+        //     numero: $this->number,
+        //     customers: $this->manyCustomers,
+        //     numberAlreadyTaken: $this->numberAlreadyTaken
+        // );               
+
+        $this->clear();
     }
 
     public function render()
