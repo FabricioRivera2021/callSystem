@@ -212,7 +212,7 @@ class NumerosVista extends Component
     public function handleComponentAction($data)
     {
         //Valido que se halla creado el array de customers en el paso anterior y que no tengan ya un numero asignado
-        dd('test');
+
         if(count($data->customers) > 0 && $data->numberAlreadyTaken === false){
             //creo el numero
             $number = Numeros::create([
