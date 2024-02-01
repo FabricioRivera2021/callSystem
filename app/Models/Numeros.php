@@ -12,7 +12,7 @@ class Numeros extends Model
     use HasFactory;
 
     protected $fillable = [
-        'numero', 'estados_id', 'filas_id', 'customers_id'
+        'numero', 'estados_id', 'filas_id', 'customers_id', 'paused', 'canceled'
     ];
 
     public function estados(): BelongsTo

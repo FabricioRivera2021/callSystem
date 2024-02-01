@@ -109,11 +109,32 @@ class PanelNumerico extends Component
 
     public function save()
     {
+        //no sirve hacer un sipatch hacia la vista denumeros porque esta en otra ruta
         //envio el dispatch hacia la vista de numeros para crear el nuevo numero
-        $this->dispatch('createNumber', 
-            numero: $this->number,
-            customers: $this->manyCustomers
-        );               
+        if(count($this->manyCustomers) > 0 && $this->numberAlreadyTaken === false){
+            //creo el numero
+            $this->number = Numeros::create([
+                'numero' => (Numeros::latest()->first()) ? Numeros::latest()->orderBy('id', 'desc')->first()->numero + 1 : 1,
+                'estados_id' => 1,
+                'filas_id' => 1,
+                'paused' => false,
+                'canceled' => false
+            ]);
+        }
+
+        //si el numero se crea, entonces se le asigna el numero al o los customers que halla ingresado su cedula
+        if(isset($this->number) && count($this->manyCustomers) >= 1){
+            foreach($this->manyCustomers as $customer){
+                Customers::where('ci', $customer['ci'])->update([
+                    'numeros_id' => Numeros::latest()->orderBy('id', 'desc')->first()->id
+                ]);
+            }
+        }else{
+            $this->dispatch('error');
+        }
+            
+        $this->clear();
+        $this->dispatch('numberCreated');   
     }
 
     public function render()

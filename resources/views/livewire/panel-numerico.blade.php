@@ -37,6 +37,7 @@
             <p></p>
             @endforelse
             <button wire:click="save" x-show="showFinalizar" class="w-full border rounded-xs bg-blue-500 px-3 col-span-3 py-0.5 my-3 text-slate-100 text-sm">Finalizar</button>
+            <button @click="$dispatch('foo')">Boton</button>
         </div>
     </div>
 </div>

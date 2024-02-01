@@ -177,34 +177,6 @@ class NumerosVista extends Component
         $this->searchBox = $searchParameter;
     }
 
-    #[On('createNumber')]
-    public function numberCreated()
-    {
-        //Valido que se halla creado el array de customers en el paso anterior y que no tengan ya un numero asignado
-        if(count($this->manyCustomers) > 0 && $this->numberAlreadyTaken === false){
-            //creo el numero
-            $this->number = Numeros::create([
-                'numero' => (Numeros::latest()->first()) ? Numeros::latest()->orderBy('id', 'desc')->first()->numero + 1 : 1,
-                'estados_id' => 1,
-                'filas_id' => 1
-            ]);
-        }
-
-        //si el numero se crea, entonces se le asigna el numero al o los customers que halla ingresado su cedula
-        if(isset($this->number) && count($this->manyCustomers) >= 1){
-            foreach($this->manyCustomers as $customer){
-                Customers::where('ci', $customer['ci'])->update([
-                    'numeros_id' => Numeros::latest()->orderBy('id', 'desc')->first()->id
-                ]);
-            }
-        }else{
-            $this->dispatch('error');
-        }
-            
-        $this->clear();
-        $this->dispatch('numberCreated');                    
-    }
-
     public function render()
     {
         $filter = $this->estado_id;

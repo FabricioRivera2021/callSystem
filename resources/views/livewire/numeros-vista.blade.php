@@ -1,4 +1,4 @@
-<div>
+<div x-data @foo="alert('el boton se clickeo')">
     <table class="min-w-full text-left text-sm font-light">
         <thead class="border-b font-medium dark:border-neutral-500">
             <tr>
@@ -38,7 +38,7 @@
                 <td class="whitespace-nowrap px-1 py-1">{{$numero->numero}}</td>
                 <td class="whitespace-nowrap px-1 py-1">{{$numero->filas->filas}}</td>
                 <td class="whitespace-nowrap px-1 py-1">
-                    <span 
+                    <span
                         class="px-1" 
                         x-data="clock('{{$numero->created_at}}')" 
                         x-init="startClock()" 
