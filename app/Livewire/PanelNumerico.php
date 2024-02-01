@@ -3,7 +3,10 @@
 namespace App\Livewire;
 
 use App\Models\Customers;
+use App\Events\ComponentActionEvent;
 use App\Models\Numeros;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Route;
 use Livewire\Component;
 
 class PanelNumerico extends Component
@@ -107,6 +110,7 @@ class PanelNumerico extends Component
         }
     }
 
+<<<<<<< HEAD
     public function save()
     {
         //no sirve hacer un sipatch hacia la vista denumeros porque esta en otra ruta
@@ -136,6 +140,27 @@ class PanelNumerico extends Component
         $this->clear();
         $this->dispatch('numberCreated');   
     }
+=======
+    //se paso el guardado del numero a una request desde el panel mismo
+    // public function save()
+    // {
+    //     // Inside your Livewire component method
+    //     $data = [
+    //         'numero' => $this->number,
+    //         'customers' => $this->manyCustomers,
+    //         'numberAlreadyTaken' => $this->numberAlreadyTaken,
+    //     ];
+
+    //     //envio el dispatch hacia la vista de numeros para crear el nuevo numero
+    //     // $this->dispatch('createNumber', 
+    //     //     numero: $this->number,
+    //     //     customers: $this->manyCustomers,
+    //     //     numberAlreadyTaken: $this->numberAlreadyTaken
+    //     // );               
+
+    //     $this->clear();
+    // }
+>>>>>>> 5f7bd06ea07ba4ff07832598e045efe6c1c2af51
 
     public function render()
     {
