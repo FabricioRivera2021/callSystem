@@ -2,8 +2,8 @@
 <x-layout>
 
     <nav class="flex">
-        @livewire('nav-bar')
-        @livewire('side-bar')
+        @livewire('nav-bar-admin')
+        @livewire('side-bar-admin')
     </nav>
 
 </x-layout>
