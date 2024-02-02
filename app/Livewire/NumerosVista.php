@@ -181,64 +181,6 @@ class NumerosVista extends Component
         $this->searchBox = $searchParameter;
     }
 
-<<<<<<< HEAD
-=======
-    // #[On('createNumber')]
-    // public function numberCreated($numero, $customers, $numberAlreadyTaken)
-    // {
-    //     //Valido que se halla creado el array de customers en el paso anterior y que no tengan ya un numero asignado
-    //     dd('test');
-    //     if(count($customers) > 0 && $numberAlreadyTaken === false){
-    //         //creo el numero
-    //         $number = Numeros::create([
-    //             'numero' => (Numeros::latest()->first()) ? Numeros::latest()->orderBy('id', 'desc')->first()->numero + 1 : 1,
-    //             'estados_id' => 1,
-    //             'filas_id' => 1,
-    //             'paused' => false,
-    //             'canceled' => false,
-    //         ]);
-    //     }
-
-    //     //si el numero se crea, entonces se le asigna el numero al o los customers que halla ingresado su cedula
-    //     if($number && count($customers) >= 1){
-    //         foreach($customers as $customer){
-    //             Customers::where('ci', $customer['ci'])->update([
-    //                 'numeros_id' => Numeros::latest()->orderBy('id', 'desc')->first()->id
-    //             ]);
-    //         }
-    //     }else{
-    //         $this->dispatch('error');
-    //     }               
-    // }
-
-    public function handleComponentAction($data)
-    {
-        //Valido que se halla creado el array de customers en el paso anterior y que no tengan ya un numero asignado
-
-        if(count($data->customers) > 0 && $data->numberAlreadyTaken === false){
-            //creo el numero
-            $number = Numeros::create([
-                'numero' => (Numeros::latest()->first()) ? Numeros::latest()->orderBy('id', 'desc')->first()->numero + 1 : 1,
-                'estados_id' => 1,
-                'filas_id' => 1,
-                'paused' => false,
-                'canceled' => false,
-            ]);
-        }
-
-        //si el numero se crea, entonces se le asigna el numero al o los customers que halla ingresado su cedula
-        if($number && count($data->customers) >= 1){
-            foreach($data->customers as $customer){
-                Customers::where('ci', $customer['ci'])->update([
-                    'numeros_id' => Numeros::latest()->orderBy('id', 'desc')->first()->id
-                ]);
-            }
-        }else{
-            $this->dispatch('error');
-        }       
-    }
-
->>>>>>> 5f7bd06ea07ba4ff07832598e045efe6c1c2af51
     public function render()
     {
         $filter = $this->estado_id;
