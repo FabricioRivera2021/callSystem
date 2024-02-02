@@ -1,2 +1,0 @@
-
-@livewire('nav-bar');

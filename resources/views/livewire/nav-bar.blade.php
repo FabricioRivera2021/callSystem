@@ -5,13 +5,13 @@
                 <div class="pl-5 py-3 font-bold text-xl text-slate-700">Panel de agente</div>
                 <div class="pl-5 py-3 font-bold text-xl text-slate-700">
                     <select
-                        {{($blockPosition != '') ? 'disabled' : ''}}
+                        {{($blockPosition === '' && session('blockPosition') === false) ? '' : 'disabled'}}
                         @class([
                             'text-slate-100',
                             'px-2',
                             'py-0.5',
                             'bg-blue-400',
-                            'bg-gray-400' => $blockPosition != '',
+                            'bg-gray-400' => session('blockPosition') != false,
                             'text-gray-700' => $blockPosition != '',
                             'font-normal',
                             'rounded',

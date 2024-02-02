@@ -84,7 +84,7 @@ class NumerosVista extends Component
     {
         //! el usuario que retome el numero lo tiene que retomar desde la pocision en la que este
         //si hay un numero seleccionado se llama al error
-        if($this->currentSelectedNumber === null){
+        if($this->currentSelectedNumber === null && session('numeroSeleccionado') === null){
             //basicamente hay que sacar el paused o el canceled dependiendo de cual sea el que tiene
             //hay que tener en cuenta que lo puede llamar otro usuario
             //y hay que tener en cuenta desde que posicion lo esta llamando
@@ -161,7 +161,6 @@ class NumerosVista extends Component
         
         $this->currentSelectedNumber = null;
     }
-    
     
     #[On('filter')]
     public function filter($filter)

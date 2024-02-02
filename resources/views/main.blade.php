@@ -1,8 +1,8 @@
 <x-layout>
 
   <nav class="flex">
-      <x-nav-bar />
-      <x-side-bar />
+      @livewire('nav-bar')
+      @livewire('side-bar')
   </nav>
 
   <main class="pl-40">

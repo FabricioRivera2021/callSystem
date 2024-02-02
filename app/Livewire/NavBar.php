@@ -21,12 +21,14 @@ class NavBar extends Component
     public function blockPosition($numero)
     {
         $this->blockPosition = $numero;
+        session(['blockPosition' => true]);
     }
-
+    
     #[On('unBlockPosition')]
     public function unBlockPosition()
     {
         $this->blockPosition = '';
+        session(['blockPosition' => false]);
     }
 
     //selecciona la posicion donde se encuentra el usuario actualmente (ventanilla, preparacion, etc)
