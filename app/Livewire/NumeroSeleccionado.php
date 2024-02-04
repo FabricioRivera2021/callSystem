@@ -66,7 +66,6 @@ class NumeroSeleccionado extends Component
             return;
         }
         $this->dispatch('setDerivarA', key: $key, numero: $numero);
-        
 
         //hacia panel de agente
         $this->dispatch('setClearUserNumber', numero: session('numero'));
