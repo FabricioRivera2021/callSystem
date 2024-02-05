@@ -34,7 +34,7 @@
                       value="{{$position->position}}"
                       wire:click="handleDerivarA( {{ $key }}, {{ (session('numero')) ? session('numero')[0]->numero : 0 }})"
                       >
-                      {{$position->position}}  {{$key}}
+                      {{$position->position}}
                   </option>
                 @endforeach
             </select>
