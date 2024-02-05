@@ -119,8 +119,7 @@ class NumerosVista extends Component
     {
         //si el estado esta en 4(entrega) se termina el proceso
         if($currentState === 4){
-            $this->currentSelectedNumber = null;
-            return;
+            $currentState = $currentState + 2;
         }
 
         Numeros::where('numero', $numero)->update([

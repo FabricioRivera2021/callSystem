@@ -38,7 +38,7 @@
         </div>
 
         <div class="bg-blue-500 h-screen col-span-1">
-            <h2 class="text-center font-semibold text-2xl text-slate-600 mb-5">Para entregar</h2>
+            <h2 class="text-center font-semibold text-2xl text-slate-600 mb-5">Entrega</h2>
             @foreach ($userNumerosEntrega as $usuario)
             {{-- <p>{{$usuario->numeros->numero}}</p> --}}
             <div class="px-5 border rounded mx-4 bg-slate-100 mb-2"> 
