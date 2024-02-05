@@ -19,6 +19,7 @@
                 'border-b',
                 'dark:border-neutral-500',
                 '!bg-blue-400 text-slate-100 font-semibold' => session('numeroSeleccionadoForColor') == $numero->numero,
+                '!bg-green-400 text-slate-100 font-semibold' => $numero->estados->estados === 'finalizado',
                 '!bg-yellow-300' => $numero->paused == true,
                 '!bg-red-300' => $numero->canceled == true,
                    ])

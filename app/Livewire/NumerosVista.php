@@ -53,12 +53,13 @@ class NumerosVista extends Component
                 // dd($this->currentSelectedNumber[0]->numero);
                 $proximoEstado = Numeros::find($this->currentSelectedNumber[0]->numero)->estados_id;
                 // dd(Numeros::find($this->currentSelectedNumber[0]->numero)->estados_id);
+                $finalizadoState = 7;
 
                 // dd($this->currentSelectedNumber);
                 session([
                     'numeroSeleccionado' => $this->currentSelectedNumber,
                     'numeroSeleccionadoForColor' => $this->currentSelectedNumber[0]->numero,
-                    'numeroToNextState' => Estados::where('id', $proximoEstado + 1)->get()[0]->estados
+                    'numeroToNextState' => Estados::where('id', ($proximoEstado + 1 == 5) ? '7' : $proximoEstado + 1)->get()[0]->estados
                 ]);
                 //bloquear el select de position del navbar cuando se tenga un numero elejido
                 $this->dispatch('blockPosition', numero: $number);
