@@ -155,6 +155,16 @@ class NumerosVista extends Component
     #[On('setDerivarA')]
     public function setDerivarA($key, $numero)
     {
+        if($key >= 1 && $key <= 4){
+            $key = 1;
+        }elseif($key === 5){
+            $key = 2;
+        }elseif($key === 6 || $key === 7){
+            $key = 4;
+        }elseif($key === 8 || $key === 9){
+            $key = 3;
+        }
+
         Numeros::where('numero', $numero)->update([
             'estados_id' => $key
         ]);
