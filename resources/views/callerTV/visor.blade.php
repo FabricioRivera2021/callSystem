@@ -1,1 +1,5 @@
-{{-- visor de la tele - que llama los numeros --}}
+<x-layout>
+
+    @livewire('visor')
+
+</x-layout>

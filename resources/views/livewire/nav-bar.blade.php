@@ -5,7 +5,7 @@
                 <div class="pl-5 py-3 font-bold text-xl text-slate-700">Panel de agente</div>
                 <div class="pl-5 py-3 font-bold text-xl text-slate-700">
                     <select
-                        {{($blockPosition === '' && session('blockPosition') === false) ? '' : 'disabled'}}
+                        {{(session('blockPosition') == false) ? '' : 'disabled'}}
                         @class([
                             'text-slate-100',
                             'px-2',
@@ -35,7 +35,7 @@
                 </div>
             </div>
             
-            <li class="font-semibold text-xs">Agente -> <span>{{auth()->user()->name}}</span></li>
+            <li class="font-semibold text-xs">Agente -> {{(session('blockPosition') == true ? 'blockPosition' : 'NO')}}  <span>{{auth()->user()->name}}</span></li>
             {{-- <li class="font-semibold">Rol -> {{auth()->user()->roles->roles}}</li> --}}
             <li class="font-semibold text-xs" wire:model="position">Puesto actual -> {{$currPosition[0]->positions->position}}</li>
             <li>

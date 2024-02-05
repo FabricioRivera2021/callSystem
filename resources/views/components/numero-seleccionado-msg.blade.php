@@ -4,7 +4,7 @@
         x-init="@this.on('numberAlreadyTakenToView', () => {
             clearTimeout(timeout);
             show = true;
-            timeout = setTimeout(() => show = false, 4000);
+            timeout = setTimeout(() => show = false, 2000);
             numberOK = true;
         })"
         x-show="show" 

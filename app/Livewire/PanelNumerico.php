@@ -3,10 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Customers;
-use App\Events\ComponentActionEvent;
 use App\Models\Numeros;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Route;
 use Livewire\Component;
 
 class PanelNumerico extends Component

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\NumerosController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VisorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +36,8 @@ Route::get('online-user', [UserController::class, 'index']);
 
 Route::resource('numeros', NumerosController::class)
     ->only(['create', 'store']);
+
+Route::get('visor', [VisorController::class, 'index']);
 
 Route::middleware('auth')->group(function (){
     Route::resource('numeros', NumerosController::class)

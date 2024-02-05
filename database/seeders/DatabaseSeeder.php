@@ -30,10 +30,15 @@ class DatabaseSeeder extends Seeder
         \App\Models\Filas::factory()->create(['filas' => 'Prioridad']);
 
         \App\Models\UserPosition::factory()->create(['position' => 'sin asignar']);
-        \App\Models\UserPosition::factory()->create(['position' => 'ventanilla']);
+        \App\Models\UserPosition::factory()->create(['position' => 'ventanilla 1']);
+        \App\Models\UserPosition::factory()->create(['position' => 'ventanilla 2']);
+        \App\Models\UserPosition::factory()->create(['position' => 'ventanilla 3']);
+        \App\Models\UserPosition::factory()->create(['position' => 'ventanilla 4']);
         \App\Models\UserPosition::factory()->create(['position' => 'preparacion']);
-        \App\Models\UserPosition::factory()->create(['position' => 'caja']);
-        \App\Models\UserPosition::factory()->create(['position' => 'entrega']);
+        \App\Models\UserPosition::factory()->create(['position' => 'entrega 1']);
+        \App\Models\UserPosition::factory()->create(['position' => 'entrega 2']);
+        \App\Models\UserPosition::factory()->create(['position' => 'caja 1']);
+        \App\Models\UserPosition::factory()->create(['position' => 'caja 2']);
 
         \App\Models\User::factory()->create(['name' => 'admin','email' => 'admin@example.com','roles_id' => 1, 'positions_id' => 1]);
         \App\Models\User::factory()->create(['name' => 'Marcos','email' => 'ceci@example.com','roles_id' => 2 , 'positions_id' => 1]);
