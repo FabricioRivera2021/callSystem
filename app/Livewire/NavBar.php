@@ -40,7 +40,7 @@ class NavBar extends Component
             //luego de actualizar el current puesto, habria que mostrarlo en el navbar
             $currentPosition = UserPosition::find($id);
             session(['position' => $currentPosition->id]);
-            session(['positionName' => $currentPosition->position]);
+            session(['positionName' => preg_replace('/\s+\d+$/', '', $currentPosition->position)]);
 
             //dispatch hacia la vista de numeros, enviando el id
             $this->dispatch('currentPosition', position: $this->position_data);

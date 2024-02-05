@@ -15,10 +15,15 @@ return new class extends Migration
             $table->id();
             $table->enum('position', [
                 'sin asignar',
-                'ventanilla', 
+                'ventanilla 1', 
+                'ventanilla 2', 
+                'ventanilla 3', 
+                'ventanilla 4', 
                 'preparacion', 
-                'entrega', 
-                'caja',
+                'entrega 1', 
+                'entrega 2', 
+                'caja 1',
+                'caja 2',
             ]);
             $table->timestamps();
         });
