@@ -56,7 +56,13 @@ class PanelNumerico extends Component
         $this->numberAlreadyTaken = false;
 
         //antes de añadir la cedula hay que validar que el o los customers no esten ya asginados a un numero
-        if(Customers::where('ci', $this->customers_id)->first('numeros_id')->numeros_id !== null){
+        $data = Customers::where('ci', $this->customers_id)->get();
+        if(count($data) === 0){
+            $this->dispatch('error');
+            return;
+        }
+
+        if(Customers::where('ci', $this->customers_id)->firstOrFail('numeros_id')->numeros_id !== null){
             $this->numberAlreadyTaken = true;
             //si no hay nada en el array de customers se oculta el boton de finalizar
             if(count($this->manyCustomers) == 0){
