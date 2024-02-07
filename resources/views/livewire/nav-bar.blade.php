@@ -35,7 +35,7 @@
                 </div>
             </div>
             
-            <li class="font-semibold text-xs">Agente -> {{(session('blockPosition') == true ? 'blockPosition' : 'NO')}}  <span>{{auth()->user()->name}}</span></li>
+            <li class="font-semibold text-xs">Agente -> <span>{{auth()->user()->name}}</span></li>
             {{-- <li class="font-semibold">Rol -> {{auth()->user()->roles->roles}}</li> --}}
             <li class="font-semibold text-xs" wire:model="position">Puesto actual -> {{$currPosition[0]->positions->position}}</li>
             <li>
