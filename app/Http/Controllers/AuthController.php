@@ -23,12 +23,17 @@ class AuthController extends Controller
         ]);
 
         $credentials = $request->only('name','password');
+        $userRol = User::where('name', $credentials['name'])->get('roles_id');
         
         //checkero que el valor del checkbox "remember me" este presente
         // $remember = $request->filled('remember'); 
 
         if(Auth::attempt($credentials)){
-            return redirect()->intended('/numeros');
+            if($userRol[0]->roles_id === 1){
+                return redirect()->intended('/admin');
+            }else{
+                return redirect()->intended('/numeros');
+            }
         } else {
             return redirect()->back()->with('error', 'Invalid credentials');
         }

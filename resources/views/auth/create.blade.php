@@ -11,10 +11,11 @@
         </div>
         @endif
         
-        <form action="{{route('auth.store')}}" method="POST" class="flex flex-col gap-4 items-center justify-center bg-indigo-100 p-5 shadow-md rounded-sm w-[32rem]">
+        <form action="{{route('auth.store')}}" method="POST" class="flex flex-col gap-1 items-center justify-center bg-indigo-100 p-5 shadow-md rounded-sm w-[32rem]">
             @csrf
             
             <h3 class="font-bold text-slate-400 text-lg">LOGIN</h3>
+            <h4 class="font-medium text-slate-400 text-md">Sistema llamador de numeros</h4>
             <label for="name" class="w-full text-slate-600">Usuario
                 <input name="name" type="text" class="bg-slate-50 w-full rounded-sm" >
             </label>
@@ -24,21 +25,7 @@
             
             <div class="flex w-full justify-between items-end">
 
-            <select 
-                class="self-start text-slate-100 px-2 py-1 bg-orange-400 rounded-sm" 
-                name="" 
-                id="">
-                @foreach (\App\Models\Roles::where('id', '>', 1)->get() as $key => $rol)
-                    <option 
-                    wire:model="fila"
-                    wire:click="handleFila({{$key}})" 
-                    value="{{$rol}}">
-                    {{$rol->roles}}
-                </option>
-                @endforeach
-            </select>
-
-            <div class="flex flex-col justify-end items-end space-y-2">
+            <div class="w-full flex flex-col justify-center items-end space-y-1 pt-3">
                 <button class="bg-blue-600 text-slate-100 px-3 py-1 shadow-sm rounded-sm hover:bg-blue-400">Ingresar</button>
                 <a href="#" class="text-sky-800 font-thin text-sm hover:underline">Olvido su contraseña?</a>
             </div>

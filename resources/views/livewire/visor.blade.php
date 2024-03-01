@@ -1,4 +1,4 @@
-<div wire:poll>
+<div >
     <div class="grid grid-cols-3">
         {{-- ! limitar la cantidad de caracteres del nombre para que no se salga del card
             ! se rompio la funcion de enviar a otra ventanilla FIX THAT! --}}
